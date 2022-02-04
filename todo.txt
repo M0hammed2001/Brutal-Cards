@@ -1,0 +1,40 @@
+add a timed system into the game to 
+have recurring sounds
+
+
+lightswitch 
+footsteps 
+creeky doors
+water droplets- lobby screen
+creepy music - squid game(pink soldiers)
+clicking sounds 
+heart beat
+
+add sliders for music and sounds 
+working
+
+add a working leadereboard
+
+Name of player by cards - possible 
+solution in lobby code
+
+call out the card that you gain
+
+increase players to 4 player
+
+in general improve the end screen
+
+black screen/animation to transition
+to the game from lobby
+
+adding a second game
+
+
+
+split the talking up in demo
+target the audience in the demo
+talk more about the rules of the 
+game
+
+
+
