@@ -11,6 +11,7 @@ namespace BrutalCards
     public class Game : MonoBehaviour
     {
         public Text MessageText;
+        public Text DrawnCard;
 
         Card cardConfirm = null;
 
@@ -250,6 +251,9 @@ namespace BrutalCards
                 cardAnimator.DrawDisplayingCard(currentTurnPlayer);
                 gameState = GameState.TurnStarted;
             }
+            if (currentTurnPlayer == localPlayer) {
+                SetDrawnCard($"You just drew the " + Card.GetRank(cardValue).ToString() + $" of " + Card.GetSuit(cardValue).ToString());
+            }
 
             gameDataManager.AddCardValueToPlayer(currentTurnPlayer, cardValue);
         }
@@ -278,6 +282,11 @@ namespace BrutalCards
 
         protected void SetMessage(string message){
             MessageText.text = message;
+        }
+
+        protected void SetDrawnCard(string message)
+        {
+            DrawnCard.text = message;
         }
 
         public void SwitchTurn(){
