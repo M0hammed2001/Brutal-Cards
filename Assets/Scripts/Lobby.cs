@@ -22,6 +22,7 @@ namespace BrutalCards
         public GameObject PopoverBackground;
         public GameObject EnterNicknamePopover;
         public GameObject OptionsPopover;
+        public GameObject LeaderboardPopover;
         public GameObject RulesPopover;
         public GameObject WaitForOpponentPopover;
         public GameObject StartRoomButton;
@@ -60,6 +61,12 @@ namespace BrutalCards
             EnterNicknamePopover.SetActive(true);
         }
 
+        public void ShowLeaderboardPopover()
+        {
+            PopoverBackground.SetActive(true);
+            LeaderboardPopover.SetActive(true);
+        }
+
         public void ShowOptionsPopover()
         {
             PopoverBackground.SetActive(true);
@@ -94,6 +101,7 @@ namespace BrutalCards
             EnterNicknamePopover.SetActive(false);
             WaitForOpponentPopover.SetActive(false);
             OptionsPopover.SetActive(false);
+            LeaderboardPopover.SetActive(false);
             RulesPopover.SetActive(false);
             StartRoomButton.SetActive(false);
             Player1Portrait.SetActive(false);
@@ -102,18 +110,17 @@ namespace BrutalCards
         
 
 
-
-		//****************** Matchmaking *********************//
+        //****************** Matchmaking *********************//
         void Checkin()
-		{
-			NetworkClient.Instance.CheckIn(nickname, (bool successful, string error) =>
-			{
-				if (!successful)
-				{
-					Debug.LogError(error);
-				}
-			});
-		}
+        {
+            NetworkClient.Instance.CheckIn(nickname, (bool successful, string error) =>
+            {
+                if (!successful)
+                {
+                    Debug.LogError(error);
+                }
+            });
+        }
 
         void RegisterToTheLobbyServer()
         {
@@ -236,9 +243,9 @@ namespace BrutalCards
 
         //****************** Lobby events *********************//
         void OnLobbyConnected()
-		{
+        {
             RegisterToTheLobbyServer();
-		}
+        }
 
         void OnNewPlayerJoinRoomEvent(SWJoinRoomEventData eventData)
         {
@@ -277,6 +284,11 @@ namespace BrutalCards
         {
             Debug.Log("OnOptionsClicked");
             ShowOptionsPopover();
+        }
+        public void OnLeaderboardClicked()
+        {
+            Debug.Log("OnLeaderboardClicked");
+            ShowLeaderboardPopover();
         }
         
         public void OnRulesClicked()
@@ -339,8 +351,8 @@ namespace BrutalCards
             }
             else
             {
-				//Use nickname as player custom id to check into SocketWeaver.
-				Checkin();
+                //Use nickname as player custom id to check into SocketWeaver.
+                Checkin();
             }
         }
     }
