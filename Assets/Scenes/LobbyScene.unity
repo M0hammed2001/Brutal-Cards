@@ -6211,7 +6211,7 @@ MonoBehaviour:
   PopoverBackground: {fileID: 765519401}
   EnterNicknamePopover: {fileID: 390475963}
   OptionsPopover: {fileID: 152608153}
-  LeaderboardPopover: {fileID: 0}
+  LeaderboardPopover: {fileID: 637479018}
   RulesPopover: {fileID: 789088405}
   WaitForOpponentPopover: {fileID: 2049904259}
   StartRoomButton: {fileID: 305531645}

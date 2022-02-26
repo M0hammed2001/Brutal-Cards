@@ -172,6 +172,9 @@ namespace BrutalCards
                     gameState = GameState.TurnStarted;
                 }
             }
+            if (currentTurnPlayer == localPlayer) {
+                SetDrawnCard($"You just drew the " + Card.GetRank(cardValue).ToString() + $" of " + Card.GetSuit(cardValue).ToString());
+            }
 
             gameDataManager.AddCardValueToPlayer(currentTurnPlayer, cardValue);
 
