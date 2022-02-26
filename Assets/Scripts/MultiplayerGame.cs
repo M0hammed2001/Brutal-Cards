@@ -52,6 +52,7 @@ namespace BrutalCards
         protected new void Start()
         {
             Debug.Log("Multiplayer Game Start");
+            
         }
 
         //****************** Game Flow *********************//
@@ -62,9 +63,13 @@ namespace BrutalCards
 
         protected override void OnGameStarted()
         {
+            SetLocal(localPlayer.PlayerName);
+            SetRemote(remotePlayer.PlayerName);
             if (NetworkClient.Instance.IsHost)
             {
+                
                 gameDataManager.Shuffle();
+
                 gameDataManager.DealCardValuesToPlayer(localPlayer, Constants.PLAYER_INITIAL_CARDS);
                 gameDataManager.DealCardValuesToPlayer(remotePlayer, Constants.PLAYER_INITIAL_CARDS);
                 byte topCard = gameDataManager.DrawCardValue();

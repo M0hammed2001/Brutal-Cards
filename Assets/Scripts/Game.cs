@@ -12,6 +12,8 @@ namespace BrutalCards
     {
         public Text MessageText;
         public Text DrawnCard;
+        public Text RemoteName;
+        public Text LocalName;
 
         Card cardConfirm = null;
 
@@ -78,6 +80,7 @@ namespace BrutalCards
         }
 
         protected void Start(){
+            
             gameState = GameState.GameStarted;
             GameFlow();
         }
@@ -154,7 +157,10 @@ namespace BrutalCards
         }
 
         protected virtual void OnGameStarted(){
+            
             gameDataManager = new GameDataManager(localPlayer, remotePlayer);
+            SetLocal(localPlayer.PlayerName);
+            SetRemote(remotePlayer.PlayerName);
             gameDataManager.Shuffle();
             gameDataManager.DealCardValuesToPlayer(localPlayer, Constants.PLAYER_INITIAL_CARDS);
             gameDataManager.DealCardValuesToPlayer(remotePlayer, Constants.PLAYER_INITIAL_CARDS);
@@ -287,6 +293,14 @@ namespace BrutalCards
         protected void SetDrawnCard(string message)
         {
             DrawnCard.text = message;
+        }
+        protected void SetLocal(string message)
+        {
+            LocalName.text = message;
+        }
+        protected void SetRemote(string message)
+        {
+            RemoteName.text = message;
         }
 
         public void SwitchTurn(){
