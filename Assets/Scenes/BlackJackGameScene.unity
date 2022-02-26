@@ -588,6 +588,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LocalPlayerBookPosition
       objectReference: {fileID: 0}
+    - target: {fileID: 3521044324446750971, guid: 176d6b092c6ea499b94a9b7d73b81f6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6606965526255511713, guid: 176d6b092c6ea499b94a9b7d73b81f6b,
         type: 3}
       propertyPath: m_RootOrder
@@ -2640,6 +2645,7 @@ MonoBehaviour:
   PopoverBackground: {fileID: 1705435748}
   EnterNicknamePopover: {fileID: 112703261}
   OptionsPopover: {fileID: 211536143}
+  LeaderboardPopover: {fileID: 0}
   RulesPopover: {fileID: 0}
   WaitForOpponentPopover: {fileID: 1296012059}
   StartRoomButton: {fileID: 1212425492}
