@@ -54,7 +54,7 @@ namespace BrutalCards
             TurnConfirmedSelectedNumber,
             TurnWaitingForOpponentConfirmation,
             TurnOpponentConfirmed,
-            TurnGoFish,
+            TurnBrutalFish,
             GameFinished
         };
 
@@ -141,10 +141,10 @@ namespace BrutalCards
                         OnTurnOpponentConfirmed();
                         break;
                     }
-                case GameState.TurnGoFish:
+                case GameState.TurnBrutalFish:
                     {
-                        Debug.Log("TurnGoFish");
-                        OnTurnGoFish();
+                        Debug.Log("TurnBrutalFish");
+                        OnTurnBrutalFish();
                         break;
                     }
                 case GameState.GameFinished:
@@ -232,13 +232,13 @@ namespace BrutalCards
             }
             else
             {
-                gameState = GameState.TurnGoFish;
+                gameState = GameState.TurnBrutalFish;
                 GameFlow();
             }
         }
 
-        protected virtual void OnTurnGoFish(){
-            SetMessage($"Go fish!");
+        protected virtual void OnTurnBrutalFish(){
+            SetMessage($"Brutal fish!");
 
             byte cardValue = gameDataManager.DrawCardValue();
 

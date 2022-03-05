@@ -143,7 +143,7 @@ namespace BrutalCards
             {
                 if (NetworkClient.Instance.IsHost)
                 {
-                    gameState = GameState.TurnGoFish;
+                    gameState = GameState.TurnBrutalFish;
 
                     gameDataManager.SetGameState(gameState);
                     netCode.ModifyGameData(gameDataManager.EncryptedData());
@@ -152,9 +152,9 @@ namespace BrutalCards
             }
         }
 
-        protected override void OnTurnGoFish()
+        protected override void OnTurnBrutalFish()
         {
-            SetMessage($"Go fish!");
+            SetMessage($"Brutal Fish!");
 
             byte cardValue = gameDataManager.DrawCardValue();
 

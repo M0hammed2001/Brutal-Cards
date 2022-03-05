@@ -443,8 +443,8 @@ RectTransform:
   m_Father: {fileID: 1015757353}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.10991099, y: 0}
+  m_AnchorMax: {x: 0.10991099, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -582,7 +582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &152608154
 RectTransform:
   m_ObjectHideFlags: 0
@@ -790,10 +790,10 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "\u2022\tYou begin with 7 cards.\r\n\r\n\u2022\tThe first player then asks
     the opponent for a card that they own.\r\n\r\n\u2022\tIf the opponent has that
-    card, you say GO FISH!! you get that card/s.\r\n\r\n\u2022\tif you picked right,
-    you get another turn.\r\n\r\n\u2022\tif you picked wrong, you pick a card from
-    the centre \r\nand that\u2019s the end of your go.\r\n\r\n\u2022\tthen the opponent
-    has a chance to ask you for a card.\r\n"
+    card, you say BRUTAL FISH!! you get that card/s.\r\n\r\n\u2022\tif you picked
+    right, you get another turn.\r\n\r\n\u2022\tif you picked wrong, you pick a card
+    from the centre \r\nand that\u2019s the end of your go.\r\n\r\n\u2022\tthen the
+    opponent has a chance to ask you for a card.\r\n"
 --- !u!222 &176082384
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1650,8 +1650,8 @@ RectTransform:
   m_Father: {fileID: 1189202455}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2920,7 +2920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &789088406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3645,7 +3645,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.10991099, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4371,7 +4371,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
