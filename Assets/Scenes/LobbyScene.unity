@@ -1001,10 +1001,10 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "\u2022\tYou begin with 7 cards.\r\n\r\n\u2022\tThe first player then asks
     the opponent for a card that they own.\r\n\r\n\u2022\tIf the opponent has that
-    card, you say GO FISH!! you get that card/s.\r\n\r\n\u2022\tif you picked right,
-    you get another turn.\r\n\r\n\u2022\tif you picked wrong, you pick a card from
-    the centre \r\nand that\u2019s the end of your go.\r\n\r\n\u2022\tthen the opponent
-    has a chance to ask you for a card.\r\n"
+    card, you say BRUTAL FISH!! you get that card/s.\r\n\r\n\u2022\tif you picked
+    right, you get another turn.\r\n\r\n\u2022\tif you picked wrong, you pick a card
+    from the centre \r\nand that\u2019s the end of your go.\r\n\r\n\u2022\tthen the
+    opponent has a chance to ask you for a card.\r\n"
 --- !u!222 &176082384
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1936,10 +1936,6 @@ RectTransform:
   m_Father: {fileID: 1174621513}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-  m_AnchorMin: {x: 0.10991099, y: 0}
-  m_AnchorMax: {x: 0.10991099, y: 1}
-=======
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2021,7 +2017,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
->>>>>>> Stashed changes
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2415,7 +2410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &637479019
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2922,7 +2917,7 @@ GameObject:
   - component: {fileID: 721122616}
   - component: {fileID: 721122615}
   m_Layer: 5
-  m_Name: Title
+  m_Name: YouDied
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3285,7 +3280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &765519402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4600,6 +4595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1093528098}
   - component: {fileID: 1093528099}
+  - component: {fileID: 1093528100}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -4676,15 +4672,14 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.11
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7555992929874374391, guid: 70a25d7788c480e449f16276947028c1,
-          type: 3}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: AdjustSoundEffects
-        m_Mode: 0
+      - m_Target: {fileID: 1093528100}
+        m_TargetAssemblyTypeName: SoundControl, Assembly-CSharp
+        m_MethodName: ChangeVolume
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4693,6 +4688,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1093528100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093528097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aeb560a4dc2b7c4fb165876c2bff12f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 1093528099}
 --- !u!1 &1140322250
 GameObject:
   m_ObjectHideFlags: 0
@@ -5071,7 +5079,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.10991099, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5088,7 +5096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.09132943, g: 0.9811321, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
