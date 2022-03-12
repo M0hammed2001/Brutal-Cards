@@ -9,6 +9,7 @@ public class MainCard : MonoBehaviour {
 
     public void OnMouseDown()
     {
+
         if(Card_Back.activeSelf && controller.canReveal)
         {
             Card_Back.SetActive(false);
@@ -27,6 +28,11 @@ public class MainCard : MonoBehaviour {
         _id = id;
         GetComponent<SpriteRenderer>().sprite = image; //This gets the sprite renderer component and changes the property of it's sprite!
     }
+
+    protected void SetDrawnCard(string message)
+        {
+            DrawnCard.text = message;
+        }
 
     public void Unreveal()
     {
