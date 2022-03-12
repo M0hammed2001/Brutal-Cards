@@ -19,6 +19,8 @@ namespace BrutalCards
 
         public GameObject PopoverBackground;
         public GameObject OptionsPopover;
+        public GameObject deadPopover;
+        public GameObject winnerPopover;
         public GameObject RulesPopover;
 
         protected CardAnimator cardAnimator;
@@ -267,11 +269,13 @@ namespace BrutalCards
         public void OnGameFinished(){
             if (gameDataManager.Winner() == localPlayer)
             {
-                SetMessage($"You Survived!");
+                SetMessage(winnerPopover.SetActive(true); );
+);
             }
             else
             {
-                SetMessage($"You Died");
+                SetMessage(deadPopover.SetActive(true); );
+);
             }
         }
         //****************** Helper Methods *********************//
@@ -359,6 +363,7 @@ namespace BrutalCards
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true); 
         }
+        
 
         public void OnRulesClicked()
         {
