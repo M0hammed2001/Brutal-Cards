@@ -7,6 +7,7 @@ public class MainCard : MonoBehaviour {
     [SerializeField] private SceneController controller;
     [SerializeField] private GameObject Card_Back;
 
+
     public void OnMouseDown()
     {
 
@@ -28,11 +29,6 @@ public class MainCard : MonoBehaviour {
         _id = id;
         GetComponent<SpriteRenderer>().sprite = image; //This gets the sprite renderer component and changes the property of it's sprite!
     }
-
-    protected void SetDrawnCard(string message)
-        {
-            DrawnCard.text = message;
-        }
 
     public void Unreveal()
     {
