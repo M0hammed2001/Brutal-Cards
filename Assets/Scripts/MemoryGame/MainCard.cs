@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ public class MainCard : MonoBehaviour {
     [SerializeField] private GameObject Card_Back;
 
 
-    public void OnMouseDown()
+    public void OnMouseDown ()
     {
 
         if(Card_Back.activeSelf && controller.canReveal)
