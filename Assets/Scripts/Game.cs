@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Unity;
 using UnityEngine.UI;
 
@@ -20,6 +21,7 @@ namespace BrutalCards
         public GameObject PopoverBackground;
         public GameObject OptionsPopover;
         public GameObject RulesPopover;
+        public GameObject GameOverPanel; // Game Over Panel Reference
 
         protected CardAnimator cardAnimator;
 
@@ -44,6 +46,7 @@ namespace BrutalCards
         [SerializeField]
         protected Ranks selectedRank;
         protected Suits selectedSuit;
+
 
         public enum GameState
         {
@@ -272,9 +275,20 @@ namespace BrutalCards
             else
             {
                 SetMessage($"You Died");
+                GameOverPanel.SetActive(true); // Activating the Game Over Panel
             }
         }
         //****************** Helper Methods *********************//
+
+        public void MainMenu() // Main Menu Button Function
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        public void Restart() // Restart Button Function
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
         public void ResetSelectedCard(){
             if (selectedCard != null)
