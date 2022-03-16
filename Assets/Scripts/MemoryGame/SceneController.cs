@@ -10,7 +10,7 @@ public class SceneController : MonoBehaviour {
     public const float offsetX = 2.3f;
     public const float offsetY = 3.3f;
 
-    [SerializeField] private MainCard originalCard;
+    [SerializeField] private MemoryCard originalCard;
     [SerializeField] private Sprite[] images;
 
     private void Start()
@@ -24,14 +24,14 @@ public class SceneController : MonoBehaviour {
         {
             for(int j = 0; j < gridRows; j++)
             {
-                MainCard card;
+                MemoryCard card;
                 if(i == 0 && j == 0)
                 {
                     card = originalCard;
                 }
                 else
                 {
-                    card = Instantiate(originalCard) as MainCard;
+                    card = Instantiate(originalCard) as MemoryCard;
                 }
 
                 int index = j * gridCols + i;
@@ -60,8 +60,8 @@ public class SceneController : MonoBehaviour {
 
     //-------------------------------------------------------------------------------------------------------------------------------------------
 
-    private MainCard _firstRevealed;
-    private MainCard _secondRevealed;
+    private MemoryCard _firstRevealed;
+    private MemoryCard _secondRevealed;
 
     private int _score = 0;
     [SerializeField] private TextMesh scoreLabel;
@@ -71,7 +71,7 @@ public class SceneController : MonoBehaviour {
         get { return _secondRevealed == null; }
     }
 
-    public void CardRevealed(MainCard card)
+    public void CardRevealed(MemoryCard card)
     {
         if(_firstRevealed == null)
         {

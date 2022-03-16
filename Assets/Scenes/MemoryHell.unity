@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 169960813}
   - component: {fileID: 169960814}
   m_Layer: 0
-  m_Name: MainCard
+  m_Name: MemoryCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

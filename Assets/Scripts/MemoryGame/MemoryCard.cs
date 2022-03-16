@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainCard : MonoBehaviour {
+public class MemoryCard : MonoBehaviour {
 
     [SerializeField] private SceneController controller;
     [SerializeField] private GameObject Card_Back;
