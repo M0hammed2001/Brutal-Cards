@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,9 +13,8 @@ public class SceneController : MonoBehaviour {
     [SerializeField] private MainCard originalCard;
     [SerializeField] private Sprite[] images;
 
-    private void Start()
-    {
-        Vector3 startPos = originalCard.transform.position; //The position of the first card. All other cards are offset from here.
+    private void Start(){
+        Vector3 startPos = originalCard.transform.position;
 
         int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3};
         numbers = ShuffleArray(numbers); //This is a function we will create in a minute!
@@ -58,7 +57,7 @@ public class SceneController : MonoBehaviour {
         return newArray;
     }
 
-    //-------------------------------------------------------------------------------------------------------------------------------------------
+    // //-------------------------------------------------------------------------------------------------------------------------------------------
 
     private MainCard _firstRevealed;
     private MainCard _secondRevealed;
@@ -104,9 +103,9 @@ public class SceneController : MonoBehaviour {
 
     }
 
-    public void Restart()
-    {
-        SceneManager.LoadScene("Scene_001");
-    }
+    // public void Restart()
+    // {
+    //     SceneManager.LoadScene("Scene_001");
+    // }
 
 }
