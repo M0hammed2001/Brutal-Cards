@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42465448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 0.01, z: -1}
+  m_LocalPosition: {x: -0, y: 0.01, z: -1}
   m_LocalScale: {x: 1.062444, y: 1.0547644, z: 1}
   m_Children: []
   m_Father: {fileID: 169960812}
@@ -262,12 +262,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 191d124da8608421faaccbe5625f05dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eed929457665f4042982e4333a11a075, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 19.2, y: 10.8}
+  m_Size: {x: 3.9, y: 2.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -281,8 +281,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163193210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 100}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.5182, y: -2.0588, z: 100}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -365,8 +365,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169960810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.88, y: -2.5, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: -8.03, y: -3.38, z: 0}
+  m_LocalScale: {x: 1.2787501, y: 1.37325, z: 1}
   m_Children:
   - {fileID: 42465449}
   m_Father: {fileID: 0}
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalCard: {fileID: 169960814}
   images:
-  - {fileID: 21300000, guid: eec35cb8305294048b713976059ca2f7, type: 3}
+  - {fileID: 21300000, guid: 1301a89865d124628b97361947aadf50, type: 3}
   - {fileID: 21300000, guid: e4a9a1476c2e14441aed24f75b530e4a, type: 3}
   - {fileID: 21300000, guid: b882db8313c7744d2919a9e10274763e, type: 3}
   - {fileID: 21300000, guid: 4a848e6404df94630b79d202d420687e, type: 3}
@@ -629,6 +629,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 75bb6ed6ce2714598913fd21f8f5b659, type: 3}
   - {fileID: 21300000, guid: a83ee15e03af94db492eac8c02c0fa7f, type: 3}
   - {fileID: 21300000, guid: c86c465206f994a15b7eab29280d1b5b, type: 3}
+  - {fileID: 21300000, guid: d1e2414f2d2554a46bb9c7beac3c37e0, type: 3}
+  - {fileID: 21300000, guid: 763c9c2ba1fad4a6194b679f343bf03d, type: 3}
+  - {fileID: 21300000, guid: 5424cc384afb44ebc91e29859bcb0cfb, type: 3}
+  - {fileID: 21300000, guid: b1ac863592375476cadda49c3078a061, type: 3}
   scoreLabel: {fileID: 565958673}
 --- !u!4 &609188020
 Transform:
