@@ -1,6 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Collections;
-using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -13,8 +11,7 @@ namespace BrutalCards
     /// </summary>
     public class Card : MonoBehaviour
     {
-        public SceneController sc;
-        public GameObject Memory_Card_Back;
+
         public static Ranks GetRank(byte value){
             return (Ranks)(value / 4 + 1);
         }
@@ -96,36 +93,6 @@ namespace BrutalCards
                 transform.position = (Vector2)transform.position - Vector2.up * Constants.CARD_SELECTED_OFFSET;
             }
         }
-        // ---------------------------------------------------------------------------------------------------------------
-        //this is the Code for Memory game's cards
-    
-
-        public void OnMouseDown()
-        {
-            if(Memory_Card_Back.activeSelf && sc.canReveal)
-            {
-                Memory_Card_Back.SetActive(false);
-            sc.CardRevealed(this);
-            }
-        }
-
-        private int _id;
-        public int id
-        {
-            get { return _id; }
-        }
-
-        public void ChangeSprite(int id, Sprite image)
-        {
-            _id = id;
-            GetComponent<SpriteRenderer>().sprite = image; //This gets the sprite renderer component and changes the property of it's sprite!
-        }
-
-        public void Unreveal()
-        {
-            Memory_Card_Back.SetActive(true);
-        }
-
     }
 }
 
