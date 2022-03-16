@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 42465449}
   - component: {fileID: 42465450}
   m_Layer: 0
-  m_Name: Card_Back
+  m_Name: Memory_Card_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,9 +298,8 @@ GameObject:
   - component: {fileID: 169960812}
   - component: {fileID: 169960811}
   - component: {fileID: 169960813}
-  - component: {fileID: 169960814}
   m_Layer: 0
-  m_Name: MainCard
+  m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,20 +397,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2}
   m_EdgeRadius: 0
---- !u!114 &169960814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169960810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0deb923ed450bd54da422256410f6b75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 609188019}
-  Card_Back: {fileID: 42465448}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f335a7342995a143a4923bc286dbdfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalCard: {fileID: 169960814}
+  originalCard: {fileID: 0}
   images:
   - {fileID: 21300000, guid: 1301a89865d124628b97361947aadf50, type: 3}
   - {fileID: 21300000, guid: e4a9a1476c2e14441aed24f75b530e4a, type: 3}
