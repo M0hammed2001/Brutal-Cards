@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 42465448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.032, y: -0.095, z: -1}
-  m_LocalScale: {x: 1.062444, y: 1.0547644, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 169960812}
   m_RootOrder: 0
@@ -194,7 +194,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c924473f2befa94eb1ea24925a54289, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19b006a0e4238408fb0ff7d0d53be05e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -262,12 +262,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 191d124da8608421faaccbe5625f05dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eed929457665f4042982e4333a11a075, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 19.2, y: 10.8}
+  m_Size: {x: 3.9, y: 2.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -282,7 +282,7 @@ Transform:
   m_GameObject: {fileID: 163193210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 100}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -346,7 +346,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 654c9db6908a6a0479d866b7a4f3004d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1301a89865d124628b97361947aadf50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -366,7 +366,7 @@ Transform:
   m_GameObject: {fileID: 169960810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6, y: -2.5, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 42465449}
   m_Father: {fileID: 0}
@@ -389,7 +389,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.5, y: 8}
+    oldSize: {x: 1.4, y: 1.9}
     newSize: {x: 5.5, y: 8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -621,10 +621,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalCard: {fileID: 169960814}
   images:
-  - {fileID: 21300000, guid: 654c9db6908a6a0479d866b7a4f3004d, type: 3}
-  - {fileID: 21300000, guid: 34e1059726b0498458c44dd98b3c11a7, type: 3}
-  - {fileID: 21300000, guid: fbb26201c37e8504987e8ffc5e90375f, type: 3}
-  - {fileID: 21300000, guid: 82e26139d9b09fb458b554f6d44486c4, type: 3}
+  - {fileID: 21300000, guid: 1301a89865d124628b97361947aadf50, type: 3}
+  - {fileID: 21300000, guid: 5424cc384afb44ebc91e29859bcb0cfb, type: 3}
+  - {fileID: 21300000, guid: eec35cb8305294048b713976059ca2f7, type: 3}
+  - {fileID: 21300000, guid: b1ac863592375476cadda49c3078a061, type: 3}
   scoreLabel: {fileID: 565958673}
 --- !u!4 &609188020
 Transform:
