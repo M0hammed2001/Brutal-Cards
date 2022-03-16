@@ -93,6 +93,7 @@ namespace BrutalCards
                 transform.position = (Vector2)transform.position - Vector2.up * Constants.CARD_SELECTED_OFFSET;
             }
         }
+
     }
 }
 
