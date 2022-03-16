@@ -410,6 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0deb923ed450bd54da422256410f6b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 609188019}
   Card_Back: {fileID: 42465448}
 --- !u!1 &519420028
 GameObject:
@@ -624,6 +625,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 34e1059726b0498458c44dd98b3c11a7, type: 3}
   - {fileID: 21300000, guid: fbb26201c37e8504987e8ffc5e90375f, type: 3}
   - {fileID: 21300000, guid: 82e26139d9b09fb458b554f6d44486c4, type: 3}
+  scoreLabel: {fileID: 565958673}
 --- !u!4 &609188020
 Transform:
   m_ObjectHideFlags: 0
