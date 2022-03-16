@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MemoryCard : MonoBehaviour {
 
-    [SerializeField] private SceneController controller;
+    [SerializeField]  private SceneController controller;
     [SerializeField] private GameObject Card_Back;
 
     public void OnMouseDown()
