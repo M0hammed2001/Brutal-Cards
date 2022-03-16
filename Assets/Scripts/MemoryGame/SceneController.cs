@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour {
 
-    public const int gridRows = 2;
-    public const int gridCols = 4;
-    public const float offsetX = 4f;
-    public const float offsetY = 5f;
+    public const int gridRows = 3;
+    public const int gridCols = 8;
+    public const float offsetX = 2.3f;
+    public const float offsetY = 3.3f;
 
     [SerializeField] private MainCard originalCard;
     [SerializeField] private Sprite[] images;
@@ -17,7 +17,7 @@ public class SceneController : MonoBehaviour {
     {
         Vector3 startPos = originalCard.transform.position; //The position of the first card. All other cards are offset from here.
 
-        int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3};
+        int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
         numbers = ShuffleArray(numbers); //This is a function we will create in a minute!
 
         for(int i = 0; i < gridCols; i++)
