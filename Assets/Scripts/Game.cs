@@ -18,6 +18,9 @@ namespace BrutalCards
         public GameObject PopoverBackground;
         public GameObject OptionsPopover;
         public GameObject RulesPopover;
+        //Audio
+        public AudioSource audioSource;
+        public AudioClip shuffle, pick;
 
         protected CardAnimator cardAnimator;
 
@@ -154,8 +157,14 @@ namespace BrutalCards
         }
 
         protected virtual void OnGameStarted(){
+<<<<<<< Updated upstream
+=======
+
+            audioSource.PlayOneShot(shuffle, 1f);
+>>>>>>> Stashed changes
             gameDataManager = new GameDataManager(localPlayer, remotePlayer);
             gameDataManager.Shuffle();
+            
             gameDataManager.DealCardValuesToPlayer(localPlayer, Constants.PLAYER_INITIAL_CARDS);
             gameDataManager.DealCardValuesToPlayer(remotePlayer, Constants.PLAYER_INITIAL_CARDS);
             gameDataManager.DrawCardValue();
@@ -324,6 +333,11 @@ namespace BrutalCards
             }
         }
 
+        
+
+
+
+
         public void CheckPlayersBooks(){
             List<byte> playerCardValues = gameDataManager.PlayerCards(localPlayer);
             localPlayer.SetCardValues(playerCardValues);
@@ -380,6 +394,7 @@ namespace BrutalCards
                 {
                     if (selectedCard != null)
                     {
+                        
                         selectedCard.OnSelected(false);
                         selectedRank = 0;
                     }
