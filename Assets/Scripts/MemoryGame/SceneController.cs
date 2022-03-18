@@ -40,8 +40,6 @@ namespace BrutalCards{
             TurnStarted,
             TurnSelectingCards,
             CheckingPairs,
-            OpponentsTurn,
-            OpponentsCheckingPair,
             GameFinished
         };
 
@@ -139,18 +137,6 @@ namespace BrutalCards{
                         OnCheckingPairs();
                         break;
                     }
-                case GameState.OpponentsTurn:
-                    {
-                        Debug.Log("OpponentsTurn");
-                        OnOpponentsTurn();
-                        break;
-                    }
-                case GameState.OpponentsCheckingPair:
-                    {
-                        Debug.Log("OpponentsCheckingPair");
-                        OnOpponentsCheckingPair();
-                        break;
-                    }
                 case GameState.GameFinished:
                     {
                         Debug.Log("GameFinished");
@@ -174,28 +160,26 @@ namespace BrutalCards{
 
         protected void OnTurnSelectingCards()
         {
+            if (currentTurnPlayer == localPlayer)
+            {
 
+            }
+            if (currentTurnPlayer.IsAI)
+            {
+
+            }
         }
 
         protected void OnCheckingPairs()
         {
-
-        }
-
-        protected void OnOpponentsTurn()
-        {
-
-        }
-
-        protected void OnOpponentsCheckingPair()
-        {
-
+            //CheckMatch()
         }
 
         protected void OnGameFinished()
         {
 
         }
+        //-------------------------------------------------------------------------------------------------------------------------------------------
 
         private int[] ShuffleArray(int[] numbers)
         {
