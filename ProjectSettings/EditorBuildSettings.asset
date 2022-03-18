@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeadlyFishMultiplayer.unity
     guid: 84ce80dc44db94e489fde8c434aeaac7
+  - enabled: 1
+    path: Assets/Scenes/MemoryFromHell.unity
+    guid: 4a19e0d8465796144ba13d7934d656c4
   m_configObjects: {}

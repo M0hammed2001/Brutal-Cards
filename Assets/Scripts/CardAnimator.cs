@@ -59,7 +59,7 @@ namespace BrutalCards
 
         CardAnimation currentCardAnimation;
 
-        Vector2 startPosition = new Vector2(1f, 1f);
+        Vector2 startPosition = new Vector2(-2f, 1f);
         Vector2 startCardPosition = new Vector2(-1f, 1f);
 
         // invoked when all queued card animations have been played
