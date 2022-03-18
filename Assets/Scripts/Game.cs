@@ -157,11 +157,11 @@ namespace BrutalCards
         }
 
         protected virtual void OnGameStarted(){
-<<<<<<< Updated upstream
-=======
+
+
 
             audioSource.PlayOneShot(shuffle, 1f);
->>>>>>> Stashed changes
+
             gameDataManager = new GameDataManager(localPlayer, remotePlayer);
             gameDataManager.Shuffle();
             
@@ -401,6 +401,7 @@ namespace BrutalCards
                     
                     if (cardConfirm == card){
                         OnOkSelected();
+                        audioSource.PlayOneShot(shuffle, 1f);
                         cardConfirm = null;
                     }
 
