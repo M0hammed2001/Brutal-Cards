@@ -718,14 +718,14 @@ MonoBehaviour:
   originalCard: {fileID: 169960814}
   images:
   - {fileID: 21300000, guid: 1301a89865d124628b97361947aadf50, type: 3}
-  - {fileID: 21300000, guid: e4a9a1476c2e14441aed24f75b530e4a, type: 3}
+  - {fileID: 21300000, guid: e2a27066ac9f44969890fcc4eb7e737a, type: 3}
   - {fileID: 21300000, guid: ac5b04f4aa97d4f6cbbb91056c4d5a13, type: 3}
   - {fileID: 21300000, guid: 4a848e6404df94630b79d202d420687e, type: 3}
   - {fileID: 21300000, guid: 053c3ac7ec0084f5b9ca336b5921d7b0, type: 3}
-  - {fileID: 21300000, guid: 75bb6ed6ce2714598913fd21f8f5b659, type: 3}
+  - {fileID: 21300000, guid: 66605cfb115714b6e8d4727856fe7f25, type: 3}
   - {fileID: 21300000, guid: b9f87c6c9c1634720a7aca501a41da5d, type: 3}
   - {fileID: 21300000, guid: c86c465206f994a15b7eab29280d1b5b, type: 3}
-  - {fileID: 21300000, guid: d1e2414f2d2554a46bb9c7beac3c37e0, type: 3}
+  - {fileID: 21300000, guid: b540b1e3c1f0849408613e10c6355dd0, type: 3}
   - {fileID: 21300000, guid: ce90474684af94f55b89413fcd02bc12, type: 3}
   - {fileID: 21300000, guid: a889ab0daa4274520ac0d9fbd876c545, type: 3}
   - {fileID: 21300000, guid: b1ac863592375476cadda49c3078a061, type: 3}
