@@ -21,6 +21,9 @@ namespace BrutalCards{
         Player remotePlayer;
 
         [SerializeField]
+        protected Player currentTurnPlayer;
+
+        [SerializeField]
         ProtectedData protectedData;
     
         public SceneController(Player local, Player remote, string roomId = "1234567890123455"){
@@ -44,6 +47,21 @@ namespace BrutalCards{
 
         [SerializeField]
         protected GameState gameState = GameState.Idle;
+
+        protected void Awake()
+        {
+            Debug.Log("base awake");
+            localPlayer = new Player();
+            localPlayer.PlayerId = "offline-player";
+            localPlayer.PlayerName = "Player";
+
+            remotePlayer = new Player();
+            remotePlayer.PlayerId = "offline-bot";
+            remotePlayer.PlayerName = "Bot";
+            remotePlayer.IsAI = true;
+
+        }
+
 
         private void Start()
         {
@@ -75,13 +93,15 @@ namespace BrutalCards{
                     card.transform.position = new Vector3(posX, posY, startPos.z);
                 }
             }
+            gameState = GameState.GameStarted;
+
         }
 
         public virtual void GameFlow(){
             if (gameState > GameState.GameStarted)
             {
                 x = 1;
-                if (x == 1)
+                if (x != 1)
                 {
                     gameState = GameState.GameFinished;
                 }
@@ -92,44 +112,89 @@ namespace BrutalCards{
                 case GameState.Idle:
                     {
                         Debug.Log("IDLE");
+                        OnGameStarted();
                         break;
                     }
                 case GameState.GameStarted:
                     {
                         Debug.Log("GameStarted");
+                        OnturnStarted();
                         break;
                     }
                 case GameState.TurnStarted:
                     {
                         Debug.Log("TurnStarted");
+                        OnturnStarted();
                         break;
                     }
                 case GameState.TurnSelectingCards:
                     {
-                        Debug.Log("TurnSelectingNumber");
+                        Debug.Log("TurnSelectingCards");
+                        OnTurnSelectingCards();
                         break;
                     }
                 case GameState.CheckingPairs:
                     {
-                        Debug.Log("TurnComfirmedSelectedNumber");
+                        Debug.Log("CheckingPairs");
+                        OnCheckingPairs();
                         break;
                     }
                 case GameState.OpponentsTurn:
                     {
-                        Debug.Log("TurnWaitingForOpponentConfirmation");
+                        Debug.Log("OpponentsTurn");
+                        OnOpponentsTurn();
                         break;
                     }
                 case GameState.OpponentsCheckingPair:
                     {
-                        Debug.Log("TurnOpponentConfirmed");
+                        Debug.Log("OpponentsCheckingPair");
+                        OnOpponentsCheckingPair();
                         break;
                     }
                 case GameState.GameFinished:
                     {
                         Debug.Log("GameFinished");
+                        OnGameFinished();
                         break;
                     }
             }
+        }
+
+        protected void OnGameStarted()
+        {
+
+            gameState = GameState.TurnStarted;
+        }
+
+        protected void OnturnStarted()
+        {
+            SwitchTurn();
+            gameState = GameState.TurnSelectingCards;
+        }
+
+        protected void OnTurnSelectingCards()
+        {
+
+        }
+
+        protected void OnCheckingPairs()
+        {
+
+        }
+
+        protected void OnOpponentsTurn()
+        {
+
+        }
+
+        protected void OnOpponentsCheckingPair()
+        {
+
+        }
+
+        protected void OnGameFinished()
+        {
+
         }
 
         private int[] ShuffleArray(int[] numbers)
@@ -147,11 +212,30 @@ namespace BrutalCards{
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
 
+        public void SwitchTurn(){
+            if (currentTurnPlayer == null)
+            {
+                currentTurnPlayer = localPlayer;
+                return;
+            }
+
+            if (currentTurnPlayer == localPlayer)
+            {
+                currentTurnPlayer = remotePlayer;
+            }
+            else
+            {
+                currentTurnPlayer = localPlayer;
+            }
+        }
+
         private MemoryCard _firstRevealed;
         private MemoryCard _secondRevealed;
 
-        private int _score = 0;
-        [SerializeField] private TextMesh scoreLabel;
+        private int bot_score = 0;
+        private int player_score = 0;
+        [SerializeField] private TextMesh botScore;
+        [SerializeField] private TextMesh playerScore;
 
         public bool canReveal
         {
@@ -175,8 +259,16 @@ namespace BrutalCards{
         {
             if(_firstRevealed.id == _secondRevealed.id)
             {
-                _score++;
-                scoreLabel.text = "Score: " + _score;
+                 if(currentTurnPlayer == localPlayer)
+                {
+                    player_score++;
+                    playerScore.text = "Player Score: " + player_score;
+                }
+                else
+                {
+                    bot_score++;
+                    botScore.text = "Bot Score: " + bot_score;
+                }
             }
             else
             {
@@ -184,6 +276,7 @@ namespace BrutalCards{
 
                 _firstRevealed.Unreveal();
                 _secondRevealed.Unreveal();
+                SwitchTurn();
             }
 
             _firstRevealed = null;
