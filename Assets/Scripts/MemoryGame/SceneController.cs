@@ -172,12 +172,31 @@ namespace BrutalCards{
 
         protected void OnCheckingPairs()
         {
-            //CheckMatch()
+            if( CheckingMatch() == true)
+            {
+                gameState = GameState.TurnSelectingCards;
+            }
+            else
+            {
+                SwitchTurn();
+                gameState = GameState.TurnSelectingCards;
+            }
         }
 
         protected void OnGameFinished()
         {
+            if(bot_score < player_score)
+            {
+                
+            }
+            else if(player_score < bot_score)
+            {
 
+            }
+            else
+            {
+                
+            }
         }
         //-------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -239,6 +258,18 @@ namespace BrutalCards{
             }
         }
 
+        private bool CheckingMatch()
+        {
+            if(_firstRevealed.id == _secondRevealed.id) 
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private IEnumerator CheckMatch()
         {
             if(_firstRevealed.id == _secondRevealed.id)
@@ -260,7 +291,6 @@ namespace BrutalCards{
 
                 _firstRevealed.Unreveal();
                 _secondRevealed.Unreveal();
-                SwitchTurn();
             }
 
             _firstRevealed = null;
