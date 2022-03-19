@@ -7492,7 +7492,7 @@ MonoBehaviour:
   EnterNicknamePopover: {fileID: 390475963}
   OptionsPopover: {fileID: 152608153}
   LeaderboardPopover: {fileID: 637479018}
-  GamesPopover: {fileID: 0}
+  GamesPopover: {fileID: 1924122663}
   RulesPopover: {fileID: 789088405}
   WaitForOpponentPopover: {fileID: 2049904259}
   StartRoomButton: {fileID: 305531645}
