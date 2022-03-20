@@ -729,8 +729,27 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce90474684af94f55b89413fcd02bc12, type: 3}
   - {fileID: 21300000, guid: a889ab0daa4274520ac0d9fbd876c545, type: 3}
   - {fileID: 21300000, guid: b1ac863592375476cadda49c3078a061, type: 3}
+  currentTurnPlayer:
+    PlayerId: 
+    PlayerName: 
+    IsAI: 0
+    Position: {x: 0, y: 0}
+    BookPosition: {x: 0, y: 0}
+    DisplayingCards: []
+  protectedData:
+    poolOfCards: 
+    player1Cards: 
+    player2Cards: 
+    booksForPlayer1: 
+    booksForPlayer2: 
+    player1Id: 
+    player2Id: 
+    currentTurnPlayerId: 
+    currentGameState: 0
+    selectedRank: 0
   gameState: 0
-  scoreLabel: {fileID: 565958673}
+  botScore: {fileID: 565958673}
+  playerScore: {fileID: 358658859}
 --- !u!4 &609188020
 Transform:
   m_ObjectHideFlags: 0

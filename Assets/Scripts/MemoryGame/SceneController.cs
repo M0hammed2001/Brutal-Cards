@@ -8,20 +8,18 @@ namespace BrutalCards{
 
     public class SceneController : MonoBehaviour {
 
-        public const int gridRows = 3;
-        public const int gridCols = 8;
-        public const float offsetX = 2.3f;
-        public const float offsetY = 3.3f;
-        public float x;
+
 
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
         
-        Player localPlayer;
-        Player remotePlayer;
+
+
+        public Player localPlayer;
+        public Player remotePlayer;
 
         [SerializeField]
-        protected Player currentTurnPlayer;
+        public Player currentTurnPlayer;
 
         [SerializeField]
         ProtectedData protectedData;
@@ -33,18 +31,6 @@ namespace BrutalCards{
         }
         
 
-        public enum GameState
-        {
-            Idle,
-            GameStarted,
-            TurnStarted,
-            TurnSelectingCards,
-            CheckingPairs,
-            GameFinished
-        };
-
-        [SerializeField]
-        protected GameState gameState = GameState.Idle;
 
         protected void Awake()
         {
@@ -61,16 +47,16 @@ namespace BrutalCards{
         }
 
 
-        private void Start()
+        public void Start()
         {
             Vector3 startPos = originalCard.transform.position; //The position of the first card. All other cards are offset from here.
 
             int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
             numbers = ShuffleArray(numbers); //This is a function we will create in a minute!
 
-            for(int i = 0; i < gridCols; i++)
+            for(int i = 0; i < Constants.gridCols; i++)
             {
-                for(int j = 0; j < gridRows; j++)
+                for(int j = 0; j < Constants.gridRows; j++)
                 {
                     MemoryCard card;
                     if(i == 0 && j == 0)
@@ -82,122 +68,21 @@ namespace BrutalCards{
                         card = Instantiate(originalCard) as MemoryCard;
                     }
 
-                    int index = j * gridCols + i;
+                    int index = j * Constants.gridCols + i;
                     int id = numbers[index];
                     card.ChangeSprite(id, images[id]);
 
-                    float posX = (offsetX * i) + startPos.x;
-                    float posY = (offsetY * j) + startPos.y;
+                    float posX = (Constants.offsetX * i) + startPos.x;
+                    float posY = (Constants.offsetY * j) + startPos.y;
                     card.transform.position = new Vector3(posX, posY, startPos.z);
                 }
             }
-            gameState = GameState.GameStarted;
+            
 
         }
+        
 
-        public virtual void GameFlow(){
-            if (gameState > GameState.GameStarted)
-            {
-                x = 1;
-                if (x != 1)
-                {
-                    gameState = GameState.GameFinished;
-                }
-            }
 
-            switch (gameState)
-            {
-                case GameState.Idle:
-                    {
-                        Debug.Log("IDLE");
-                        OnGameStarted();
-                        break;
-                    }
-                case GameState.GameStarted:
-                    {
-                        Debug.Log("GameStarted");
-                        OnturnStarted();
-                        break;
-                    }
-                case GameState.TurnStarted:
-                    {
-                        Debug.Log("TurnStarted");
-                        OnturnStarted();
-                        break;
-                    }
-                case GameState.TurnSelectingCards:
-                    {
-                        Debug.Log("TurnSelectingCards");
-                        OnTurnSelectingCards();
-                        break;
-                    }
-                case GameState.CheckingPairs:
-                    {
-                        Debug.Log("CheckingPairs");
-                        OnCheckingPairs();
-                        break;
-                    }
-                case GameState.GameFinished:
-                    {
-                        Debug.Log("GameFinished");
-                        OnGameFinished();
-                        break;
-                    }
-            }
-        }
-
-        protected void OnGameStarted()
-        {
-
-            gameState = GameState.TurnStarted;
-        }
-
-        protected void OnturnStarted()
-        {
-            SwitchTurn();
-            gameState = GameState.TurnSelectingCards;
-        }
-
-        protected void OnTurnSelectingCards()
-        {
-            if (currentTurnPlayer == localPlayer)
-            {
-
-            }
-            if (currentTurnPlayer.IsAI)
-            {
-
-            }
-        }
-
-        protected void OnCheckingPairs()
-        {
-            if( CheckingMatch() == true)
-            {
-                gameState = GameState.TurnSelectingCards;
-            }
-            else
-            {
-                SwitchTurn();
-                gameState = GameState.TurnSelectingCards;
-            }
-        }
-
-        protected void OnGameFinished()
-        {
-            if(bot_score < player_score)
-            {
-                
-            }
-            else if(player_score < bot_score)
-            {
-
-            }
-            else
-            {
-                
-            }
-        }
         //-------------------------------------------------------------------------------------------------------------------------------------------
 
         private int[] ShuffleArray(int[] numbers)
@@ -235,10 +120,10 @@ namespace BrutalCards{
         private MemoryCard _firstRevealed;
         private MemoryCard _secondRevealed;
 
-        private int bot_score = 0;
-        private int player_score = 0;
-        [SerializeField] private TextMesh botScore;
-        [SerializeField] private TextMesh playerScore;
+        public int bot_score = 0;
+        public int player_score = 0;
+        [SerializeField] public TextMesh botScore;
+        [SerializeField] public TextMesh playerScore;
 
         public bool canReveal
         {
@@ -258,7 +143,7 @@ namespace BrutalCards{
             }
         }
 
-        private bool CheckingMatch()
+        public bool CheckingMatch()
         {
             if(_firstRevealed.id == _secondRevealed.id) 
             {
@@ -270,7 +155,7 @@ namespace BrutalCards{
             }
         }
 
-        private IEnumerator CheckMatch()
+        public IEnumerator CheckMatch()
         {
             if(_firstRevealed.id == _secondRevealed.id)
             {

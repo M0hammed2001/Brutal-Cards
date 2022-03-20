@@ -15,8 +15,8 @@ namespace BrutalCards
     [Serializable]
     public class GameDataManager
     {
-        Player localPlayer;
-        Player remotePlayer;
+        public Player localPlayer;
+        public Player remotePlayer;
         Card topCard;
 
         [SerializeField]
