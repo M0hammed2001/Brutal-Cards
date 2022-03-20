@@ -11,6 +11,8 @@ namespace BrutalCards
     {
         SceneController sceneController;
 
+        public Player localPlayer;
+        public Player remotePlayer;
         public float x;
         
         public enum GameState

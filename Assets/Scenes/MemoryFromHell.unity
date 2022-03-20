@@ -165,6 +165,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -233,6 +234,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -317,6 +319,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -463,6 +466,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -641,6 +645,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -714,7 +719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f335a7342995a143a4923bc286dbdfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
   originalCard: {fileID: 169960814}
   images:
   - {fileID: 21300000, guid: 1301a89865d124628b97361947aadf50, type: 3}
@@ -729,6 +733,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce90474684af94f55b89413fcd02bc12, type: 3}
   - {fileID: 21300000, guid: a889ab0daa4274520ac0d9fbd876c545, type: 3}
   - {fileID: 21300000, guid: b1ac863592375476cadda49c3078a061, type: 3}
+  localPlayer:
+    PlayerId: 
+    PlayerName: 
+    IsAI: 0
+    Position: {x: 0, y: 0}
+    BookPosition: {x: 0, y: 0}
+    DisplayingCards: []
+  remotePlayer:
+    PlayerId: 
+    PlayerName: 
+    IsAI: 0
+    Position: {x: 0, y: 0}
+    BookPosition: {x: 0, y: 0}
+    DisplayingCards: []
   currentTurnPlayer:
     PlayerId: 
     PlayerName: 
@@ -747,7 +765,8 @@ MonoBehaviour:
     currentTurnPlayerId: 
     currentGameState: 0
     selectedRank: 0
-  gameState: 0
+  bot_score: 0
+  player_score: 0
   botScore: {fileID: 565958673}
   playerScore: {fileID: 358658859}
 --- !u!4 &609188020
