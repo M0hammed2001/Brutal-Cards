@@ -23,13 +23,19 @@ namespace BrutalCards
         public GameObject EnterNicknamePopover;
         public GameObject OptionsPopover;
         public GameObject LeaderboardPopover;
+        public GameObject GamesPopover;
         public GameObject RulesPopover;
         public GameObject WaitForOpponentPopover;
         public GameObject StartRoomButton;
+        public GameObject MemoryFromHellButton;
+        public GameObject DeadlyFishButton;
         public InputField NicknameInputField;
 
         public GameObject Player1Portrait;
         public GameObject Player2Portrait;
+
+
+        // SceneManager.LoadScene("GameScene");
 
         string nickname;
 
@@ -72,7 +78,11 @@ namespace BrutalCards
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true);
         }
-
+        public void ShowGamesPopover()
+        {
+            PopoverBackground.SetActive(true);
+            GamesPopover.SetActive(true);
+        }
         public void ShowRulesPopover()
         {
             RulesPopover.SetActive(true);
@@ -101,6 +111,7 @@ namespace BrutalCards
             EnterNicknamePopover.SetActive(false);
             WaitForOpponentPopover.SetActive(false);
             OptionsPopover.SetActive(false);
+            GamesPopover.SetActive(false);
             LeaderboardPopover.SetActive(false);
             RulesPopover.SetActive(false);
             StartRoomButton.SetActive(false);
@@ -268,7 +279,21 @@ namespace BrutalCards
         {
             FindObjectOfType<AudioManager>().Play("Creeky Door");
             Debug.Log("OnPracticeClicked");
-            SceneManager.LoadScene("GameScene");
+            ShowGamesPopover();
+        }
+
+        public void OnDeadlyFishClicked()
+        {
+            FindObjectOfType<AudioManager>().Play("Creeky Door");
+            Debug.Log("OnDeadlyFishClicked");
+            SceneManager.LoadScene("DeadlyFish");
+        }
+
+        public void OnMemoryFromHellClicked()
+        {
+            FindObjectOfType<AudioManager>().Play("Creeky Door");
+            Debug.Log("OnMemoryFromHellClicked");
+            SceneManager.LoadScene("MemoryFromHell");
         }
 
         /// <summary>
@@ -284,6 +309,11 @@ namespace BrutalCards
         {
             Debug.Log("OnOptionsClicked");
             ShowOptionsPopover();
+        }
+        public void OnGamesClicked()
+        {
+            Debug.Log("OnOptionsClicked");
+            ShowGamesPopover();
         }
         public void OnLeaderboardClicked()
         {
