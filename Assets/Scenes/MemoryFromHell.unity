@@ -148,8 +148,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42465448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.01, z: -1}
-  m_LocalScale: {x: 1.062444, y: 1.0547644, z: 1}
+  m_LocalPosition: {x: 0.0742, y: 0.0259, z: -1}
+  m_LocalScale: {x: 1.1684232, y: 1.0715723, z: 1}
   m_Children: []
   m_Father: {fileID: 169960812}
   m_RootOrder: 0
@@ -281,8 +281,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163193210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5182, y: -2.0588, z: 100}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalPosition: {x: 0.1482, y: -0.0417, z: 100}
+  m_LocalScale: {x: 4.9058247, y: 4.185657, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -365,8 +365,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169960810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.03, y: -3.38, z: 0}
-  m_LocalScale: {x: 1.2787501, y: 1.37325, z: 1}
+  m_LocalPosition: {x: -8.118, y: -3.4901, z: 0}
+  m_LocalScale: {x: 1.1529936, y: 1.2573022, z: 1}
   m_Children:
   - {fileID: 42465449}
   m_Father: {fileID: 0}
@@ -729,8 +729,27 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce90474684af94f55b89413fcd02bc12, type: 3}
   - {fileID: 21300000, guid: a889ab0daa4274520ac0d9fbd876c545, type: 3}
   - {fileID: 21300000, guid: b1ac863592375476cadda49c3078a061, type: 3}
+  currentTurnPlayer:
+    PlayerId: 
+    PlayerName: 
+    IsAI: 0
+    Position: {x: 0, y: 0}
+    BookPosition: {x: 0, y: 0}
+    DisplayingCards: []
+  protectedData:
+    poolOfCards: 
+    player1Cards: 
+    player2Cards: 
+    booksForPlayer1: 
+    booksForPlayer2: 
+    player1Id: 
+    player2Id: 
+    currentTurnPlayerId: 
+    currentGameState: 0
+    selectedRank: 0
   gameState: 0
-  scoreLabel: {fileID: 565958673}
+  botScore: {fileID: 565958673}
+  playerScore: {fileID: 358658859}
 --- !u!4 &609188020
 Transform:
   m_ObjectHideFlags: 0
