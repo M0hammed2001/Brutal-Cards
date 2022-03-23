@@ -13,6 +13,8 @@ namespace BrutalCards
         NetCode netCode;
         GameDataManager gameDataManager;
 
+        SceneController sceneController;
+
 
 
 
@@ -79,6 +81,108 @@ namespace BrutalCards
             }
 
         }
+        
+        protected override void OnTurnStarted()
+        {
+            if (NetworkClient.Instance.IsHost)
+            {
+                sceneController.SwitchTurn();
+                gameState = GameState.TurnSelectingCards;
+
+                gameDataManager.SetCurrentTurnPlayer(sceneController.currentTurnPlayer);
+                SetGameState(gameState);
+
+                netCode.ModifyGameData(gameDataManager.EncryptedData());
+                netCode.NotifyOtherPlayersGameStateChanged();
+            }
+        }
+
+        protected override void OnTurnSelectingCards()
+        {
+            if (sceneController.currentTurnPlayer == localPlayer)
+            {
+
+            }
+            else
+            {
+
+            }
+
+            if (NetworkClient.Instance.IsHost)
+            {
+                gameState = GameState.CheckingPairs;
+                SetGameState(gameState);
+
+                netCode.ModifyGameData(gameDataManager.EncryptedData());
+                netCode.NotifyOtherPlayersGameStateChanged();
+            }
+        }
+
+        protected override void OnCheckingPairs()
+        {
+            if( sceneController.CheckingMatch() == true)
+            {
+                gameState = GameState.TurnSelectingCards;
+            }
+            else
+            {
+                sceneController.SwitchTurn();
+                gameState = GameState.TurnSelectingCards;
+            }
+
+            netCode.ModifyGameData(gameDataManager.EncryptedData());
+            netCode.NotifyOtherPlayersGameStateChanged();
+        }
+
+//*********************************************************************
+
+        public void OnGameDataReady(EncryptedData encryptedData)
+        {
+            if(encryptedData == null)
+            {
+                Debug.Log("New game");
+                if (NetworkClient.Instance.IsHost)
+                {
+                    gameState = GameState.GameStarted;
+                    SetGameState(gameState);
+
+                    netCode.ModifyGameData(gameDataManager.EncryptedData());
+
+                    netCode.NotifyOtherPlayersGameStateChanged();
+                }
+            }
+            else
+            {
+                gameDataManager.ApplyEncrptedData(encryptedData);
+                gameState = GetGameState();
+                sceneController.currentTurnPlayer = gameDataManager.GetCurrentTurnPlayer();
+
+                if(gameState > GameState.GameStarted)
+                {
+                    Debug.Log("Restore the game state");
+
+                    base.GameFlow();
+                }
+            }
+        }
+
+        public void OnGameDataChanged(EncryptedData encryptedData)
+        {
+            gameDataManager.ApplyEncrptedData(encryptedData);
+            gameState = GetGameState();
+            sceneController.currentTurnPlayer = gameDataManager.GetCurrentTurnPlayer();
+        }
+
+        public void OnGameStateChanged()
+        {
+            base.GameFlow();
+        }
+
+        public void OnLeftRoom()
+        {
+            SceneManager.LoadScene(0);
+        }
+
     }
 
 }

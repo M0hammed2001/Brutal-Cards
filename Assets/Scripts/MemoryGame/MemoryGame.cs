@@ -61,13 +61,13 @@ namespace BrutalCards
                 case GameState.GameStarted:
                     {
                         Debug.Log("GameStarted");
-                        OnturnStarted();
+                        OnGameStarted();
                         break;
                     }
                 case GameState.TurnStarted:
                     {
                         Debug.Log("TurnStarted");
-                        OnturnStarted();
+                        OnTurnStarted();
                         break;
                     }
                 case GameState.TurnSelectingCards:
@@ -97,13 +97,13 @@ namespace BrutalCards
             gameState = GameState.TurnStarted;
         }
 
-        protected void OnturnStarted()
+        protected virtual void OnTurnStarted()
         {
             sceneController.SwitchTurn();
             gameState = GameState.TurnSelectingCards;
         }
 
-        protected void OnTurnSelectingCards()
+        protected virtual void OnTurnSelectingCards()
         {
             if (sceneController.currentTurnPlayer == sceneController.localPlayer)
             {
@@ -115,7 +115,7 @@ namespace BrutalCards
             }
         }
 
-        protected void OnCheckingPairs()
+        protected virtual void OnCheckingPairs()
         {
             if( sceneController.CheckingMatch() == true)
             {
@@ -128,7 +128,7 @@ namespace BrutalCards
             }
         }
 
-        protected void OnGameFinished()
+        protected virtual void OnGameFinished()
         {
             if(sceneController.bot_score < sceneController.player_score)
             {
@@ -143,6 +143,17 @@ namespace BrutalCards
                 
             }
         }
+
+        public MemoryGame.GameState GetGameState()
+        {
+            return gameState;
+        }
+
+        public void SetGameState(MemoryGame.GameState gameStated)
+        {
+            gameState = gameStated;
+        }
+
         
     }
     
