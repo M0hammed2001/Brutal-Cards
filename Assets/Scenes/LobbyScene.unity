@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 103368294}
   - component: {fileID: 103368293}
   m_Layer: 5
-  m_Name: Ranking
+  m_Name: rankingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8188,7 +8188,7 @@ GameObject:
   - component: {fileID: 1442161662}
   - component: {fileID: 1442161661}
   m_Layer: 5
-  m_Name: Nickname
+  m_Name: nicknameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10019,7 +10019,7 @@ GameObject:
   - component: {fileID: 1887626931}
   - component: {fileID: 1887626930}
   m_Layer: 5
-  m_Name: Brutal Wins
+  m_Name: brutalWinsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
