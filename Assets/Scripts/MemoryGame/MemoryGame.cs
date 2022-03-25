@@ -25,13 +25,14 @@ namespace BrutalCards
             GameFinished
         };
 
-        protected void Awake(){
-
+        protected void Awake()
+        {
+            
         }
 
         
-        protected void Start(){
-            
+        protected void Start()
+        {
             gameState = GameState.GameStarted;
             GameFlow();
         }
@@ -107,11 +108,11 @@ namespace BrutalCards
         {
             if (sceneController.currentTurnPlayer == sceneController.localPlayer)
             {
-
+                gameState = GameState.CheckingPairs;
             }
             if (sceneController.currentTurnPlayer.IsAI)
             {
-
+                gameState = GameState.CheckingPairs;
             }
         }
 

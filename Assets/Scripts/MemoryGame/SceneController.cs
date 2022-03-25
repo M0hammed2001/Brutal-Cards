@@ -176,6 +176,7 @@ namespace BrutalCards{
 
                 _firstRevealed.Unreveal();
                 _secondRevealed.Unreveal();
+                SwitchTurn();
             }
 
             _firstRevealed = null;
