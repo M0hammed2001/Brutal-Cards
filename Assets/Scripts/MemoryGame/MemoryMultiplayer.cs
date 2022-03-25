@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace BrutalCards
 {
-    public class MemoryCardMultiplayer : MemoryGame
+    public class MemoryMultiplayer : MemoryGame
     {
 
 
