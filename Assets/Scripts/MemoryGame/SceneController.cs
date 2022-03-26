@@ -13,6 +13,8 @@ namespace BrutalCards{
         public const float offsetX = 2.3f;
         public const float offsetY = 3.3f;
         public float x;
+        public AudioSource audioSource;
+        public AudioClip pick;
 
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
@@ -230,12 +232,15 @@ namespace BrutalCards{
         {
             if(_firstRevealed == null)
             {
+                
                 _firstRevealed = card;
+                audioSource.PlayOneShot(pick, 1f);
             }
             else
             {
                 _secondRevealed = card;
                 StartCoroutine(CheckMatch());
+                audioSource.PlayOneShot(pick, 1f);
             }
         }
 
