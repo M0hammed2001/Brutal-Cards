@@ -173,7 +173,7 @@ namespace BrutalCards
             gameState = GetGameState();
             sceneController.currentTurnPlayer = gameDataManager.GetCurrentTurnPlayer();
         }
-
+    
         public void OnGameStateChanged()
         {
             base.GameFlow();
