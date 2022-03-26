@@ -200,10 +200,10 @@ MonoBehaviour:
   OnRankSelectedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: e257ac11b64cf2044851a87a8eeaac89, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+      - m_Target: {fileID: 770949229}
+        m_TargetAssemblyTypeName: 
         m_MethodName: 
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -215,8 +215,8 @@ MonoBehaviour:
   OnOpponentConfirmed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: e257ac11b64cf2044851a87a8eeaac89, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+      - m_Target: {fileID: 770949229}
+        m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -599,6 +599,7 @@ MonoBehaviour:
     currentTurnPlayerId: 
     currentGameState: 0
     selectedRank: 0
+    memoryGameArray: 
   bot_score: 0
   player_score: 0
   botScore: {fileID: 1691454313}
