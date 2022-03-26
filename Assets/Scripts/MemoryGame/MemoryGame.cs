@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,7 @@ namespace BrutalCards
     {
         SceneController sceneController;
 
+        int randomNumber;
         public Player localPlayer;
         public Player remotePlayer;
         public float x;
@@ -117,6 +119,7 @@ namespace BrutalCards
             }
             if (sceneController.currentTurnPlayer.IsAI)
             {
+                int randomNumber = UnityEngine.Random.Range(0, 10);
                 gameState = GameState.CheckingPairs;
             }
         }
@@ -129,6 +132,7 @@ namespace BrutalCards
             }
             else
             {
+
                 sceneController.SwitchTurn();
                 gameState = GameState.TurnSelectingCards;
             }
