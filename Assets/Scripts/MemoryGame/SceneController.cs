@@ -13,7 +13,7 @@ namespace BrutalCards{
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
         
-
+        int randomNumber;
 
         public Player localPlayer;
         public Player remotePlayer;
@@ -143,6 +143,14 @@ namespace BrutalCards{
                 _secondRevealed = card;
                 StartCoroutine(CheckMatch());
             }
+        }
+
+        public void AiCardpick()
+        {
+            randomNumber = UnityEngine.Random.Range(0, 10);
+            _firstRevealed.id = randomNumber;
+            randomNumber = UnityEngine.Random.Range(0, 10);
+            _secondRevealed.id = randomNumber;
         }
 
         public bool CheckingMatch()

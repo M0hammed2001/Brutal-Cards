@@ -119,7 +119,8 @@ namespace BrutalCards
             }
             if (sceneController.currentTurnPlayer.IsAI)
             {
-                int randomNumber = UnityEngine.Random.Range(0, 10);
+                
+                sceneController.AiCardpick();
                 gameState = GameState.CheckingPairs;
             }
         }
