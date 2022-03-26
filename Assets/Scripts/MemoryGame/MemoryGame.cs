@@ -45,7 +45,11 @@ namespace BrutalCards
             if (gameState > GameState.GameStarted)
             {
                 x = 1;
-                if (x != 1)
+                if ( sceneController.bot_score >= 7)
+                {
+                    gameState = GameState.GameFinished;
+                }
+                else if(sceneController.player_score >= 7)
                 {
                     gameState = GameState.GameFinished;
                 }
@@ -102,6 +106,7 @@ namespace BrutalCards
         {
             sceneController.SwitchTurn();
             gameState = GameState.TurnSelectingCards;
+            GameFlow();
         }
 
         protected virtual void OnTurnSelectingCards()

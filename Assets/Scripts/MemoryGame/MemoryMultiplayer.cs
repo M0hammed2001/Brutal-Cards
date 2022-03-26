@@ -11,6 +11,7 @@ namespace BrutalCards
 
 
         NetCode netCode;
+        
         GameDataManager gameDataManager;
 
         SceneController sceneController;

@@ -200,9 +200,9 @@ MonoBehaviour:
   OnRankSelectedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 770949229}
         m_TargetAssemblyTypeName: 
-        m_MethodName: OnRankSelected
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -215,9 +215,9 @@ MonoBehaviour:
   OnOpponentConfirmed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 770949229}
         m_TargetAssemblyTypeName: 
-        m_MethodName: OnOppoentConfirmed
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -599,6 +599,7 @@ MonoBehaviour:
     currentTurnPlayerId: 
     currentGameState: 0
     selectedRank: 0
+    memoryGameArray: 
   bot_score: 0
   player_score: 0
   botScore: {fileID: 1691454313}
