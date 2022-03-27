@@ -13,6 +13,7 @@ namespace BrutalCards{
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
         [SerializeField]List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
+        MemoryGame memoryGame;
         
         int randomNumber;
 
@@ -206,10 +207,6 @@ namespace BrutalCards{
 
         }
 
-        // public void Restart()
-        // {
-        //     SceneManager.LoadScene("Scene_001");
-        // }
-
+    
     }
 }

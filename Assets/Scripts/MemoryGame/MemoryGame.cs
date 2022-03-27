@@ -27,9 +27,12 @@ namespace BrutalCards
             GameFinished
         };
 
+        [SerializeField]
+        protected GameState gameState = GameState.Idle;
+
         protected void Awake()
         {
-            
+
         }
 
         
@@ -37,16 +40,14 @@ namespace BrutalCards
         {
             gameState = GameState.GameStarted;
             GameFlow();
+
         }
 
-        [SerializeField]
-        protected GameState gameState = GameState.Idle;
     
 
         public virtual void GameFlow(){
             if (gameState > GameState.GameStarted)
             {
-                x = 1;
                 if ( sceneController.bot_score >= 7)
                 {
                     gameState = GameState.GameFinished;
@@ -55,6 +56,10 @@ namespace BrutalCards
                 {
                     gameState = GameState.GameFinished;
                 }
+            }
+            else
+            {
+                gameState = GameState.GameStarted;
             }
 
             switch (gameState)
@@ -103,10 +108,12 @@ namespace BrutalCards
         {
 
             gameState = GameState.TurnStarted;
+            
         }
 
         protected virtual void OnTurnStarted()
         {
+            Debug.Log("hello4");
             sceneController.SwitchTurn();
             gameState = GameState.TurnSelectingCards;
             GameFlow();
@@ -116,11 +123,12 @@ namespace BrutalCards
         {
             if (sceneController.currentTurnPlayer == sceneController.localPlayer)
             {
+                Debug.Log("2"); 
                 gameState = GameState.CheckingPairs;
             }
-            if (sceneController.currentTurnPlayer.IsAI)
+            else
             {
-                
+                Debug.Log("3");   
                 sceneController.AiCardpick();
                 gameState = GameState.CheckingPairs;
             }

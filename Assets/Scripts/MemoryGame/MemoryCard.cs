@@ -13,12 +13,16 @@ namespace BrutalCards{
         {
             if(Card_Back.activeSelf && controller.canReveal)
             {
-                if(controller.currentTurnPlayer == controller.localPlayer)
-                {
-                    Card_Back.SetActive(false);
-                    controller.CardRevealed(this);
-                }
-            }
+                
+                Card_Back.SetActive(false);
+                controller.CardRevealed(this);
+            
+            }        
+        }
+
+        public void AiClicking(MemoryCard card)
+        {
+            Card_Back.SetActive(false);
         }
 
         private int _id;
