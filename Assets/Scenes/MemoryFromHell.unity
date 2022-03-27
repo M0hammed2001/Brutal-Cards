@@ -1675,12 +1675,15 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   audioSource: {fileID: 230991048}
   pick: {fileID: 8300000, guid: 5b2cc161ff2337046b259c8c56a714d6, type: 3}
   collect: {fileID: 8300000, guid: 678fac172d30bd941a1641b90293f54c, type: 3}
   wrong: {fileID: 8300000, guid: f4668da8d66c62749b7e7304f6c44f84, type: 3}
   OptionsPopover: {fileID: 259512972}
   PopoverBackground: {fileID: 1987120201}
+=======
+>>>>>>> parent of aa6d9b0 (Updated sound)
 =======
 >>>>>>> parent of aa6d9b0 (Updated sound)
 =======

@@ -376,17 +376,13 @@ namespace BrutalCards
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true); 
         }
-<<<<<<< HEAD
+
         public void OnLobbyButtonClicked()
         {
             // FindObjectOfType<AudioManager>().Play("Creeky Door");
             Debug.Log("OnLobbyButtonClicked");
             SceneManager.LoadScene("LobbyScene");
-
         }
-=======
->>>>>>> parent of 6d6362f (50% done adding Lobby button)
-
         public void OnRulesClicked()
         {
             Debug.Log("OnRulesClicked");
