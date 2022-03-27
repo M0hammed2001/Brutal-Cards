@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.SceneManagement;
+=======
+>>>>>>> parent of 33b69e2 (80%)
 using Unity;
 using UnityEngine.UI;
 
@@ -21,9 +24,12 @@ namespace BrutalCards
         public GameObject PopoverBackground;
         public GameObject OptionsPopover;
         public GameObject RulesPopover;
+<<<<<<< HEAD
         public GameObject GameOverPanel; // Game Over Panel Reference
         public GameObject LobbyButton;
         SceneController sceneController;
+=======
+>>>>>>> parent of 33b69e2 (80%)
 
 
         protected CardAnimator cardAnimator;
@@ -377,12 +383,15 @@ namespace BrutalCards
             OptionsPopover.SetActive(true); 
         }
 
+<<<<<<< HEAD
         public void OnLobbyButtonClicked()
         {
             // FindObjectOfType<AudioManager>().Play("Creeky Door");
             Debug.Log("OnLobbyButtonClicked");
             SceneManager.LoadScene("LobbyScene");
         }
+=======
+>>>>>>> parent of 33b69e2 (80%)
         public void OnRulesClicked()
         {
             Debug.Log("OnRulesClicked");
