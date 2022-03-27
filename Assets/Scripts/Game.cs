@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using System.Linq;
 using UnityEngine;
 using Unity;
@@ -20,6 +21,7 @@ namespace BrutalCards
         public GameObject PopoverBackground;
         public GameObject OptionsPopover;
         public GameObject RulesPopover;
+        public GameObject LobbyButton;
 
         protected CardAnimator cardAnimator;
 
@@ -358,6 +360,11 @@ namespace BrutalCards
             Debug.Log("OnOptionsClicked");
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true); 
+        }
+         public void OnLobbyClicked()
+        {
+            Debug.Log("OnLobbyClicked");
+            SceneManager.LoadScene("LobbyScene");
         }
 
         public void OnRulesClicked()

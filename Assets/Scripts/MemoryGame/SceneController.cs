@@ -20,6 +20,12 @@ namespace BrutalCards{
         public Player localPlayer;
         public Player remotePlayer;
 
+        public GameObject LobbyButton;
+        public GameObject OptionsPopover;
+        public GameObject RulesPopover;
+        public GameObject PopoverBackground;
+
+
 
         [SerializeField]
         public Player currentTurnPlayer;
@@ -48,6 +54,33 @@ namespace BrutalCards{
             remotePlayer.IsAI = true;
 
         }
+         public void OnLobbyClicked()
+        {
+            Debug.Log("OnLobbyClicked");
+            SceneManager.LoadScene("LobbyScene");
+        }
+        void OnGUI(){
+            if (Input.GetKeyDown("escape")){
+                Debug.Log("KeyCode down: escape");
+                OnOptionsClicked();
+            }   
+        }
+        public void OnRulesCancelClicked(){
+            RulesPopover.SetActive(false);
+            OptionsPopover.SetActive(true);
+        }
+        public void ShowOptionsPopover()
+        {
+            PopoverBackground.SetActive(true);
+            OptionsPopover.SetActive(true);
+        }
+        public void OnOptionsClicked()
+        {
+            Debug.Log("OnOptionsClicked");
+            ShowOptionsPopover();
+        }
+        
+
 
 
         public void Start()
