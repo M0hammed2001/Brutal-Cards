@@ -3273,7 +3273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &765519402
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7498,6 +7498,7 @@ MonoBehaviour:
   LeaderboardPopover: {fileID: 637479018}
   GamesPopover: {fileID: 1924122663}
   RulesPopover: {fileID: 789088405}
+  LobbyButton: {fileID: 0}
   WaitForOpponentPopover: {fileID: 2049904259}
   StartRoomButton: {fileID: 305531645}
   MemoryFromHellButton: {fileID: 536888717}
