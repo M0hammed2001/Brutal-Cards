@@ -1485,10 +1485,10 @@ MonoBehaviour:
     Position: {x: 0, y: 0}
     BookPosition: {x: 0, y: 0}
     DisplayingCards: []
-  LobbyButton: {fileID: 0}
-  OptionsPopover: {fileID: 0}
-  RulesPopover: {fileID: 0}
-  PopoverBackground: {fileID: 0}
+  LobbyButton: {fileID: 1322366910}
+  OptionsPopover: {fileID: 955335446}
+  RulesPopover: {fileID: 1930022498}
+  PopoverBackground: {fileID: 1833411650}
   currentTurnPlayer:
     PlayerId: 
     PlayerName: 
