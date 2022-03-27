@@ -22,9 +22,12 @@ namespace BrutalCards
         public GameObject OptionsPopover;
         public GameObject RulesPopover;
         public GameObject GameOverPanel; // Game Over Panel Reference
+<<<<<<< HEAD
         public GameObject LobbyButton;
         SceneController sceneController;
 
+=======
+>>>>>>> parent of 7984b0f (f)
 
         protected CardAnimator cardAnimator;
 
@@ -381,8 +384,12 @@ namespace BrutalCards
         {
             // FindObjectOfType<AudioManager>().Play("Creeky Door");
             Debug.Log("OnLobbyButtonClicked");
+<<<<<<< HEAD
             SceneManager.LoadScene("LobbyScene");
 
+=======
+            SceneManager.LoadScene("LobbyScene");   
+>>>>>>> parent of 7984b0f (f)
         }
 =======
 >>>>>>> parent of 6d6362f (50% done adding Lobby button)

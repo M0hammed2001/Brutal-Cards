@@ -18,6 +18,7 @@ namespace BrutalCards{
         public AudioClip pick;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         public GameObject OptionsPopover;
         public GameObject PopoverBackground;
@@ -28,6 +29,8 @@ namespace BrutalCards{
 =======
 
 >>>>>>> parent of ce74dd5 (Revert "Merge branch 'level-2-backup' into UI-fixes")
+=======
+>>>>>>> parent of 7984b0f (f)
 
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
@@ -69,7 +72,11 @@ namespace BrutalCards{
         }
 
 
+<<<<<<< HEAD
         public void Start()
+=======
+        private void Start()
+>>>>>>> parent of 7984b0f (f)
         {
             Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
 

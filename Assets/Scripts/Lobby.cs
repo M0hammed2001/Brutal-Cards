@@ -316,10 +316,6 @@ namespace BrutalCards
             Debug.Log("OnOptionsClicked");
             ShowOptionsPopover();
         }
-        public void OnLobbyButtonClicked(){
-            Debug.Log("OnLobbyButtonClicked");
-             SceneManager.LoadScene("LobbyScene");
-        }
         public void OnGamesClicked()
         {
             Debug.Log("OnOptionsClicked");
