@@ -3508,6 +3508,20 @@ MonoBehaviour:
   RulesPopover: {fileID: 31224076}
   GameOverPanel: {fileID: 670476023}
   gameDataManager:
+    localPlayer:
+      PlayerId: 
+      PlayerName: 
+      IsAI: 0
+      Position: {x: 0, y: 0}
+      BookPosition: {x: 0, y: 0}
+      DisplayingCards: []
+    remotePlayer:
+      PlayerId: 
+      PlayerName: 
+      IsAI: 0
+      Position: {x: 0, y: 0}
+      BookPosition: {x: 0, y: 0}
+      DisplayingCards: []
     protectedData:
       poolOfCards: 
       player1Cards: 

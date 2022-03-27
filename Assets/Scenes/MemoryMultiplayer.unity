@@ -215,13 +215,13 @@ MonoBehaviour:
   OnOpponentConfirmed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: e257ac11b64cf2044851a87a8eeaac89, type: 3}
+      - m_Target: {fileID: 770949229}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -349,6 +349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 770949230}
   - component: {fileID: 770949231}
+  - component: {fileID: 770949232}
   m_Layer: 0
   m_Name: MultiplayerGame
   m_TagString: Untagged
@@ -382,8 +383,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e257ac11b64cf2044851a87a8eeaac89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  Card_Back: {fileID: 0}
+  localPlayer:
+    PlayerId: 
+    PlayerName: 
+    IsAI: 0
+    Position: {x: 0, y: 0}
+    BookPosition: {x: 0, y: 0}
+    DisplayingCards: []
+  remotePlayer:
+    PlayerId: 
+    PlayerName: 
+    IsAI: 0
+    Position: {x: 0, y: 0}
+    BookPosition: {x: 0, y: 0}
+    DisplayingCards: []
+  x: 0
+  gameState: 0
+--- !u!114 &770949232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770949229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e257ac11b64cf2044851a87a8eeaac89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localPlayer:
+    PlayerId: 
+    PlayerName: 
+    IsAI: 0
+    Position: {x: 0, y: 0}
+    BookPosition: {x: 0, y: 0}
+    DisplayingCards: []
+  remotePlayer:
+    PlayerId: 
+    PlayerName: 
+    IsAI: 0
+    Position: {x: 0, y: 0}
+    BookPosition: {x: 0, y: 0}
+    DisplayingCards: []
+  x: 0
+  gameState: 0
 --- !u!1 &974588996
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,9 +582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f335a7342995a143a4923bc286dbdfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  audioSource: {fileID: 0}
-  pick: {fileID: 0}
   originalCard: {fileID: 974588997}
   images:
   - {fileID: 21300000, guid: 1301a89865d124628b97361947aadf50, type: 3}
@@ -556,6 +596,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce90474684af94f55b89413fcd02bc12, type: 3}
   - {fileID: 21300000, guid: a889ab0daa4274520ac0d9fbd876c545, type: 3}
   - {fileID: 21300000, guid: b1ac863592375476cadda49c3078a061, type: 3}
+  aiCardsToPick: []
+  localPlayer:
+    PlayerId: 
+    PlayerName: 
+    IsAI: 0
+    Position: {x: 0, y: 0}
+    BookPosition: {x: 0, y: 0}
+    DisplayingCards: []
+  remotePlayer:
+    PlayerId: 
+    PlayerName: 
+    IsAI: 0
+    Position: {x: 0, y: 0}
+    BookPosition: {x: 0, y: 0}
+    DisplayingCards: []
   currentTurnPlayer:
     PlayerId: 
     PlayerName: 
@@ -574,9 +629,12 @@ MonoBehaviour:
     currentTurnPlayerId: 
     currentGameState: 0
     selectedRank: 0
-  gameState: 0
+    memoryGameArray: 
+  bot_score: 0
+  player_score: 0
   botScore: {fileID: 1691454313}
   playerScore: {fileID: 1928868860}
+  playersTurn: {fileID: 0}
 --- !u!4 &1001840394
 Transform:
   m_ObjectHideFlags: 0
