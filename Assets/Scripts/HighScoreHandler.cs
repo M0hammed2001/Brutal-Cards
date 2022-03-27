@@ -35,7 +35,7 @@ namespace Leaderboard{
             FileHandler.SaveToJSON<HighscoreElement> (highscoreList, filename);
         }
 
-        public void AddHighscoreIfPossible (HighscoreElement element) {
+        public void AddHighscoreIfPossible (List<HighScoreElement> highscorelist) {
 
             for (int i = 0; i < maxCount; i++) {
                 if (i >= highscoreList.Count || element.points > highscoreList[i].points) {
