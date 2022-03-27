@@ -15,6 +15,9 @@ namespace BrutalCards{
         public float x;
         public AudioSource audioSource;
         public AudioClip pick, collect, wrong;
+        
+        public GameObject OptionsPopover;
+        public GameObject PopoverBackground;
 
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
@@ -48,6 +51,12 @@ namespace BrutalCards{
         [SerializeField]
         protected GameState gameState = GameState.Idle;
 
+        void OnGUI(){
+            if (Input.GetKeyDown("escape")){
+                Debug.Log("KeyCode down: escape");
+                OnOptionsClicked();
+            }   
+        }
         protected void Awake()
         {
             Debug.Log("base awake");
@@ -60,6 +69,17 @@ namespace BrutalCards{
             remotePlayer.PlayerName = "Bot";
             remotePlayer.IsAI = true;
 
+        }
+         public void ShowOptionsPopover()
+        {
+            PopoverBackground.SetActive(true);
+            OptionsPopover.SetActive(true);
+        }
+
+        public void OnOptionsClicked()
+        {
+            Debug.Log("OnOptionsClicked");
+            ShowOptionsPopover();
         }
 
 
