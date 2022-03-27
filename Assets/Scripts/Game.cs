@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Unity;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -20,6 +21,8 @@ namespace BrutalCards
         public GameObject PopoverBackground;
         public GameObject OptionsPopover;
         public GameObject RulesPopover;
+        public GameObject LobbyButton;
+        SceneController sceneController;
 
         protected CardAnimator cardAnimator;
 
@@ -358,6 +361,12 @@ namespace BrutalCards
             Debug.Log("OnOptionsClicked");
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true); 
+        }
+        public void OnLobbyButtonClicked()
+        {
+            // FindObjectOfType<AudioManager>().Play("Creeky Door");
+            Debug.Log("OnLobbyButtonClicked");
+            SceneManager.LoadScene("LobbyScene");
         }
 
         public void OnRulesClicked()

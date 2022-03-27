@@ -15,7 +15,7 @@ namespace BrutalCards{
         public float x;
         public AudioSource audioSource;
         public AudioClip pick, collect, wrong;
-        
+
         public GameObject OptionsPopover;
         public GameObject PopoverBackground;
 
@@ -81,8 +81,19 @@ namespace BrutalCards{
             Debug.Log("OnOptionsClicked");
             ShowOptionsPopover();
         }
+         public void OnLobbyButtonClicked()
+        {
+            // FindObjectOfType<AudioManager>().Play("Creeky Door");
+            Debug.Log("OnLobbyButtonClicked");
+            SceneManager.LoadScene("LobbyScene");
+        }
+        public void OnCancelClicked(){
+            PopoverBackground.SetActive(false);
+            OptionsPopover.SetActive(false);
 
+        }
 
+        
         private void Start()
         {
             Vector3 startPos = originalCard.transform.position; //The position of the first card. All other cards are offset from here.
