@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -22,7 +23,12 @@ namespace BrutalCards
         public GameObject OptionsPopover;
         public GameObject LobbyButton;
         public GameObject RulesPopover;
+<<<<<<< HEAD
         public GameObject GameOverPanel; // Game Over Panel Reference
+=======
+        public GameObject LobbyButton;
+        SceneController sceneController;
+>>>>>>> UI-fixes
 
         protected CardAnimator cardAnimator;
 
@@ -378,7 +384,11 @@ namespace BrutalCards
         {
             // FindObjectOfType<AudioManager>().Play("Creeky Door");
             Debug.Log("OnLobbyButtonClicked");
+<<<<<<< HEAD
             SceneManager.LoadScene("LobbyScene");   
+=======
+            SceneManager.LoadScene("LobbyScene");
+>>>>>>> UI-fixes
         }
 
         public void OnRulesClicked()

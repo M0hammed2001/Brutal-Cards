@@ -14,7 +14,10 @@ namespace BrutalCards{
         public const float offsetY = 3.3f;
         public float x;
         public AudioSource audioSource;
-        public AudioClip pick;
+        public AudioClip pick, collect, wrong;
+
+        public GameObject OptionsPopover;
+        public GameObject PopoverBackground;
 
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
@@ -48,6 +51,7 @@ namespace BrutalCards{
         [SerializeField]
         protected GameState gameState = GameState.Idle;
 
+        
         protected void Awake()
         {
             Debug.Log("base awake");
@@ -61,8 +65,36 @@ namespace BrutalCards{
             remotePlayer.IsAI = true;
 
         }
+         public void ShowOptionsPopover()
+        {
+            PopoverBackground.SetActive(true);
+            OptionsPopover.SetActive(true);
+        }
+        void OnGUI(){
+            if (Input.GetKeyDown("escape")){
+                Debug.Log("KeyCode down: escape");
+                OnOptionsClicked();
+            }   
+        }
 
+        public void OnOptionsClicked()
+        {
+            Debug.Log("OnOptionsClicked");
+            ShowOptionsPopover();
+        }
+         public void OnLobbyButtonClicked()
+        {
+            // FindObjectOfType<AudioManager>().Play("Creeky Door");
+            Debug.Log("OnLobbyButtonClicked");
+            SceneManager.LoadScene("LobbyScene");
+        }
+        public void OnCancelClicked(){
+            PopoverBackground.SetActive(false);
+            OptionsPopover.SetActive(false);
 
+        }
+
+        
         private void Start()
         {
             Vector3 startPos = originalCard.transform.position; //The position of the first card. All other cards are offset from here.
@@ -248,7 +280,8 @@ namespace BrutalCards{
         {
             if(_firstRevealed.id == _secondRevealed.id)
             {
-                 if(currentTurnPlayer == localPlayer)
+                audioSource.PlayOneShot(collect, 1f);
+                if (currentTurnPlayer == localPlayer)
                 {
                     player_score++;
                     playerScore.text = "Player Score: " + player_score;
@@ -261,6 +294,7 @@ namespace BrutalCards{
             }
             else
             {
+                audioSource.PlayOneShot(wrong, 1f);
                 yield return new WaitForSeconds(0.5f);
 
                 _firstRevealed.Unreveal();
