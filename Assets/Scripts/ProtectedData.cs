@@ -34,9 +34,6 @@ namespace BrutalCards
         int currentGameState;
         [SerializeField]
         int selectedRank;
-        
-        [SerializeField]
-        public int[] memoryGameArray;
 
         byte[] encryptionKey;
         byte[] safeData;
