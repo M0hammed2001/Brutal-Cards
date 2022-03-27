@@ -15,9 +15,12 @@ namespace BrutalCards{
         public float x;
         public AudioSource audioSource;
         public AudioClip pick;
+<<<<<<< HEAD
 
         public GameObject OptionsPopover;
         public GameObject PopoverBackground;
+=======
+>>>>>>> parent of aa6d9b0 (Updated sound)
 
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
