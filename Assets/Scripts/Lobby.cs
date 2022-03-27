@@ -243,7 +243,7 @@ namespace BrutalCards
             {
                 if (connected)
                 {
-                    SceneManager.LoadScene("MultiplayerGameScene");
+                    SceneManager.LoadScene("MemoryMultiplayer");
                 }
                 else
                 {
@@ -302,6 +302,12 @@ namespace BrutalCards
         public void OnOnlineClicked()
         {
             Debug.Log("OnOnlineClicked");
+            ShowEnterNicknamePopover();
+        }
+
+        public void OnLevel2Clicked()
+        {
+            Debug.Log("OnLevel2Clicked");
             ShowEnterNicknamePopover();
         }
         

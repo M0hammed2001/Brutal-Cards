@@ -8,13 +8,21 @@ namespace BrutalCards{
         [SerializeField]  private SceneController controller;
         [SerializeField] private GameObject Card_Back;
 
+
         public void OnMouseDown()
         {
             if(Card_Back.activeSelf && controller.canReveal)
             {
+                
                 Card_Back.SetActive(false);
                 controller.CardRevealed(this);
-            }
+            
+            }        
+        }
+
+        public void AiClicking(MemoryCard card)
+        {
+            Card_Back.SetActive(false);
         }
 
         private int _id;
