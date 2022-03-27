@@ -4742,10 +4742,16 @@ MonoBehaviour:
   DrawnCard: {fileID: 685933798}
   RemoteName: {fileID: 1441900477}
   LocalName: {fileID: 1378491308}
+<<<<<<< HEAD
   PopoverBackground: {fileID: 298192090}
   OptionsPopover: {fileID: 69078766}
   RulesPopover: {fileID: 124000128}
   LobbyButton: {fileID: 939965471}
+=======
+  PopoverBackground: {fileID: 193016971}
+  OptionsPopover: {fileID: 1639400475}
+  RulesPopover: {fileID: 1013231395}
+>>>>>>> parent of 6d6362f (50% done adding Lobby button)
   gameDataManager:
     protectedData:
       poolOfCards: 
@@ -5224,8 +5230,16 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
   m_Children: []
   m_Father: {fileID: 124000131}
+=======
+  m_Children:
+  - {fileID: 1188289929}
+  - {fileID: 177644369}
+  - {fileID: 617375403}
+  m_Father: {fileID: 193016974}
+>>>>>>> parent of 6d6362f (50% done adding Lobby button)
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -6158,6 +6172,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145830891}
   m_CullTransparentMesh: 1
+<<<<<<< HEAD
 --- !u!1001 &5830028709567084433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6284,6 +6299,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: f00aadfdda49b304f83d3e681558979a, type: 3}
 =======
 >>>>>>> UI-fixes
+=======
+>>>>>>> parent of 6d6362f (50% done adding Lobby button)
 --- !u!1001 &7094096169141378057
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -20,7 +20,6 @@ namespace BrutalCards
 
         public GameObject PopoverBackground;
         public GameObject OptionsPopover;
-        public GameObject LobbyButton;
         public GameObject RulesPopover;
         public GameObject GameOverPanel; // Game Over Panel Reference
         public GameObject LobbyButton;
@@ -377,6 +376,7 @@ namespace BrutalCards
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true); 
         }
+<<<<<<< HEAD
         public void OnLobbyButtonClicked()
         {
             // FindObjectOfType<AudioManager>().Play("Creeky Door");
@@ -384,6 +384,8 @@ namespace BrutalCards
             SceneManager.LoadScene("LobbyScene");
 
         }
+=======
+>>>>>>> parent of 6d6362f (50% done adding Lobby button)
 
         public void OnRulesClicked()
         {
