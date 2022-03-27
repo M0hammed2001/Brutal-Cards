@@ -12,11 +12,13 @@ namespace BrutalCards{
 
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
+        [SerializeField]List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
         
         int randomNumber;
 
         public Player localPlayer;
         public Player remotePlayer;
+
 
         [SerializeField]
         public Player currentTurnPlayer;
@@ -51,15 +53,17 @@ namespace BrutalCards{
         {
             Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
 
+            SwitchTurn();
             int[] numbers =  { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
             protectedData.memoryGameArray = numbers;
-            ShuffleArray(); //This is a function we will create in a minute!
+            ShuffleArray(); 
 
             for(int i = 0; i < Constants.gridCols; i++)
             {
                 for(int j = 0; j < Constants.gridRows; j++)
                 {
                     MemoryCard card;
+
                     if(i == 0 && j == 0)
                     {
                         card = originalCard;
@@ -68,7 +72,7 @@ namespace BrutalCards{
                     {
                         card = Instantiate(originalCard) as MemoryCard;
                     }
-
+                    aiCardsToPick.Add(card);
                     int index = j * Constants.gridCols + i;
                     int id = protectedData.memoryGameArray[index];
                     card.ChangeSprite(id, images[id]);
@@ -78,11 +82,7 @@ namespace BrutalCards{
                     card.transform.position = new Vector3(posX, posY, startPos.z);
                 }
             }
-            
-
         }
-        
-
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -97,27 +97,11 @@ namespace BrutalCards{
                 newArray[i] = newArray[r];
                 newArray[r] = tmp;
             }
+            protectedData.memoryGameArray = newArray;
             return newArray;
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
-
-        public void SwitchTurn(){
-            if (currentTurnPlayer == null)
-            {
-                currentTurnPlayer = localPlayer;
-                return;
-            }
-
-            if (currentTurnPlayer == localPlayer)
-            {
-                currentTurnPlayer = remotePlayer;
-            }
-            else
-            {
-                currentTurnPlayer = localPlayer;
-            }
-        }
 
         private MemoryCard _firstRevealed;
         private MemoryCard _secondRevealed;
@@ -126,6 +110,29 @@ namespace BrutalCards{
         public int player_score = 0;
         [SerializeField] public TextMesh botScore;
         [SerializeField] public TextMesh playerScore;
+        [SerializeField] public TextMesh playersTurn;
+
+
+        public void SwitchTurn(){
+            if (currentTurnPlayer == null)
+            {
+                currentTurnPlayer = localPlayer;
+                playersTurn.text = localPlayer + "'s Turn" ;
+                return;
+
+            }
+
+            if (currentTurnPlayer == localPlayer)
+            {
+                currentTurnPlayer = remotePlayer;
+                playersTurn.text = remotePlayer.PlayerName + "'s Turn" ;
+            }
+            else
+            {
+                currentTurnPlayer = localPlayer;
+                playersTurn.text = localPlayer.PlayerName + "'s Turn" ;
+            }
+        }
 
         public bool canReveal
         {
@@ -147,10 +154,15 @@ namespace BrutalCards{
 
         public void AiCardpick()
         {
-            randomNumber = UnityEngine.Random.Range(0, 10);
-            _firstRevealed.id = randomNumber;
-            randomNumber = UnityEngine.Random.Range(0, 10);
-            _secondRevealed.id = randomNumber;
+            int r = Random.Range(0, aiCardsToPick.Count);
+            int t = Random.Range(0, aiCardsToPick.Count);
+            while (r == t)
+            {
+                t = Random.Range(0, aiCardsToPick.Count);
+            }
+            CardRevealed(aiCardsToPick[r]);
+
+            
         }
 
         public bool CheckingMatch()

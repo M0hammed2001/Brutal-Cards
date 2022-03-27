@@ -13,8 +13,11 @@ namespace BrutalCards{
         {
             if(Card_Back.activeSelf && controller.canReveal)
             {
-                Card_Back.SetActive(false);
-                controller.CardRevealed(this);
+                if(controller.currentTurnPlayer == controller.localPlayer)
+                {
+                    Card_Back.SetActive(false);
+                    controller.CardRevealed(this);
+                }
             }
         }
 

@@ -12,7 +12,7 @@ namespace BrutalCards
     {
         SceneController sceneController;
 
-        int randomNumber;
+
         public Player localPlayer;
         public Player remotePlayer;
         public float x;
@@ -64,6 +64,7 @@ namespace BrutalCards
                         Debug.Log("IDLE");
                         OnGameStarted();
                         break;
+                        
                     }
                 case GameState.GameStarted:
                     {
