@@ -51,12 +51,7 @@ namespace BrutalCards{
         [SerializeField]
         protected GameState gameState = GameState.Idle;
 
-        void OnGUI(){
-            if (Input.GetKeyDown("escape")){
-                Debug.Log("KeyCode down: escape");
-                OnOptionsClicked();
-            }   
-        }
+        
         protected void Awake()
         {
             Debug.Log("base awake");
@@ -74,6 +69,12 @@ namespace BrutalCards{
         {
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true);
+        }
+        void OnGUI(){
+            if (Input.GetKeyDown("escape")){
+                Debug.Log("KeyCode down: escape");
+                OnOptionsClicked();
+            }   
         }
 
         public void OnOptionsClicked()

@@ -3182,10 +3182,10 @@ MonoBehaviour:
   DrawnCard: {fileID: 453563403}
   RemoteName: {fileID: 992242737}
   LocalName: {fileID: 1291830140}
-  PopoverBackground: {fileID: 0}
-  OptionsPopover: {fileID: 0}
-  RulesPopover: {fileID: 0}
-  LobbyButton: {fileID: 0}
+  PopoverBackground: {fileID: 1267311583}
+  OptionsPopover: {fileID: 956665060}
+  RulesPopover: {fileID: 1349468859}
+  LobbyButton: {fileID: 2014856863}
   gameDataManager:
     protectedData:
       poolOfCards: 

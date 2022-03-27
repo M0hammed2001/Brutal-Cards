@@ -3100,9 +3100,9 @@ MonoBehaviour:
   RemoteName: {fileID: 1441900477}
   LocalName: {fileID: 1378491308}
   PopoverBackground: {fileID: 298192090}
-  OptionsPopover: {fileID: 0}
+  OptionsPopover: {fileID: 69078766}
   RulesPopover: {fileID: 124000128}
-  LobbyButton: {fileID: 0}
+  LobbyButton: {fileID: 939965471}
   gameDataManager:
     protectedData:
       poolOfCards: 
