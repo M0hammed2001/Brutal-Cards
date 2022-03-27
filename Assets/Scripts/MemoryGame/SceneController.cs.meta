@@ -3,12 +3,7 @@ guid: 5f335a7342995a143a4923bc286dbdfc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - audioSource: {instanceID: 0}
-  - pick: {fileID: 8300000, guid: 5b2cc161ff2337046b259c8c56a714d6, type: 3}
-  - originalCard: {instanceID: 0}
-  - botScore: {instanceID: 0}
-  - playerScore: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

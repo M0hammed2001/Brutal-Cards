@@ -13,6 +13,7 @@ namespace BrutalCards{
         public const float offsetX = 2.3f;
         public const float offsetY = 3.3f;
         public float x;
+<<<<<<< HEAD
         public AudioSource audioSource;
 <<<<<<< HEAD
         public AudioClip pick;
@@ -27,6 +28,8 @@ namespace BrutalCards{
 
 =======
 >>>>>>> parent of aa6d9b0 (Updated sound)
+=======
+>>>>>>> parent of 892be0e (sound system complete ish)
 
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
@@ -262,15 +265,12 @@ namespace BrutalCards{
         {
             if(_firstRevealed == null)
             {
-                
                 _firstRevealed = card;
-                audioSource.PlayOneShot(pick, 1f);
             }
             else
             {
                 _secondRevealed = card;
                 StartCoroutine(CheckMatch());
-                audioSource.PlayOneShot(pick, 1f);
             }
         }
 
