@@ -16,9 +16,12 @@ namespace BrutalCards{
         public AudioSource audioSource;
         public AudioClip pick;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         public GameObject OptionsPopover;
         public GameObject PopoverBackground;
+=======
+>>>>>>> parent of aa6d9b0 (Updated sound)
 =======
 >>>>>>> parent of aa6d9b0 (Updated sound)
 
