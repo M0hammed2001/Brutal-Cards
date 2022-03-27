@@ -404,12 +404,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169960810}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1288.03, y: -723.38, z: -1}
+  m_LocalPosition: {x: -8.030029, y: -3.380005, z: -1}
   m_LocalScale: {x: 1.2787501, y: 1.37325, z: 1}
   m_Children:
   - {fileID: 42465449}
-  m_Father: {fileID: 564698440}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &169960813
 BoxCollider2D:
@@ -576,7 +576,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &259536746
 GameObject:
@@ -879,7 +879,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &382656589
 GameObject:
@@ -1164,10 +1164,9 @@ RectTransform:
   - {fileID: 718456631}
   - {fileID: 1352965252}
   - {fileID: 1317782924}
-  - {fileID: 169960812}
   - {fileID: 1833411651}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1329,7 +1328,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &601093024
 GameObject:
@@ -1485,6 +1484,10 @@ MonoBehaviour:
     Position: {x: 0, y: 0}
     BookPosition: {x: 0, y: 0}
     DisplayingCards: []
+  LobbyButton: {fileID: 0}
+  OptionsPopover: {fileID: 0}
+  RulesPopover: {fileID: 0}
+  PopoverBackground: {fileID: 0}
   currentTurnPlayer:
     PlayerId: 
     PlayerName: 
@@ -1521,7 +1524,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &718456630
 GameObject:
@@ -3236,7 +3239,7 @@ RectTransform:
   - {fileID: 955335447}
   - {fileID: 1930022499}
   m_Father: {fileID: 564698440}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
