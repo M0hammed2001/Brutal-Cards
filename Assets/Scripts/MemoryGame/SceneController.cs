@@ -14,7 +14,7 @@ namespace BrutalCards{
         public const float offsetY = 3.3f;
         public float x;
         public AudioSource audioSource;
-        public AudioClip pick, collect, wrong;
+        public AudioClip pick;
 
         public GameObject OptionsPopover;
         public GameObject PopoverBackground;
@@ -280,8 +280,7 @@ namespace BrutalCards{
         {
             if(_firstRevealed.id == _secondRevealed.id)
             {
-                audioSource.PlayOneShot(collect, 1f);
-                if (currentTurnPlayer == localPlayer)
+                 if(currentTurnPlayer == localPlayer)
                 {
                     player_score++;
                     playerScore.text = "Player Score: " + player_score;
@@ -294,7 +293,6 @@ namespace BrutalCards{
             }
             else
             {
-                audioSource.PlayOneShot(wrong, 1f);
                 yield return new WaitForSeconds(0.5f);
 
                 _firstRevealed.Unreveal();
