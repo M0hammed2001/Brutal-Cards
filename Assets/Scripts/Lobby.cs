@@ -27,6 +27,7 @@ namespace BrutalCards
         public GameObject RulesPopover;
         public GameObject WaitForOpponentPopover;
         public GameObject StartRoomButton;
+        public GameObject LobbyButton;
         public GameObject MemoryFromHellButton;
         public GameObject DeadlyFishButton;
         public InputField NicknameInputField;
@@ -280,6 +281,12 @@ namespace BrutalCards
             FindObjectOfType<AudioManager>().Play("Creeky Door");
             Debug.Log("OnPracticeClicked");
             ShowGamesPopover();
+        }
+        public void OnLobbyClicked()
+        {
+            FindObjectOfType<AudioManager>().Play("Creeky Door");
+            Debug.Log("OnLobbyClicked");
+            SceneManager.LoadScene("LobbyScene");
         }
 
         public void OnDeadlyFishClicked()

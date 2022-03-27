@@ -20,6 +20,7 @@ namespace BrutalCards
 
         public GameObject PopoverBackground;
         public GameObject OptionsPopover;
+        public GameObject LobbyButton;
         public GameObject RulesPopover;
         public GameObject GameOverPanel; // Game Over Panel Reference
 
@@ -372,6 +373,12 @@ namespace BrutalCards
             Debug.Log("OnOptionsClicked");
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true); 
+        }
+        public void OnLobbyButtonClicked()
+        {
+            // FindObjectOfType<AudioManager>().Play("Creeky Door");
+            Debug.Log("OnLobbyButtonClicked");
+            SceneManager.LoadScene("LobbyScene");   
         }
 
         public void OnRulesClicked()
