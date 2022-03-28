@@ -14,6 +14,8 @@ namespace BrutalCards
         public Text DrawnCard;
         public Text RemoteName;
         public Text LocalName;
+        public AudioSource audioSource;
+        public AudioClip pick, collect;
 
         Card cardConfirm = null;
 
@@ -183,6 +185,7 @@ namespace BrutalCards
 
             if (currentTurnPlayer == localPlayer)
             {
+                audioSource.PlayOneShot(pick, 1f);
                 SetMessage($"Your turn. Pick a card from your hand.");
             }
             else
@@ -195,6 +198,7 @@ namespace BrutalCards
                 selectedRank = gameDataManager.SelectRandomRanksFromPlayersCardValues(currentTurnPlayer);
                 gameState = GameState.TurnConfirmedSelectedNumber;
                 GameFlow();
+                audioSource.PlayOneShot(pick, 1f);
             }
         }
 
@@ -202,6 +206,7 @@ namespace BrutalCards
             if (currentTurnPlayer == localPlayer)
             {
                 SetMessage($"Asking {currentTurnTargetPlayer.PlayerName} for {selectedRank}s...");
+                audioSource.PlayOneShot(pick, 1f);
             }
             else
             {
@@ -210,6 +215,7 @@ namespace BrutalCards
 
             gameState = GameState.TurnWaitingForOpponentConfirmation;
             GameFlow();
+            audioSource.PlayOneShot(pick, 1f);
         }
 
         public void OnTurnWaitingForOpponentConfirmation(){
@@ -334,6 +340,8 @@ namespace BrutalCards
 
                     gameDataManager.RemoveCardValuesFromPlayer(player, book.Value);
                     gameDataManager.AddBooksForPlayer(player, book.Key);
+                    audioSource.PlayOneShot(collect, 1f);
+
                 }
             }
         }
