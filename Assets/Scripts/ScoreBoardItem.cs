@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Leaderboard{
+
 [System.Serializable]
 
 public class ScoreboardItem
@@ -15,4 +17,5 @@ public class ScoreboardItem
         score = info.Score;
 
     }
+}
 }

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+namespace Leaderboard{
+
 public class ScoreboardManager : MonoSingleton<ScoreboardManager>
 {
     private List<ScoreboardItem> scoreboardList = new List<ScoreboardItem>();
 
     public List<ScoreboardItem> ScoreboardList { get { return scoreboardList; } }
 
-    protected override void Initialzie()
+    protected void Initialzie()
     {
         base.Initialzie();
 
@@ -105,4 +107,5 @@ public class ScoreboardManager : MonoSingleton<ScoreboardManager>
             
     }
     }
+}
 }

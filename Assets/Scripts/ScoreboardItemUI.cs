@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+namespace Leaderboard{
+
 public class ScoreboardItemUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI indexLabel;
@@ -16,4 +18,5 @@ public class ScoreboardItemUI : MonoBehaviour
         scoreLabel text = string.format("{0}", scoreItem.score);
 
     }
+}
 }
