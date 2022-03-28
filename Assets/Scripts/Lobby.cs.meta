@@ -3,7 +3,21 @@ guid: e02e256e213de42709e8ebd9251ea3f5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - PopoverBackground: {instanceID: 0}
+  - EnterNicknamePopover: {instanceID: 0}
+  - OptionsPopover: {instanceID: 0}
+  - LeaderboardPopover: {fileID: 8349934676617974520, guid: f64281607a0d9254fbbd90a9fa78a293,
+      type: 3}
+  - GamesPopover: {instanceID: 0}
+  - RulesPopover: {instanceID: 0}
+  - WaitForOpponentPopover: {instanceID: 0}
+  - StartRoomButton: {instanceID: 0}
+  - MemoryFromHellButton: {instanceID: 0}
+  - DeadlyFishButton: {instanceID: 0}
+  - NicknameInputField: {instanceID: 0}
+  - Player1Portrait: {instanceID: 0}
+  - Player2Portrait: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -31,6 +31,7 @@ namespace BrutalCards
         public GameObject DeadlyFishButton;
         public InputField NicknameInputField;
 
+
         public GameObject Player1Portrait;
         public GameObject Player2Portrait;
 
