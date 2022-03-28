@@ -25,6 +25,7 @@ namespace BrutalCards
         public GameObject LeaderboardPopover;
         public GameObject GamesPopover;
         public GameObject RulesPopover;
+        public GameObject LobbyButton;
         public GameObject WaitForOpponentPopover;
         public GameObject StartRoomButton;
         public GameObject MemoryFromHellButton;
@@ -243,7 +244,7 @@ namespace BrutalCards
             {
                 if (connected)
                 {
-                    SceneManager.LoadScene("MultiplayerGameScene");
+                    SceneManager.LoadScene("MemoryMultiplayer");
                 }
                 else
                 {
@@ -304,11 +305,22 @@ namespace BrutalCards
             Debug.Log("OnOnlineClicked");
             ShowEnterNicknamePopover();
         }
+
+        public void OnLevel2Clicked()
+        {
+            Debug.Log("OnLevel2Clicked");
+            ShowEnterNicknamePopover();
+        }
         
         public void OnOptionsClicked()
         {
             Debug.Log("OnOptionsClicked");
             ShowOptionsPopover();
+        }
+        public void OnLobbyClicked()
+        {
+            Debug.Log("OnLobbyClicked");
+            SceneManager.LoadScene("LobbyScene");
         }
         public void OnGamesClicked()
         {
