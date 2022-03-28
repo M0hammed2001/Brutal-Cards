@@ -6,7 +6,7 @@ namespace Leaderboard{
 
 [System.Serializable]
 
-public class ScoreboardItem
+public class ScoreboardItem : MonoBehaviour
 {
     [SerializeField] public string playerName = string.Empty;
     [SerializeField] public int score = 0;

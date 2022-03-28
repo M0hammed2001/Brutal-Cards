@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 namespace Leaderboard{
 
-public class ScoreboardItemUI : MonoBehaviour
+public class ScoreboardItemUI : Monobehaviour
 {
     [SerializeField] private TextMeshProUGUI indexLabel;
     [SerializeField] private TextMeshProUGUI playerNameLabel;
