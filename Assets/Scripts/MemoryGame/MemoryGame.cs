@@ -108,6 +108,8 @@ namespace BrutalCards
         {
 
             gameState = GameState.TurnStarted;
+            Debug.Log("here" + gameState);
+            GameFlow();
             
         }
 
@@ -132,6 +134,7 @@ namespace BrutalCards
                 sceneController.AiCardpick();
                 gameState = GameState.CheckingPairs;
             }
+            GameFlow();
         }
 
         protected virtual void OnCheckingPairs()
@@ -146,6 +149,7 @@ namespace BrutalCards
                 sceneController.SwitchTurn();
                 gameState = GameState.TurnSelectingCards;
             }
+            GameFlow();
         }
 
         protected virtual void OnGameFinished()
