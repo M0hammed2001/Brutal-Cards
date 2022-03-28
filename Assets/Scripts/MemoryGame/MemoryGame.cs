@@ -107,7 +107,6 @@ namespace BrutalCards
         protected virtual void OnGameStarted()
         {
 
-            SetGameState()
             gameState = GameState.TurnStarted;
             
         }
