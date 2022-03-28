@@ -19,14 +19,16 @@ namespace BrutalCards
         public bool Debugging = false;
         public bool playedOnce = false;
 
+        [SerializeField] private RectTransform ScoreboardPanel;
+        [SerializeField] private GameObject scoreboardItemPreFab;
         public GameObject PopoverBackground;
         public GameObject EnterNicknamePopover;
         public GameObject OptionsPopover;
-        public GameObject LeaderboardPopover;
+        [SerializeField] public GameObject LeaderboardPopover;
         public GameObject GamesPopover;
         public GameObject RulesPopover;
         public GameObject WaitForOpponentPopover;
-        public GameObject StartRoomButton;
+        public GameObject StartRoomButton; 
         public GameObject MemoryFromHellButton;
         public GameObject DeadlyFishButton;
         public InputField NicknameInputField;
@@ -71,6 +73,20 @@ namespace BrutalCards
         {
             PopoverBackground.SetActive(true);
             LeaderboardPopover.SetActive(true);
+
+            if (ScoreboardManager.Exists)
+            {
+                if (MatchInfoSetUp.Exists)
+                {
+                    MatchInfo info = MatchInfoSetUp.Instance.CurrentInfo;
+                    if (info != null)
+                    {
+                        ScoreboardManager.Instance.AddNewEntry(info);
+                    }
+                }
+            }
+           
+            PopulateLeaderboardPopover();
         }
 
         public void ShowOptionsPopover()
@@ -383,6 +399,29 @@ namespace BrutalCards
             {
                 //Use nickname as player custom id to check into SocketWeaver.
                 Checkin();
+            }
+        }
+    }
+    public void PopulateLeaderboardPopover()
+    {
+        if (scoreboardItemPrefab == null)
+        {
+            return;
+        }
+       
+        if (ScoreboardManager.Exists)
+        {
+            int index = 0;
+            foreach(ScoreboardItem item in ScoreboardManager.Instance.Scoreboardlist)
+            {
+                Gameobject go = Instantiate(scoreboardItemPrefab);
+                ScoreboardItemUi itemUI = go.GetComponent<ScoreboardItemUI>();
+                itemUI.SetData(index, item);
+                if (scoreboardPanel)
+                {
+                    go.Transform.SetParent(scoreboardPanel);
+                }
+                index++;
             }
         }
     }
