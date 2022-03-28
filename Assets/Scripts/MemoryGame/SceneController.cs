@@ -14,14 +14,10 @@ namespace BrutalCards{
         public const float offsetY = 3.3f;
         public float x;
         public AudioSource audioSource;
-<<<<<<< HEAD
         public AudioClip pick, collect, wrong;
         
         public GameObject OptionsPopover;
         public GameObject PopoverBackground;
-=======
-        public AudioClip pick;
->>>>>>> parent of aa6d9b0 (Updated sound)
 
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
@@ -272,7 +268,8 @@ namespace BrutalCards{
         {
             if(_firstRevealed.id == _secondRevealed.id)
             {
-                 if(currentTurnPlayer == localPlayer)
+                audioSource.PlayOneShot(collect, 1f);
+                if (currentTurnPlayer == localPlayer)
                 {
                     player_score++;
                     playerScore.text = "Player Score: " + player_score;
@@ -285,6 +282,7 @@ namespace BrutalCards{
             }
             else
             {
+                audioSource.PlayOneShot(wrong, 1f);
                 yield return new WaitForSeconds(0.5f);
 
                 _firstRevealed.Unreveal();
