@@ -12,7 +12,8 @@ public class ScoreboardManager : MonoSingleton<ScoreboardManager>
     protected override void Initialzie()
     {
         base.Initialzie();
-         
+
+        LoadScoreboardData();
     }
 
     public void AddNewEntry(MatchInfo info)
