@@ -559,7 +559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &286832236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2453,6 +2453,9 @@ MonoBehaviour:
   DrawnCard: {fileID: 685933798}
   RemoteName: {fileID: 1441900477}
   LocalName: {fileID: 1378491308}
+  audioSource: {fileID: 238835753}
+  pick: {fileID: 8300000, guid: 5b2cc161ff2337046b259c8c56a714d6, type: 3}
+  collect: {fileID: 8300000, guid: 678fac172d30bd941a1641b90293f54c, type: 3}
   PopoverBackground: {fileID: 286832235}
   OptionsPopover: {fileID: 1209345786}
   RulesPopover: {fileID: 1829872739}
@@ -3014,8 +3017,8 @@ RectTransform:
   m_Father: {fileID: 1455694742}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3938,7 +3941,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
