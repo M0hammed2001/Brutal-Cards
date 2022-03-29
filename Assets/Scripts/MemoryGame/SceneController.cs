@@ -17,7 +17,13 @@ namespace BrutalCards
 
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
-        [SerializeField]List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
+
+        [SerializeField] List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
+        [SerializeField] List<byte> numbers = new List <byte>()
+        
+            { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
+        
+
         MemoryGame memoryGame;
         
         int randomNumber;
@@ -31,6 +37,7 @@ namespace BrutalCards
 
         [SerializeField]
         ProtectedData protectedData;
+        MemoryCard memoryCards;
     
         public SceneController(Player local, Player remote, string roomId = "1234567890123455"){
             localPlayer = local;
@@ -60,8 +67,7 @@ namespace BrutalCards
             Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
 
             SwitchTurn();
-            int[] numbers =  { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
-            protectedData.memoryGameArray = numbers;
+            protectedData.SetMemoryCards(numbers);
             ShuffleArray(); 
 
             for(int i = 0; i < Constants.gridCols; i++)
@@ -80,7 +86,7 @@ namespace BrutalCards
                     }
                     aiCardsToPick.Add(card);
                     int index = j * Constants.gridCols + i;
-                    int id = protectedData.memoryGameArray[index];
+                    int id = numbers[index];
                     card.ChangeSprite(id, images[id]);
 
                     float posX = (Constants.offsetX * i) + startPos.x;
@@ -92,18 +98,23 @@ namespace BrutalCards
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
 
-        private int[] ShuffleArray()
+        private List<byte> ShuffleArray()
         {
-            int[] numbers = protectedData.memoryGameArray;
-            int[] newArray = numbers.Clone() as int[];
-            for(int i = 0; i < newArray.Length; i++)
+            List<byte> newArray = new List <byte>();
+            newArray = protectedData.GetMemoryCards();
+            for(int i = 0; i < newArray.Count; i++)
             {
+<<<<<<< HEAD
                 int tmp = newArray[i];
                 int r = UnityEngine.Random.Range(i, newArray.Length);
+=======
+                byte tmp = newArray[i];
+                int r = Random.Range(i, newArray.Count);
+>>>>>>> parent of 4f80d82 (Revert "Revert "Revert "making secure data, broken currently""")
                 newArray[i] = newArray[r];
                 newArray[r] = tmp;
             }
-            protectedData.memoryGameArray = newArray;
+            protectedData.SetMemoryCards(newArray);
             return newArray;
         }
 
@@ -160,17 +171,42 @@ namespace BrutalCards
 
         public void AiCardpick()
         {
+<<<<<<< HEAD
             int r = UnityEngine.Random.Range(0, aiCardsToPick.Count);
             int t = UnityEngine.Random.Range(0, aiCardsToPick.Count);
+=======
+            Debug.Log("here");
+            int r = Random.Range(0, aiCardsToPick.Count);
+            int t = Random.Range(0, aiCardsToPick.Count);
+>>>>>>> parent of 4f80d82 (Revert "Revert "Revert "making secure data, broken currently""")
             while (r == t)
             {
                 t = UnityEngine.Random.Range(0, aiCardsToPick.Count);
             }
-            CardRevealed(aiCardsToPick[r]);
+            memoryCards.AiClicking(aiCardsToPick[r]);
 
             
         }
 
+<<<<<<< HEAD
+=======
+        public void OnMouseDown()
+        {
+            
+        }
+
+        public bool CheckingMatch()
+        {
+            if(_firstRevealed.id == _secondRevealed.id) 
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+>>>>>>> parent of 4f80d82 (Revert "Revert "Revert "making secure data, broken currently""")
 
         public IEnumerator CheckMatch()
         {
