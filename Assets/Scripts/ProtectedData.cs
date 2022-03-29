@@ -18,7 +18,8 @@ namespace BrutalCards
         List<byte> poolOfCards = new List<byte>();
         [SerializeField]
         List<byte> player1Cards = new List<byte>();
-        
+        [SerializeField]
+        List<byte> gameMemoryArray = new List<byte>();
         [SerializeField]
         List<byte> player2Cards = new List<byte>();
         [SerializeField]
@@ -36,8 +37,6 @@ namespace BrutalCards
         [SerializeField]
         int selectedRank;
         
-        [SerializeField]
-        List<byte> memoryGameArray = new List<byte>();
 
         byte[] encryptionKey;
         byte[] safeData;
@@ -59,8 +58,6 @@ namespace BrutalCards
             Encrypt();
         }
 
-        
-
         public List<byte> GetPoolOfCards()
         {
             List<byte> result;
@@ -70,21 +67,22 @@ namespace BrutalCards
             return result;
         }
 
-        public void SetMemoryCards(List<byte> cardValues)
-        {
-            Decrypt();
-            memoryGameArray = cardValues;
-            Encrypt();
-        }
-
         public List<byte> GetMemoryCards()
         {
             List<byte> result;
             Decrypt();
-            result = memoryGameArray;
+            result = gameMemoryArray;
             Encrypt();
             return result;
         }
+
+        public void SetMemoryCards(List<byte> cardValues)
+        {
+            Decrypt();
+            gameMemoryArray = cardValues;
+            Encrypt();
+        }
+
         public List<byte> PlayerCards(Player player)
         {
             List<byte> result;
@@ -285,9 +283,6 @@ namespace BrutalCards
             message.Push((Byte)poolOfCards.Count);
             message.PushByteArray(poolOfCards.ToArray());
 
-            message.Push((Byte)memoryGameArray.Count);
-            message.PushByteArray(memoryGameArray.ToArray());
-
             message.Push((Byte)player1Cards.Count);
             message.PushByteArray(player1Cards.ToArray());
 
@@ -311,7 +306,6 @@ namespace BrutalCards
             safeData = AES.EncryptAES128(message.ToArray(), encryptionKey);
 
             poolOfCards = new List<byte>();
-            memoryGameArray = new List<byte>();
             player1Cards = new List<byte>();
             player2Cards = new List<byte>();
             booksForPlayer1 = new List<byte>();
@@ -330,9 +324,6 @@ namespace BrutalCards
             SWNetworkMessage message = new SWNetworkMessage(byteArray);
             byte poolOfCardsCount = message.PopByte();
             poolOfCards = message.PopByteArray(poolOfCardsCount).ToList();
-
-            byte memoryGameArray = message.PopByte();
-            poolOfCards = message.PopByteArray(memoryGameArray).ToList();
 
             byte player1CardsCount = message.PopByte();
             player1Cards = message.PopByteArray(player1CardsCount).ToList();

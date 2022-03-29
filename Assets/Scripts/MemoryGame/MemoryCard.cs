@@ -32,12 +32,7 @@ namespace BrutalCards{
         public void AiClicking(MemoryCard card)
         {
             Card_Back.SetActive(false);
-<<<<<<< HEAD
             controller.CardRevealed(this);
-=======
-            controller.CardRevealed(card);
-            Debug.Log("here");
->>>>>>> parent of 4f80d82 (Revert "Revert "Revert "making secure data, broken currently""")
         }
 
         private int _id;

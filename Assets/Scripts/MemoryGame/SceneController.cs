@@ -104,13 +104,8 @@ namespace BrutalCards
             newArray = protectedData.GetMemoryCards();
             for(int i = 0; i < newArray.Count; i++)
             {
-<<<<<<< HEAD
-                int tmp = newArray[i];
-                int r = UnityEngine.Random.Range(i, newArray.Length);
-=======
                 byte tmp = newArray[i];
-                int r = Random.Range(i, newArray.Count);
->>>>>>> parent of 4f80d82 (Revert "Revert "Revert "making secure data, broken currently""")
+                int r = UnityEngine.Random.Range(i, newArray.Count);
                 newArray[i] = newArray[r];
                 newArray[r] = tmp;
             }
@@ -171,14 +166,8 @@ namespace BrutalCards
 
         public void AiCardpick()
         {
-<<<<<<< HEAD
             int r = UnityEngine.Random.Range(0, aiCardsToPick.Count);
             int t = UnityEngine.Random.Range(0, aiCardsToPick.Count);
-=======
-            Debug.Log("here");
-            int r = Random.Range(0, aiCardsToPick.Count);
-            int t = Random.Range(0, aiCardsToPick.Count);
->>>>>>> parent of 4f80d82 (Revert "Revert "Revert "making secure data, broken currently""")
             while (r == t)
             {
                 t = UnityEngine.Random.Range(0, aiCardsToPick.Count);
@@ -188,25 +177,6 @@ namespace BrutalCards
             
         }
 
-<<<<<<< HEAD
-=======
-        public void OnMouseDown()
-        {
-            
-        }
-
-        public bool CheckingMatch()
-        {
-            if(_firstRevealed.id == _secondRevealed.id) 
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
->>>>>>> parent of 4f80d82 (Revert "Revert "Revert "making secure data, broken currently""")
 
         public IEnumerator CheckMatch()
         {
