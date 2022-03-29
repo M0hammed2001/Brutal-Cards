@@ -63,6 +63,7 @@ namespace BrutalCards
 
         protected override void OnGameStarted()
         {
+            HideAllPopover();
             SetLocal(localPlayer.PlayerName);
             SetRemote(remotePlayer.PlayerName);
             if (NetworkClient.Instance.IsHost)
@@ -302,6 +303,12 @@ namespace BrutalCards
 
             netCode.ModifyGameData(gameDataManager.EncryptedData());
             netCode.NotifyOtherPlayersGameStateChanged();
+        }
+        void HideAllPopover()
+        {
+            PopoverBackground.SetActive(false);
+            OptionsPopover.SetActive(false);
+            RulesPopover.SetActive(false);
         }
 
         public void OnLeftRoom()
