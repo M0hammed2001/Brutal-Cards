@@ -902,6 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8db1cab50345a941882b7fa052f3f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneController: {fileID: 609188019}
   localPlayer:
     PlayerId: 
     PlayerName: 
