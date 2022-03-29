@@ -46,10 +46,14 @@ namespace BrutalCards
     
 
         public virtual void GameFlow(){
+            Debug.Log("running part 1");
+            Debug.Log("Scene Controller SCORE: "+ sceneController.bot_score);
             if (gameState > GameState.GameStarted)
             {
-                if ( sceneController.bot_score >= 7)
+                Debug.Log("running part 2");
+                if (sceneController.bot_score >= 7)
                 {
+                    Debug.Log("running part 3");
                     gameState = GameState.GameFinished;
                 }
                 else if(sceneController.player_score >= 7)
@@ -61,7 +65,7 @@ namespace BrutalCards
             {
                 gameState = GameState.GameStarted;
             }
-
+            Debug.Log("GameState: " + gameState);
             switch (gameState)
             {
                 case GameState.Idle:
@@ -108,6 +112,7 @@ namespace BrutalCards
         {
 
             gameState = GameState.TurnStarted;
+            Debug.Log("onGameStarted: " + gameState);
             GameFlow();
             
         }

@@ -112,8 +112,6 @@ namespace BrutalCards{
         [SerializeField] public TextMesh botScore;
         [SerializeField] public TextMesh playerScore;
         [SerializeField] public TextMesh playersTurn;
-
-
         public void SwitchTurn(){
             if (currentTurnPlayer == null)
             {
@@ -185,12 +183,12 @@ namespace BrutalCards{
                  if(currentTurnPlayer == localPlayer)
                 {
                     player_score++;
-                    playerScore.text = "Player Score: " + player_score;
+                    playerScore.text = ("Player Score: " + player_score);
                 }
                 else
                 {
                     bot_score++;
-                    botScore.text = "Bot Score: " + bot_score;
+                    botScore.text = ("Bot Score: " + bot_score);
                 }
             }
             else
