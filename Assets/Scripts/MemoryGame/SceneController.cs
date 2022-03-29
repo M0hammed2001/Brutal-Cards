@@ -106,14 +106,14 @@ namespace BrutalCards{
 
         private MemoryCard _firstRevealed;
         private MemoryCard _secondRevealed;
+        public bool checkingMatch;
 
         public int bot_score = 0;
         public int player_score = 0;
         [SerializeField] public TextMesh botScore;
         [SerializeField] public TextMesh playerScore;
         [SerializeField] public TextMesh playersTurn;
-
-
+        
         public void SwitchTurn(){
             if (currentTurnPlayer == null)
             {
@@ -166,40 +166,32 @@ namespace BrutalCards{
             
         }
 
-        public bool CheckingMatch()
-        {
-            if(_firstRevealed.id == _secondRevealed.id) 
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         public IEnumerator CheckMatch()
         {
             if(_firstRevealed.id == _secondRevealed.id)
             {
-                 if(currentTurnPlayer == localPlayer)
+                checkingMatch = true;
+                if(currentTurnPlayer == localPlayer)
                 {
                     player_score++;
-                    playerScore.text = "Player Score: " + player_score;
+                    playerScore.text = ("Player Score: " + player_score);
+                    
                 }
                 else
                 {
                     bot_score++;
-                    botScore.text = "Bot Score: " + bot_score;
+                    botScore.text = ("Bot Score: " + bot_score);
                 }
             }
             else
             {
                 yield return new WaitForSeconds(0.5f);
-
+                checkingMatch = false;
                 _firstRevealed.Unreveal();
                 _secondRevealed.Unreveal();
                 SwitchTurn();
+                
             }
 
             _firstRevealed = null;

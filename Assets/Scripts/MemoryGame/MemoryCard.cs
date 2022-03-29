@@ -23,6 +23,7 @@ namespace BrutalCards{
         public void AiClicking(MemoryCard card)
         {
             Card_Back.SetActive(false);
+            controller.CardRevealed(this);
         }
 
         private int _id;
