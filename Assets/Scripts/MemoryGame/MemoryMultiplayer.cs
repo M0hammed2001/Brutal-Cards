@@ -121,7 +121,7 @@ namespace BrutalCards
 
         protected override void OnCheckingPairs()
         {
-            if( sceneController.CheckingMatch() == true)
+            if( sceneController.checkingMatch == true)
             {
                 gameState = GameState.TurnSelectingCards;
             }
