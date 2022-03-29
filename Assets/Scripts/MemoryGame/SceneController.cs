@@ -12,13 +12,7 @@ namespace BrutalCards{
 
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
-
-        [SerializeField] List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
-        [SerializeField] List<byte> numbers = new List <byte>()
-        
-            { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
-        
-
+        [SerializeField]List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
         MemoryGame memoryGame;
         
         int randomNumber;
@@ -32,7 +26,6 @@ namespace BrutalCards{
 
         [SerializeField]
         ProtectedData protectedData;
-        MemoryCard memoryCards;
     
         public SceneController(Player local, Player remote, string roomId = "1234567890123455"){
             localPlayer = local;
@@ -62,7 +55,8 @@ namespace BrutalCards{
             Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
 
             SwitchTurn();
-            protectedData.SetMemoryCards(numbers);
+            int[] numbers =  { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
+            protectedData.memoryGameArray = numbers;
             ShuffleArray(); 
 
             for(int i = 0; i < Constants.gridCols; i++)
@@ -81,7 +75,7 @@ namespace BrutalCards{
                     }
                     aiCardsToPick.Add(card);
                     int index = j * Constants.gridCols + i;
-                    int id = numbers[index];
+                    int id = protectedData.memoryGameArray[index];
                     card.ChangeSprite(id, images[id]);
 
                     float posX = (Constants.offsetX * i) + startPos.x;
@@ -93,18 +87,18 @@ namespace BrutalCards{
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
 
-        private List<byte> ShuffleArray()
+        private int[] ShuffleArray()
         {
-            List<byte> newArray = new List <byte>();
-            newArray = protectedData.GetMemoryCards();
-            for(int i = 0; i < newArray.Count; i++)
+            int[] numbers = protectedData.memoryGameArray;
+            int[] newArray = numbers.Clone() as int[];
+            for(int i = 0; i < newArray.Length; i++)
             {
-                byte tmp = newArray[i];
-                int r = Random.Range(i, newArray.Count);
+                int tmp = newArray[i];
+                int r = Random.Range(i, newArray.Length);
                 newArray[i] = newArray[r];
                 newArray[r] = tmp;
             }
-            protectedData.SetMemoryCards(newArray);
+            protectedData.memoryGameArray = newArray;
             return newArray;
         }
 
@@ -161,20 +155,14 @@ namespace BrutalCards{
 
         public void AiCardpick()
         {
-            Debug.Log("here");
             int r = Random.Range(0, aiCardsToPick.Count);
             int t = Random.Range(0, aiCardsToPick.Count);
             while (r == t)
             {
                 t = Random.Range(0, aiCardsToPick.Count);
             }
-            memoryCards.AiClicking(aiCardsToPick[r]);
+            CardRevealed(aiCardsToPick[r]);
 
-            
-        }
-
-        public void OnMouseDown()
-        {
             
         }
 
