@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-namespace Leaderboard{
+namespace BrutalCards{
 public class MatchInfo : MonoBehaviour
 {
     public void AddToScore(string playerName, int score){
