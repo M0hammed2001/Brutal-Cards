@@ -34,11 +34,9 @@ namespace BrutalCards{
         ProtectedData protectedData;
         MemoryCard memoryCards;
     
-        public SceneController(Player local, Player remote, string roomId){
-            roomId = "1234567890123456";
+        public SceneController(Player local, Player remote, string roomId = "1234567890123455"){
             localPlayer = local;
             remotePlayer = remote;
-            Debug.Log("scene here");
             protectedData = new ProtectedData(localPlayer.PlayerId, remotePlayer.PlayerId, roomId);
         }
         
