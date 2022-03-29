@@ -274,6 +274,13 @@ namespace BrutalCards
         /// <summary>
         /// Practice button was clicked.
         /// </summary>
+        /// 
+
+        public void OnQuitClicked()
+        {
+            Debug.Log("OnQuitClicked");
+            Application.Quit();
+        }
         public void OnPracticeClicked()
         {
             FindObjectOfType<AudioManager>().Play("Creeky Door");
