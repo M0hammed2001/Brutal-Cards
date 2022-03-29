@@ -11,7 +11,7 @@ namespace BrutalCards
     public class MemoryGame : MonoBehaviour
     {
         [SerializeField]
-        SceneController sceneController;
+        public SceneController sceneController;
 
 
 

@@ -382,6 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e257ac11b64cf2044851a87a8eeaac89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneController: {fileID: 1001840393}
   localPlayer:
     PlayerId: 
     PlayerName: 
@@ -601,6 +602,7 @@ MonoBehaviour:
     currentGameState: 0
     selectedRank: 0
     memoryGameArray: 
+  checkingMatch: 0
   bot_score: 0
   player_score: 0
   botScore: {fileID: 1691454313}

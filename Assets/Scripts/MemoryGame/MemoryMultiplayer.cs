@@ -11,14 +11,6 @@ namespace BrutalCards
 
 
         NetCode netCode;
-        
-        GameDataManager gameDataManager;
-
-        SceneController sceneController;
-
-
-
-
 
         protected new void Awake()
         {
@@ -49,7 +41,7 @@ namespace BrutalCards
                         }
                     }
 
-                    gameDataManager = new GameDataManager(localPlayer, remotePlayer, NetworkClient.Lobby.RoomId);
+                    sceneController = new SceneController(localPlayer, remotePlayer, NetworkClient.Lobby.RoomId);
                     netCode.EnableRoomPropertyAgent();
                 }
                 else
@@ -78,7 +70,7 @@ namespace BrutalCards
             {
                 gameState = GameState.TurnStarted;
 
-                netCode.ModifyGameData(gameDataManager.EncryptedData());
+                netCode.ModifyGameData(sceneController.EncryptedData());
             }
 
         }
@@ -90,10 +82,10 @@ namespace BrutalCards
                 sceneController.SwitchTurn();
                 gameState = GameState.TurnSelectingCards;
 
-                gameDataManager.SetCurrentTurnPlayer(sceneController.currentTurnPlayer);
+                sceneController.SetCurrentTurnPlayer(sceneController.currentTurnPlayer);
                 SetGameState(gameState);
 
-                netCode.ModifyGameData(gameDataManager.EncryptedData());
+                netCode.ModifyGameData(sceneController.EncryptedData());
                 netCode.NotifyOtherPlayersGameStateChanged();
             }
         }
@@ -114,7 +106,7 @@ namespace BrutalCards
                 gameState = GameState.CheckingPairs;
                 SetGameState(gameState);
 
-                netCode.ModifyGameData(gameDataManager.EncryptedData());
+                netCode.ModifyGameData(sceneController.EncryptedData());
                 netCode.NotifyOtherPlayersGameStateChanged();
             }
         }
@@ -131,7 +123,7 @@ namespace BrutalCards
                 gameState = GameState.TurnSelectingCards;
             }
 
-            netCode.ModifyGameData(gameDataManager.EncryptedData());
+            netCode.ModifyGameData(sceneController.EncryptedData());
             netCode.NotifyOtherPlayersGameStateChanged();
         }
 
@@ -147,16 +139,16 @@ namespace BrutalCards
                     gameState = GameState.GameStarted;
                     SetGameState(gameState);
 
-                    netCode.ModifyGameData(gameDataManager.EncryptedData());
+                    netCode.ModifyGameData(sceneController.EncryptedData());
 
                     netCode.NotifyOtherPlayersGameStateChanged();
                 }
             }
             else
             {
-                gameDataManager.ApplyEncrptedData(encryptedData);
+                sceneController.ApplyEncrptedData(encryptedData);
                 gameState = GetGameState();
-                sceneController.currentTurnPlayer = gameDataManager.GetCurrentTurnPlayer();
+                sceneController.currentTurnPlayer = sceneController.GetCurrentTurnPlayer();
 
                 if(gameState > GameState.GameStarted)
                 {
@@ -169,9 +161,9 @@ namespace BrutalCards
 
         public void OnGameDataChanged(EncryptedData encryptedData)
         {
-            gameDataManager.ApplyEncrptedData(encryptedData);
+            sceneController.ApplyEncrptedData(encryptedData);
             gameState = GetGameState();
-            sceneController.currentTurnPlayer = gameDataManager.GetCurrentTurnPlayer();
+            sceneController.currentTurnPlayer = sceneController.GetCurrentTurnPlayer();
         }
     
         public void OnGameStateChanged()

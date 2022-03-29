@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System;
+using System.Linq;
 
 
-namespace BrutalCards{
+
+namespace BrutalCards
+{
 
     public class SceneController : MonoBehaviour {
 
+        EncryptedData encryptedData;
 
 
         [SerializeField] private MemoryCard originalCard;
@@ -94,7 +99,7 @@ namespace BrutalCards{
             for(int i = 0; i < newArray.Length; i++)
             {
                 int tmp = newArray[i];
-                int r = Random.Range(i, newArray.Length);
+                int r = UnityEngine.Random.Range(i, newArray.Length);
                 newArray[i] = newArray[r];
                 newArray[r] = tmp;
             }
@@ -155,11 +160,11 @@ namespace BrutalCards{
 
         public void AiCardpick()
         {
-            int r = Random.Range(0, aiCardsToPick.Count);
-            int t = Random.Range(0, aiCardsToPick.Count);
+            int r = UnityEngine.Random.Range(0, aiCardsToPick.Count);
+            int t = UnityEngine.Random.Range(0, aiCardsToPick.Count);
             while (r == t)
             {
-                t = Random.Range(0, aiCardsToPick.Count);
+                t = UnityEngine.Random.Range(0, aiCardsToPick.Count);
             }
             CardRevealed(aiCardsToPick[r]);
 
@@ -197,6 +202,41 @@ namespace BrutalCards{
             _firstRevealed = null;
             _secondRevealed = null;
 
+        }
+        
+        public EncryptedData EncryptedData()
+        {
+            Byte[] data = protectedData.ToArray();
+
+            EncryptedData encryptedData = new EncryptedData();
+            encryptedData.data = data;
+
+            return encryptedData;
+        }
+
+        public void SetCurrentTurnPlayer(Player player){
+            protectedData.SetCurrentTurnPlayerId(player.PlayerId);
+        }
+
+        public Player GetCurrentTurnPlayer(){
+            string playerId = protectedData.GetCurrentTurnPlayerId();
+            if (localPlayer.PlayerId.Equals(playerId))
+            {
+                return localPlayer;
+            }
+            else
+            {
+                return remotePlayer;
+            }
+        }
+
+        public void ApplyEncrptedData(EncryptedData encryptedData){
+            if(encryptedData == null)
+            {
+                return;
+            }
+
+            protectedData.ApplyByteArray(encryptedData.data);
         }
 
     
