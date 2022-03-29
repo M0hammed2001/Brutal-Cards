@@ -52,6 +52,7 @@ namespace BrutalCards
         protected new void Start()
         {
             Debug.Log("Multiplayer Game Start");
+            HideAllPopover();
             
         }
 
