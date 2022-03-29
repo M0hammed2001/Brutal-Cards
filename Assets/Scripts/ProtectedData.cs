@@ -18,6 +18,7 @@ namespace BrutalCards
         List<byte> poolOfCards = new List<byte>();
         [SerializeField]
         List<byte> player1Cards = new List<byte>();
+        
         [SerializeField]
         List<byte> player2Cards = new List<byte>();
         [SerializeField]

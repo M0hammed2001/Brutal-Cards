@@ -45,6 +45,11 @@ namespace BrutalCards
             roomPropertyAgent.Modify(ENCRYPTED_DATA, encryptedData);
         }
 
+        public void ModifyGameDataMemory(EncryptedData encryptedData)
+        {
+            roomPropertyAgent.Modify(ENCRYPTED_DATA, encryptedData);
+        }
+
         public void NotifyOtherPlayersGameStateChanged()
         {
             roomRemoteEventAgent.Invoke(GAME_STATE_CHANGED);

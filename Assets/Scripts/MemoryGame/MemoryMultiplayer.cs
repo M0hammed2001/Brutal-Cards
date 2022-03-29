@@ -70,7 +70,7 @@ namespace BrutalCards
             {
                 gameState = GameState.TurnStarted;
 
-                netCode.ModifyGameData(sceneController.EncryptedData());
+                netCode.ModifyGameDataMemory(sceneController.EncryptedData());
             }
 
         }
