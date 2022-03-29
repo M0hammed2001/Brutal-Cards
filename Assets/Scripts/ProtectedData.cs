@@ -48,14 +48,14 @@ namespace BrutalCards
             currentTurnPlayerId = "";
             selectedRank = (int)Ranks.NoRanks;
             CalculateKey(roomId);
-            Encrypt();
+            
         }
 
         public void SetPoolOfCards(List<byte> cardValues)
         {
-            Decrypt();
+            
             poolOfCards = cardValues;
-            Encrypt();
+            
         }
 
         public List<byte> GetPoolOfCards()
@@ -86,7 +86,7 @@ namespace BrutalCards
         public List<byte> PlayerCards(Player player)
         {
             List<byte> result;
-            Decrypt();
+            
             if (player.PlayerId.Equals(player1Id))
             {
                 result = player1Cards;
@@ -95,14 +95,14 @@ namespace BrutalCards
             {
                 result = player2Cards;
             }
-            Encrypt();
+            
             return result;
         }
 
         public List<byte> PlayerBooks(Player player)
         {
             List<byte> result;
-            Decrypt();
+            
             if (player.PlayerId.Equals(player1Id))
             {
                 result = booksForPlayer1;
@@ -111,13 +111,13 @@ namespace BrutalCards
             {
                 result = booksForPlayer2;
             }
-            Encrypt();
+            
             return result;
         }
 
         public void AddCardValuesToPlayer(Player player, List<byte> cardValues)
         {
-            Decrypt();
+            
             if (player.PlayerId.Equals(player1Id))
             {
                 player1Cards.AddRange(cardValues);
@@ -128,12 +128,12 @@ namespace BrutalCards
                 player2Cards.AddRange(cardValues);
                 player2Cards.Sort();
             }
-            Encrypt();
+            
         }
 
         public void AddCardValueToPlayer(Player player, byte cardValue)
         {
-            Decrypt();
+            
             if (player.PlayerId.Equals(player1Id))
             {
                 player1Cards.Add(cardValue);
@@ -144,12 +144,12 @@ namespace BrutalCards
                 player2Cards.Add(cardValue);
                 player2Cards.Sort();
             }
-            Encrypt();
+            
         }
 
         public void RemoveCardValuesFromPlayer(Player player, List<byte> cardValuesToRemove)
         {
-            Decrypt();
+            
             if (player.PlayerId.Equals(player1Id))
             {
                 player1Cards.RemoveAll(cv => cardValuesToRemove.Contains(cv));
@@ -158,12 +158,12 @@ namespace BrutalCards
             {
                 player2Cards.RemoveAll(cv => cardValuesToRemove.Contains(cv));
             }
-            Encrypt();
+            
         }
 
         public void AddBooksForPlayer(Player player, Ranks ranks)
         {
-            Decrypt();
+            
             if (player.PlayerId.Equals(player1Id))
             {
                 booksForPlayer1.Add((byte)ranks);
@@ -172,13 +172,13 @@ namespace BrutalCards
             {
                 booksForPlayer2.Add((byte)ranks);
             }
-            Encrypt();
+            
         }
 
         public bool GameFinished()
         {
             bool result = false;
-            Decrypt();
+            
             if (poolOfCards.Count == 0)
             {
                 result = true;
@@ -193,7 +193,7 @@ namespace BrutalCards
             {
                 result = true;
             }
-            Encrypt();
+            
 
             return result;
         }
@@ -201,7 +201,7 @@ namespace BrutalCards
         public string WinnerPlayerId()
         {
             string result;
-            Decrypt();
+            
             if (booksForPlayer1.Count > booksForPlayer2.Count)
             {
                 result = player1Id;
@@ -210,54 +210,52 @@ namespace BrutalCards
             {
                 result = player2Id;
             }
-            Encrypt();
+            
             return result;
         }
 
         public void SetCurrentTurnPlayerId(string playerId)
         {
-            Decrypt();
+            
             currentTurnPlayerId = playerId;
-            Encrypt();
         }
 
         public string GetCurrentTurnPlayerId()
         {
             string result;
-            Decrypt();
+            
             result = currentTurnPlayerId;
-            Encrypt();
             return result;
         }
 
         public void SetGameState(int gameState)
         {
-            Decrypt();
+            
             currentGameState = gameState;
-            Encrypt();
+            
         }
         public int GetGameState()
         {
             int result;
-            Decrypt();
+            
             result = currentGameState;
-            Encrypt();
+            
             return result;
         }
 
         public void SetSelectedRank(int rank)
         {
-            Decrypt();
+            
             selectedRank = rank;
-            Encrypt();
+            
         }
 
         public int GetSelectedRank()
         {
             int result;
-            Decrypt();
+            
             result = selectedRank;
-            Encrypt();
+            
             return result;
         }
 
