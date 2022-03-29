@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using System.IO;
 using System.Security.Cryptography;
 
@@ -49,6 +50,8 @@ namespace BrutalCards
 
         internal static byte[] DecryptAES128(byte[] input, byte[] key)
         {
+            Debug.Log(input );
+            Debug.Log(key );
             if (input == null || input.Length <= 0)
                 throw new ArgumentNullException();
             if (key == null || key.Length <= 0)

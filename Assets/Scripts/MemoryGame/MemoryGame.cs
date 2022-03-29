@@ -11,7 +11,7 @@ namespace BrutalCards
     public class MemoryGame : MonoBehaviour
     {
         SceneController sceneController;
-
+        ProtectedData protectedData;
 
         public Player localPlayer;
         public Player remotePlayer;
@@ -32,7 +32,16 @@ namespace BrutalCards
 
         protected void Awake()
         {
+            Debug.Log("base awake");
+            localPlayer = new Player();
+            localPlayer.PlayerId = "offline-player";
+            localPlayer.PlayerName = "Player";
 
+            remotePlayer = new Player();
+            remotePlayer.PlayerId = "offline-bot";
+            remotePlayer.PlayerName = "Bot";
+            remotePlayer.IsAI = true;
+            sceneController = new SceneController(localPlayer, remotePlayer, "1234567890123456");
         }
 
         
@@ -40,8 +49,6 @@ namespace BrutalCards
         {
             gameState = GameState.GameStarted;
             GameFlow();
-
-            
 
         }
 
@@ -106,6 +113,8 @@ namespace BrutalCards
             }
         }
 
+        
+
         protected virtual void OnGameStarted()
         {
 
@@ -116,7 +125,6 @@ namespace BrutalCards
 
         protected virtual void OnTurnStarted()
         {
-            Debug.Log("hello4");
             sceneController.SwitchTurn();
             gameState = GameState.TurnSelectingCards;
             GameFlow();
@@ -135,6 +143,7 @@ namespace BrutalCards
                 sceneController.AiCardpick();
                 gameState = GameState.CheckingPairs;
             }
+            GameFlow();
         }
 
         protected virtual void OnCheckingPairs()
@@ -149,6 +158,7 @@ namespace BrutalCards
                 sceneController.SwitchTurn();
                 gameState = GameState.TurnSelectingCards;
             }
+            GameFlow();
         }
 
         protected virtual void OnGameFinished()

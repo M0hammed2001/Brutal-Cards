@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,6 +50,8 @@ namespace BrutalCards
             selectedRank = (int)Ranks.NoRanks;
             CalculateKey(roomId);
             Encrypt();
+            
+            Debug.Log(encryptionKey);
         }
 
         public void SetPoolOfCards(List<byte> cardValues)
@@ -272,10 +275,11 @@ namespace BrutalCards
             safeData = byteArray;
         }
 
-        void CalculateKey(string roomId)
+        public void CalculateKey(string roomId)
         {
             string roomIdSubString = roomId.Substring(0, 16);
             encryptionKey = Encoding.UTF8.GetBytes(roomIdSubString);
+            
         }
 
         void Encrypt()
@@ -324,6 +328,8 @@ namespace BrutalCards
 
         void Decrypt()
         {
+            Debug.Log(safeData + "sd");
+            Debug.Log(encryptionKey + "ek");
             byte[] byteArray = AES.DecryptAES128(safeData, encryptionKey);
 
             SWNetworkMessage message = new SWNetworkMessage(byteArray);
