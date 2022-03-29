@@ -41,8 +41,6 @@ namespace BrutalCards
             gameState = GameState.GameStarted;
             GameFlow();
 
-            
-
         }
 
     
