@@ -70,17 +70,17 @@ namespace BrutalCards
         public List<byte> GetMemoryCards()
         {
             List<byte> result;
-            Decrypt();
+            
             result = gameMemoryArray;
-            Encrypt();
+            
             return result;
         }
 
         public void SetMemoryCards(List<byte> cardValues)
         {
-            Decrypt();
+            
             gameMemoryArray = cardValues;
-            Encrypt();
+            
         }
 
         public List<byte> PlayerCards(Player player)
