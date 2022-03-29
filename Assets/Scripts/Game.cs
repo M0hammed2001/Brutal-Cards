@@ -85,6 +85,7 @@ namespace BrutalCards
             
             gameState = GameState.GameStarted;
             GameFlow();
+            HideAllPopover();
         }
 
         //****************** Game Flow *********************//
@@ -379,6 +380,12 @@ namespace BrutalCards
                 Debug.Log("KeyCode down: escape");
                 OnOptionsClicked();
             }   
+        }
+         void HideAllPopover()
+        {
+            PopoverBackground.SetActive(false);
+            OptionsPopover.SetActive(false);
+            RulesPopover.SetActive(false);
         }
 
         public void OnCancelClicked(){

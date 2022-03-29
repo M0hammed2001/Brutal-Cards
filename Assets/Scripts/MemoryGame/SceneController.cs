@@ -24,6 +24,7 @@ namespace BrutalCards{
         public GameObject OptionsPopover;
         public GameObject RulesPopover;
         public GameObject PopoverBackground;
+        
 
 
 
@@ -69,10 +70,25 @@ namespace BrutalCards{
             RulesPopover.SetActive(false);
             OptionsPopover.SetActive(true);
         }
+        public void ShowRulesPopover()
+        {
+            RulesPopover.SetActive(true);
+            OptionsPopover.SetActive(false);
+        }
+        public void OnRulesClicked()
+        {
+            Debug.Log("OnRulesClicked");
+            ShowRulesPopover();
+        }
         public void ShowOptionsPopover()
         {
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true);
+        }
+        public void OnCancelClicked(){
+            PopoverBackground.SetActive(false);
+            OptionsPopover.SetActive(false);
+
         }
         public void OnOptionsClicked()
         {
