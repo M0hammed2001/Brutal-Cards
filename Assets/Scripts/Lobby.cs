@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -25,7 +25,6 @@ namespace BrutalCards
         public GameObject LeaderboardPopover;
         public GameObject GamesPopover;
         public GameObject RulesPopover;
-        public GameObject LobbyButton;
         public GameObject WaitForOpponentPopover;
         public GameObject StartRoomButton;
         public GameObject MemoryFromHellButton;
@@ -36,7 +35,6 @@ namespace BrutalCards
         public GameObject Player2Portrait;
 
 
-        // SceneManager.LoadScene("GameScene");
 
         string nickname;
 
@@ -244,7 +242,7 @@ namespace BrutalCards
             {
                 if (connected)
                 {
-                    SceneManager.LoadScene("MemoryMultiplayer");
+                    SceneManager.LoadScene("DeadlyFishMultiplayer");
                 }
                 else
                 {
@@ -305,22 +303,11 @@ namespace BrutalCards
             Debug.Log("OnOnlineClicked");
             ShowEnterNicknamePopover();
         }
-
-        public void OnLevel2Clicked()
-        {
-            Debug.Log("OnLevel2Clicked");
-            ShowEnterNicknamePopover();
-        }
         
         public void OnOptionsClicked()
         {
             Debug.Log("OnOptionsClicked");
             ShowOptionsPopover();
-        }
-        public void OnLobbyClicked()
-        {
-            Debug.Log("OnLobbyClicked");
-            SceneManager.LoadScene("LobbyScene");
         }
         public void OnGamesClicked()
         {
@@ -369,7 +356,7 @@ namespace BrutalCards
             // players are ready to player now.
             if (Debugging)
             {
-                SceneManager.LoadScene("GameScene");
+                SceneManager.LoadScene("DeadlyFishMultiplayer");
             }
             else
             {
