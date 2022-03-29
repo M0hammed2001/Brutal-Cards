@@ -95,6 +95,13 @@ namespace BrutalCards{
             Debug.Log("OnOptionsClicked");
             ShowOptionsPopover();
         }
+        void HideAllPopover()
+        {
+            PopoverBackground.SetActive(false);
+            OptionsPopover.SetActive(false);
+            RulesPopover.SetActive(false);
+            
+        }
         
 
 
@@ -104,6 +111,7 @@ namespace BrutalCards{
             Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
 
             SwitchTurn();
+            HideAllPopover();
             int[] numbers =  { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
             protectedData.memoryGameArray = numbers;
             ShuffleArray(); 

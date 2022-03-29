@@ -109,15 +109,9 @@ namespace BrutalCards
         void HideAllPopover()
         {
             PopoverBackground.SetActive(false);
-            EnterNicknamePopover.SetActive(false);
-            WaitForOpponentPopover.SetActive(false);
             OptionsPopover.SetActive(false);
-            GamesPopover.SetActive(false);
-            LeaderboardPopover.SetActive(false);
             RulesPopover.SetActive(false);
-            StartRoomButton.SetActive(false);
-            Player1Portrait.SetActive(false);
-            Player2Portrait.SetActive(false);
+            
         }
         
 
