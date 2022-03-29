@@ -19,7 +19,7 @@ namespace BrutalCards
         [SerializeField]
         List<byte> player1Cards = new List<byte>();
         [SerializeField]
-        List<byte> gameMemoryArray = new List<byte>();
+        public List<byte> gameMemoryArray = new List<byte>();
         [SerializeField]
         List<byte> player2Cards = new List<byte>();
         [SerializeField]

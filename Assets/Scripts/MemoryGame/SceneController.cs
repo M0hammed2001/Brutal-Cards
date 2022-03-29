@@ -19,9 +19,7 @@ namespace BrutalCards
         [SerializeField] private Sprite[] images;
 
         [SerializeField] List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
-        [SerializeField] List<byte> numbers = new List <byte>()
         
-            { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
         
 
         MemoryGame memoryGame;
@@ -67,7 +65,9 @@ namespace BrutalCards
             Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
 
             SwitchTurn();
-            protectedData.SetMemoryCards(numbers);
+            byte[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
+            protectedData.gameMemoryArray.AddRange(numbers);
+            
             ShuffleArray(); 
 
             for(int i = 0; i < Constants.gridCols; i++)
@@ -85,9 +85,13 @@ namespace BrutalCards
                         card = Instantiate(originalCard) as MemoryCard;
                     }
                     aiCardsToPick.Add(card);
+                    
                     int index = j * Constants.gridCols + i;
+
                     int id = numbers[index];
+                    Debug.Log(index + " number 3");
                     card.ChangeSprite(id, images[id]);
+                    Debug.Log(index + " nuumber 4");
 
                     float posX = (Constants.offsetX * i) + startPos.x;
                     float posY = (Constants.offsetY * j) + startPos.y;
