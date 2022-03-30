@@ -86,7 +86,7 @@ namespace BrutalCards
             
             for(int v = 0; v < localMemoryArray.Count; v++)
             {
-                Debug.Log(localMemoryArray[v]);
+                Debug.Log("ntzrdnzgnnnnn  " + localMemoryArray[v]);
             }
             
             ShuffleArray(); 
