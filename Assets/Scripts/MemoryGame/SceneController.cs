@@ -65,7 +65,7 @@ namespace BrutalCards
             Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
 
             SwitchTurn();
-            byte[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
+            byte[] numbers = { 0, 0, 8, 1, 2, 7, 3, 3, 4, 4, 5, 5, 6, 6, 7, 2, 1, 8, 9, 9, 10, 11, 10, 11};
             protectedData.gameMemoryArray.AddRange(numbers);
             
             ShuffleArray(); 
@@ -102,23 +102,23 @@ namespace BrutalCards
 
         private List<byte> ShuffleArray()
         {
-            Debug.Log("SHUFFELINGGGGGGGGGGGGGGG");
             List<byte> newArray = new List <byte>();
-            Debug.Log("Getting memory cards");
             newArray = protectedData.GetMemoryCards();
-            Debug.Log("Got memory cards");
             for(int i = 0; i < newArray.Count; i++)
             {
-                Debug.Log("SHUFFELEDDDDDDDDDD");
                 byte tmp = newArray[i];
                 int r = UnityEngine.Random.Range(i, newArray.Count);
                 newArray[i] = newArray[r];
                 newArray[r] = tmp;
             }
-            Debug.Log("DEBUG FINISHED 1");
-            protectedData.SetMemoryCards(newArray);
+            Debug.Log(newArray);
+
+            foreach(var month in newArray)
+            {
+                Console.WriteLine(month);
+            }
+            protectedData.gameMemoryArray = newArray;
             return newArray;
-            Debug.Log("DEBUG FINISHED 2");
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------

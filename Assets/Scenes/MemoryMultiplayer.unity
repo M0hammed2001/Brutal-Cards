@@ -155,7 +155,7 @@ MonoBehaviour:
   OnGameDataReadyEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 770949231}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BrutalCards.MemoryMultiplayer, Assembly-CSharp
         m_MethodName: OnGameDataReady
         m_Mode: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   OnGameDataChangedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 770949231}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BrutalCards.MemoryMultiplayer, Assembly-CSharp
         m_MethodName: OnGameDataChanged
         m_Mode: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   OnGameStateChangedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 770949231}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BrutalCards.MemoryMultiplayer, Assembly-CSharp
         m_MethodName: OnGameStateChanged
         m_Mode: 1
@@ -230,7 +230,7 @@ MonoBehaviour:
   OnLeftRoom:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 770949231}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BrutalCards.MemoryMultiplayer, Assembly-CSharp
         m_MethodName: OnLeftRoom
         m_Mode: 1
@@ -593,6 +593,7 @@ MonoBehaviour:
   protectedData:
     poolOfCards: 
     player1Cards: 
+    gameMemoryArray: 
     player2Cards: 
     booksForPlayer1: 
     booksForPlayer2: 
@@ -601,7 +602,6 @@ MonoBehaviour:
     currentTurnPlayerId: 
     currentGameState: 0
     selectedRank: 0
-    memoryGameArray: 
   checkingMatch: 0
   bot_score: 0
   player_score: 0

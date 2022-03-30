@@ -53,7 +53,7 @@ namespace BrutalCards
             });
             gameState = GameState.GameStarted;
         }
-        protected void Start()
+        protected new void Start()
         {
             Debug.Log("Multiplayer Game Start");
             gameState = GameState.GameStarted;
