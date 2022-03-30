@@ -1547,13 +1547,6 @@ MonoBehaviour:
   OptionsPopover: {fileID: 955335446}
   RulesPopover: {fileID: 1930022498}
   PopoverBackground: {fileID: 1833411650}
-<<<<<<< Updated upstream
-=======
-  audioSource: {fileID: 230991048}
-  pick: {fileID: 8300000, guid: 5b2cc161ff2337046b259c8c56a714d6, type: 3}
-  collect: {fileID: 8300000, guid: 678fac172d30bd941a1641b90293f54c, type: 3}
-  wrong: {fileID: 8300000, guid: f4668da8d66c62749b7e7304f6c44f84, type: 3}
->>>>>>> Stashed changes
   currentTurnPlayer:
     PlayerId: 
     PlayerName: 
@@ -3004,7 +2997,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lobby
+  m_Text: Confirm
 --- !u!222 &1565875138
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3336,7 +3329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.80784315}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5803922}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

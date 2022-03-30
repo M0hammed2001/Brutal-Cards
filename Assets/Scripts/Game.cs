@@ -333,16 +333,12 @@ namespace BrutalCards
 
             if (books != null)
             {
-                audioSource.PlayOneShot(pick, 1f);
-                
                 foreach (var book in books)
                 {
-                    audioSource.PlayOneShot(collect, 1f);
                     player.ReceiveBook(book.Key, cardAnimator);
 
                     gameDataManager.RemoveCardValuesFromPlayer(player, book.Value);
                     gameDataManager.AddBooksForPlayer(player, book.Key);
-                    
                 }
             }
         }
