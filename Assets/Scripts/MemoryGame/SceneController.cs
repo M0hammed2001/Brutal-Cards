@@ -56,6 +56,8 @@ namespace BrutalCards
             remotePlayer.PlayerId = "offline-bot";
             remotePlayer.PlayerName = "Bot";
             remotePlayer.IsAI = true;
+            byte[] numbers = { 0, 0, 8, 1, 2, 7, 3, 3, 4, 4, 5, 5, 6, 6, 7, 2, 1, 8, 9, 9, 10, 11, 10, 11};
+            protectedData.gameMemoryArray.AddRange(numbers);
 
         }
 
