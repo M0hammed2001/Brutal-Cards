@@ -81,6 +81,7 @@ namespace BrutalCards
         public void Start()
         {
             Debug.Log("3");
+
             Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
             localMemoryArray = protectedData.gameMemoryArray;
             
@@ -105,7 +106,7 @@ namespace BrutalCards
                     aiCardsToPick.Add(card);
                     
                     index = j * Constants.gridCols + i;
-
+                    Debug.Log(index);
                     int id = localMemoryArray[index];
                     card.ChangeSprite(id, images[id]);
 

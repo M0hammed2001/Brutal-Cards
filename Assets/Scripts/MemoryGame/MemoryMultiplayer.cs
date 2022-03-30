@@ -61,7 +61,7 @@ namespace BrutalCards
         {
             if (NetworkClient.Instance.IsHost)
             {
-                protectedData.SetMemoryCards(sceneController.localMemoryArray);
+                sceneController.localMemoryArray = protectedData.GetMemoryCards();
             }
             netCode.ModifyGameDataMemory(sceneController.EncryptedData());
             netCode.OnEncryptedDataChanged();
