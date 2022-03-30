@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,19 +15,20 @@ namespace BrutalCards
     [Serializable]
     public class GameDataManager
     {
-        Player localPlayer;
-        Player remotePlayer;
+        public Player localPlayer;
+        public Player remotePlayer;
         Card topCard;
 
         [SerializeField]
         ProtectedData protectedData;
 
+        //this creates the local and remote player to be linked later on with the unique room ID
         public GameDataManager(Player local, Player remote, string roomId = "1234567890123456"){
             localPlayer = local;
             remotePlayer = remote;
             protectedData = new ProtectedData(localPlayer.PlayerId, remotePlayer.PlayerId, roomId);
         }
-
+        //this is the shuffles System that orders the card in a randomly throught the set positions of the screen per round. 
         public void Shuffle(){
             topCard = new Card();
             List<byte> cardValues = new List<byte>();

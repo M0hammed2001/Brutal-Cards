@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -23,13 +23,18 @@ namespace BrutalCards
         public GameObject EnterNicknamePopover;
         public GameObject OptionsPopover;
         public GameObject LeaderboardPopover;
+        public GameObject GamesPopover;
         public GameObject RulesPopover;
         public GameObject WaitForOpponentPopover;
         public GameObject StartRoomButton;
+        public GameObject MemoryFromHellButton;
+        public GameObject DeadlyFishButton;
         public InputField NicknameInputField;
 
         public GameObject Player1Portrait;
         public GameObject Player2Portrait;
+
+
 
         string nickname;
 
@@ -72,7 +77,11 @@ namespace BrutalCards
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true);
         }
-
+        public void ShowGamesPopover()
+        {
+            PopoverBackground.SetActive(true);
+            GamesPopover.SetActive(true);
+        }
         public void ShowRulesPopover()
         {
             RulesPopover.SetActive(true);
@@ -101,6 +110,7 @@ namespace BrutalCards
             EnterNicknamePopover.SetActive(false);
             WaitForOpponentPopover.SetActive(false);
             OptionsPopover.SetActive(false);
+            GamesPopover.SetActive(false);
             LeaderboardPopover.SetActive(false);
             RulesPopover.SetActive(false);
             StartRoomButton.SetActive(false);
@@ -232,7 +242,7 @@ namespace BrutalCards
             {
                 if (connected)
                 {
-                    SceneManager.LoadScene("MultiplayerGameScene");
+                    SceneManager.LoadScene("DeadlyFishMultiplayer");
                 }
                 else
                 {
@@ -264,11 +274,32 @@ namespace BrutalCards
         /// <summary>
         /// Practice button was clicked.
         /// </summary>
+        /// 
+
+        public void OnQuitClicked()
+        {
+            Debug.Log("OnQuitClicked");
+            Application.Quit();
+        }
         public void OnPracticeClicked()
         {
             FindObjectOfType<AudioManager>().Play("Creeky Door");
             Debug.Log("OnPracticeClicked");
-            SceneManager.LoadScene("GameScene");
+            ShowGamesPopover();
+        }
+
+        public void OnDeadlyFishClicked()
+        {
+            FindObjectOfType<AudioManager>().Play("Creeky Door");
+            Debug.Log("OnDeadlyFishClicked");
+            SceneManager.LoadScene("DeadlyFish");
+        }
+
+        public void OnMemoryFromHellClicked()
+        {
+            FindObjectOfType<AudioManager>().Play("Creeky Door");
+            Debug.Log("OnMemoryFromHellClicked");
+            SceneManager.LoadScene("MemoryFromHell");
         }
 
         /// <summary>
@@ -284,6 +315,11 @@ namespace BrutalCards
         {
             Debug.Log("OnOptionsClicked");
             ShowOptionsPopover();
+        }
+        public void OnGamesClicked()
+        {
+            Debug.Log("OnOptionsClicked");
+            ShowGamesPopover();
         }
         public void OnLeaderboardClicked()
         {
@@ -327,7 +363,7 @@ namespace BrutalCards
             // players are ready to player now.
             if (Debugging)
             {
-                SceneManager.LoadScene("GameScene");
+                SceneManager.LoadScene("DeadlyFishMultiplayer");
             }
             else
             {

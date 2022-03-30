@@ -16,6 +16,10 @@ namespace BrutalCards
         public const float  CARD_ROTATION_SPEED = 8f;
         public const float  BOOK_MAX_RANDOM_ROTATION = 15f;
         public const byte   POOL_IS_EMPTY = 255;
+        public const int gridRows = 3;
+        public const int gridCols = 8;
+        public const float offsetX = 2.3f;
+        public const float offsetY = 3.3f;
     }
 
     public enum Suits
