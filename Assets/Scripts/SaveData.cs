@@ -28,5 +28,9 @@ public class LeaderboardData
 
     public string playerName;
     public int highscore = 0;
-
+    // not a list, needes to be stored in json in form of an array -- brutalwins
+    // to use references from other classes need to make the class to use static or 
+    // have to add to the scene or instanntiate it.
+    //from the readfromjson method, , (contents) does not need to be converted back to list. remoove .toList 
+    // use jsonhelper when saving list not jsonutility
     }
