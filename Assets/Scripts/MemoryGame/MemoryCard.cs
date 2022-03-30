@@ -13,18 +13,9 @@ namespace BrutalCards{
         {
             if(Card_Back.activeSelf && controller.canReveal)
             {
-                if(controller.currentTurnPlayer == controller.localPlayer)
-                {
-                    Card_Back.SetActive(false);
-                    controller.CardRevealed(this);
-                }  
                 
-                if(controller.currentTurnPlayer == controller.remotePlayer)
-                {
-                    controller.AiCardpick();
-                    Debug.Log("here");
-                }       
-
+                Card_Back.SetActive(false);
+                controller.CardRevealed(this);
             } 
             
         }

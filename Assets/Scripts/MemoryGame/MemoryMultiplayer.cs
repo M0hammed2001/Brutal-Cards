@@ -14,6 +14,7 @@ namespace BrutalCards
 
         protected new void Awake()
         {
+            Debug.Log("awake called");
             base.Awake();
             
             remotePlayer.IsAI = false;
@@ -50,10 +51,12 @@ namespace BrutalCards
                 }
 
             });
+            gameState = GameState.GameStarted;
         }
-        protected new void Start()
+        protected void Start()
         {
             Debug.Log("Multiplayer Game Start");
+            gameState = GameState.GameStarted;
             
         }
 
@@ -68,17 +71,20 @@ namespace BrutalCards
         {
             if (NetworkClient.Instance.IsHost)
             {
+                Debug.Log("ONGAMESTARTED NETWORK");
                 gameState = GameState.TurnStarted;
 
                 netCode.ModifyGameDataMemory(sceneController.EncryptedData());
             }
-
+            Debug.Log("ONGAMESTARTED NETWORK 2");
+            GameFlow();
         }
         
         protected override void OnTurnStarted()
         {
             if (NetworkClient.Instance.IsHost)
             {
+                Debug.Log("ONTURNSTARTED NETWORK");
                 sceneController.SwitchTurn();
                 gameState = GameState.TurnSelectingCards;
 
@@ -88,6 +94,7 @@ namespace BrutalCards
                 netCode.ModifyGameData(sceneController.EncryptedData());
                 netCode.NotifyOtherPlayersGameStateChanged();
             }
+            Debug.Log("ONTURNSTARTED NETWORK 2");
         }
 
         protected override void OnTurnSelectingCards()
@@ -103,12 +110,14 @@ namespace BrutalCards
 
             if (NetworkClient.Instance.IsHost)
             {
+                Debug.Log("ONTURNSELECTINGCARDS NETWORK");
                 gameState = GameState.CheckingPairs;
                 SetGameState(gameState);
 
                 netCode.ModifyGameData(sceneController.EncryptedData());
                 netCode.NotifyOtherPlayersGameStateChanged();
             }
+                Debug.Log("ONTURNSELECTINGCARDS NETWORK 2");
         }
 
         protected override void OnCheckingPairs()
@@ -134,8 +143,9 @@ namespace BrutalCards
             if(encryptedData == null)
             {
                 Debug.Log("New game");
-                if (NetworkClient.Instance.IsHost)
+                if (NetworkClient.Instance.IsHost==true)
                 {
+                    Debug.Log("ONGAMEDATAREADY NETWORK");
                     gameState = GameState.GameStarted;
                     SetGameState(gameState);
 
@@ -146,6 +156,7 @@ namespace BrutalCards
             }
             else
             {
+                Debug.Log("ONGAMEDATAREADY NETWORK 2");               
                 sceneController.ApplyEncrptedData(encryptedData);
                 gameState = GetGameState();
                 sceneController.currentTurnPlayer = sceneController.GetCurrentTurnPlayer();

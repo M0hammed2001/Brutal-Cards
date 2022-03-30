@@ -89,9 +89,7 @@ namespace BrutalCards
                     int index = j * Constants.gridCols + i;
 
                     int id = numbers[index];
-                    Debug.Log(index + " number 3");
                     card.ChangeSprite(id, images[id]);
-                    Debug.Log(index + " nuumber 4");
 
                     float posX = (Constants.offsetX * i) + startPos.x;
                     float posY = (Constants.offsetY * j) + startPos.y;
@@ -104,6 +102,7 @@ namespace BrutalCards
 
         private List<byte> ShuffleArray()
         {
+            Debug.Log("SHUFFELINGGGGGGGGGGGGGGG");
             List<byte> newArray = new List <byte>();
             newArray = protectedData.GetMemoryCards();
             for(int i = 0; i < newArray.Count; i++)
