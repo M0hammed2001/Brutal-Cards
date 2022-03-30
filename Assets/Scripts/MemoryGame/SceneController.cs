@@ -14,6 +14,7 @@ namespace BrutalCards
     public class SceneController : MonoBehaviour {
 
         EncryptedData encryptedData;
+        NetCode netCode;
         [SerializeField]
         public List<byte> localMemoryArray = new List<byte>();
 
@@ -60,14 +61,6 @@ namespace BrutalCards
             remotePlayer.PlayerId = "offline-bot";
             remotePlayer.PlayerName = "Bot";
             remotePlayer.IsAI = true;
-
-        }
-
-
-        public void Start()
-        {
-            Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
-
             SwitchTurn();
             if (NetworkClient.Instance.IsHost){
                 byte[] numbers = { 0, 0, 8, 1, 2, 7, 3, 3, 4, 4, 5, 5, 6, 6, 7, 2, 1, 8, 9, 9, 10, 11, 10, 11};
@@ -80,6 +73,16 @@ namespace BrutalCards
                 protectedData.gameMemoryArray.AddRange(numbers);
             }
             localMemoryArray = protectedData.gameMemoryArray;
+            netCode.OnEncryptedDataChanged();
+
+        }
+
+
+        public void Start()
+        {
+            Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
+
+            
             
             
             ShuffleArray(); 
