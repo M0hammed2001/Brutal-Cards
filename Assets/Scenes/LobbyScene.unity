@@ -1970,7 +1970,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 278.6931, y: 55}
+  m_SizeDelta: {x: 278.6931, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &513522600
 MonoBehaviour:
@@ -5203,7 +5203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 100.00003}
+  m_AnchoredPosition: {x: 0.000060907, y: 154}
   m_SizeDelta: {x: 250, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1068361416
@@ -6938,7 +6938,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 278.6931, y: 55}
+  m_SizeDelta: {x: 278.6931, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1712022555
 MonoBehaviour:
@@ -7736,7 +7736,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 278.6931, y: 55}
+  m_SizeDelta: {x: 278.6931, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1962523580
 MonoBehaviour:
@@ -8190,6 +8190,9 @@ MonoBehaviour:
   NicknameInputField: {fileID: 687732043}
   Player1Portrait: {fileID: 1212627169}
   Player2Portrait: {fileID: 171417969}
+  data:
+    playerName: 
+    highscore: 0
 --- !u!4 &2030719179
 Transform:
   m_ObjectHideFlags: 0

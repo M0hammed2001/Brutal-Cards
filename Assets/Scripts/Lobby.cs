@@ -34,6 +34,9 @@ namespace BrutalCards
         public GameObject Player1Portrait;
         public GameObject Player2Portrait;
 
+        [SerializeField]
+        public Data data;
+
 
 
         string nickname;
@@ -378,6 +381,8 @@ namespace BrutalCards
         public void OnConfirmNicknameClicked()
         {
             nickname = NicknameInputField.text;
+            // To have as input into brutalWins list tally using nickname as key to value
+            nickname = data.playerName;
             Debug.Log($"OnConfirmNicknameClicked: {nickname}");
 
             if (Debugging)
