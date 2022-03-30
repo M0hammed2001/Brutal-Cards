@@ -12,6 +12,8 @@ namespace BrutalCards
 
         NetCode netCode;
 
+        ProtectedData protectedData;
+
         protected new void Awake()
         {
             Debug.Log("awake called");
