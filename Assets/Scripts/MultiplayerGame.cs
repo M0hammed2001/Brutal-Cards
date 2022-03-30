@@ -52,7 +52,6 @@ namespace BrutalCards
         protected new void Start()
         {
             Debug.Log("Multiplayer Game Start");
-            HideAllPopover();
             
         }
 
@@ -64,7 +63,6 @@ namespace BrutalCards
 
         protected override void OnGameStarted()
         {
-            HideAllPopover();
             SetLocal(localPlayer.PlayerName);
             SetRemote(remotePlayer.PlayerName);
             if (NetworkClient.Instance.IsHost)
@@ -154,8 +152,7 @@ namespace BrutalCards
             }
         }
 
-        protected override void OnTurnDeadlyFish()
-        {
+        protected override void OnTurnDeadlyFish(){
             SetMessage($"Brutal Fish!");
 
             byte cardValue = gameDataManager.DrawCardValue();
@@ -304,12 +301,6 @@ namespace BrutalCards
 
             netCode.ModifyGameData(gameDataManager.EncryptedData());
             netCode.NotifyOtherPlayersGameStateChanged();
-        }
-        void HideAllPopover()
-        {
-            PopoverBackground.SetActive(false);
-            OptionsPopover.SetActive(false);
-            RulesPopover.SetActive(false);
         }
 
         public void OnLeftRoom()

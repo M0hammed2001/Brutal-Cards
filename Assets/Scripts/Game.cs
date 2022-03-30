@@ -10,10 +10,6 @@ namespace BrutalCards
 {
     public class Game : MonoBehaviour
     {
-
-         public AudioSource audioSource;
-        public AudioClip pick, collect;
-        
         public Text MessageText;
         public Text DrawnCard;
         public Text RemoteName;
@@ -23,9 +19,9 @@ namespace BrutalCards
 
         public GameObject PopoverBackground;
         public GameObject OptionsPopover;
-        public GameObject deadPopover;
-        public GameObject winnerPopover;
         public GameObject RulesPopover;
+        public AudioSource audioSource;
+        public AudioClip pick, collect, wrong;
 
         protected CardAnimator cardAnimator;
 
@@ -60,7 +56,7 @@ namespace BrutalCards
             TurnConfirmedSelectedNumber,
             TurnWaitingForOpponentConfirmation,
             TurnOpponentConfirmed,
-            TurnBrutalFish,
+            TurnDeadlyFish,
             GameFinished
         };
 
@@ -147,10 +143,10 @@ namespace BrutalCards
                         OnTurnOpponentConfirmed();
                         break;
                     }
-                case GameState.TurnBrutalFish:
+                case GameState.TurnDeadlyFish:
                     {
-                        Debug.Log("TurnBrutalFish");
-                        OnTurnBrutalFish();
+                        Debug.Log("TurnDeadlyFish");
+                        OnTurnDeadlyFish();
                         break;
                     }
                 case GameState.GameFinished:
@@ -230,7 +226,6 @@ namespace BrutalCards
             
             if (cardValuesFromTargetPlayer.Count > 0)
             {
-                audioSource.PlayOneShot(pick, 1f);
                 gameDataManager.AddCardValuesToPlayer(currentTurnPlayer, cardValuesFromTargetPlayer);
 
                 bool senderIsLocalPlayer = currentTurnTargetPlayer == localPlayer;
@@ -239,13 +234,13 @@ namespace BrutalCards
             }
             else
             {
-                gameState = GameState.TurnBrutalFish;
+                gameState = GameState.TurnDeadlyFish;
                 GameFlow();
             }
         }
 
-        protected virtual void OnTurnBrutalFish(){
-            SetMessage($"Brutal fish!");
+        protected virtual void OnTurnDeadlyFish(){
+            SetMessage($"Deadly Fish!");
 
             byte cardValue = gameDataManager.DrawCardValue();
 
@@ -255,7 +250,7 @@ namespace BrutalCards
                 return;
             }
 
-            if (Card.GetRank(cardValue) == selectedRank)
+           if (Card.GetRank(cardValue) == selectedRank)
             {
                 audioSource.PlayOneShot(pick, 1f);
                 cardAnimator.DrawDisplayingCard(currentTurnPlayer, cardValue);
@@ -276,13 +271,11 @@ namespace BrutalCards
         public void OnGameFinished(){
             if (gameDataManager.Winner() == localPlayer)
             {
-                SetMessage(winnerPopover.SetActive(true); );
-);
+                SetMessage($"You Survived!");
             }
             else
             {
-                SetMessage(deadPopover.SetActive(true); );
-);
+                SetMessage($"You Died");
             }
         }
         //****************** Helper Methods *********************//
@@ -339,7 +332,6 @@ namespace BrutalCards
 
             if (books != null)
             {
-                audioSource.PlayOneShot(collect, 1f);
                 foreach (var book in books)
                 {
                     player.ReceiveBook(book.Key, cardAnimator);
@@ -371,7 +363,6 @@ namespace BrutalCards
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true); 
         }
-        
 
         public void OnRulesClicked()
         {
@@ -407,14 +398,17 @@ namespace BrutalCards
                 {
                     if (selectedCard != null)
                     {
-                        audioSource.PlayOneShot(pick, 1f);
                         selectedCard.OnSelected(false);
                         selectedRank = 0;
                     }
                     
                     if (cardConfirm == card){
                         OnOkSelected();
+                        audioSource.PlayOneShot(pick, 1f);
+                        selectedCard.OnSelected(false);
+                        selectedRank = 0;
                         cardConfirm = null;
+
                     }
 
                     selectedCard = card;
