@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using System;
+using SWNetwork;
 using System.Linq;
 
 
@@ -13,6 +14,8 @@ namespace BrutalCards
     public class SceneController : MonoBehaviour {
 
         EncryptedData encryptedData;
+        [SerializeField]
+        public List<byte> localMemoryArray = new List<byte>();
 
 
         [SerializeField] private MemoryCard originalCard;
@@ -23,6 +26,7 @@ namespace BrutalCards
         
 
         MemoryGame memoryGame;
+        MemoryMultiplayer randomizer;
         
         int randomNumber;
 
@@ -65,11 +69,20 @@ namespace BrutalCards
             Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
 
             SwitchTurn();
-            byte[] numbers = { 0, 0, 8, 1, 2, 7, 3, 3, 4, 4, 5, 5, 6, 6, 7, 2, 1, 8, 9, 9, 10, 11, 10, 11};
+            if (NetworkClient.Instance.IsHost){
+                byte[] numbers = { 0, 0, 8, 1, 2, 7, 3, 3, 4, 4, 5, 5, 6, 6, 7, 2, 1, 8, 9, 9, 10, 11, 10, 11};
+                for (int i =0; i < numbers.Length; i++ ){
+                    byte tmp = numbers[i];
+                    int r = UnityEngine.Random.Range(i, numbers.Length);
+                    numbers[i]= numbers[r];
+                    numbers[r] = tmp;
+                }
+                protectedData.gameMemoryArray.AddRange(numbers);
+            }
+            localMemoryArray = protectedData.gameMemoryArray;
             
-            protectedData.gameMemoryArray.AddRange(numbers);
             
-            protectedData.gameMemoryArray = ShuffleArray(); 
+            ShuffleArray(); 
 
             for(int i = 0; i < Constants.gridCols; i++)
             {
@@ -89,7 +102,7 @@ namespace BrutalCards
                     
                     int index = j * Constants.gridCols + i;
 
-                    int id = numbers[index];
+                    int id = localMemoryArray[index];
                     card.ChangeSprite(id, images[id]);
 
                     float posX = (Constants.offsetX * i) + startPos.x;
@@ -97,7 +110,9 @@ namespace BrutalCards
                     card.transform.position = new Vector3(posX, posY, startPos.z);
                 }
             }
+            
         }
+
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
 
