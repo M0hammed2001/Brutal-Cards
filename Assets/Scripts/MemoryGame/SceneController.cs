@@ -24,6 +24,9 @@ namespace BrutalCards{
         public GameObject OptionsPopover;
         public GameObject RulesPopover;
         public GameObject PopoverBackground;
+        public AudioSource audioSource;
+        public AudioClip pick, collect, wrong;
+
         
 
 
@@ -239,6 +242,7 @@ namespace BrutalCards{
         {
             if(_firstRevealed.id == _secondRevealed.id)
             {
+                audioSource.PlayOneShot(collect, 1f);
                  if(currentTurnPlayer == localPlayer)
                 {
                     player_score++;
@@ -250,8 +254,9 @@ namespace BrutalCards{
                     botScore.text = "Bot Score: " + bot_score;
                 }
             }
-            else
+           else
             {
+                audioSource.PlayOneShot(wrong, 1f);
                 yield return new WaitForSeconds(0.5f);
 
                 _firstRevealed.Unreveal();
@@ -259,11 +264,7 @@ namespace BrutalCards{
                 SwitchTurn();
             }
 
-            _firstRevealed = null;
-            _secondRevealed = null;
 
         }
-
-    
     }
 }

@@ -2369,6 +2369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c482391915f4505bbedae3aa3f8313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 238835753}
+  pick: {fileID: 8300000, guid: 5b2cc161ff2337046b259c8c56a714d6, type: 3}
+  collect: {fileID: 8300000, guid: 678fac172d30bd941a1641b90293f54c, type: 3}
   MessageText: {fileID: 384545992}
   DrawnCard: {fileID: 685933798}
   RemoteName: {fileID: 1441900477}

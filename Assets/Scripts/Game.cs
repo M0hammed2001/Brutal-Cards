@@ -11,6 +11,10 @@ namespace BrutalCards
 {
     public class Game : MonoBehaviour
     {
+
+         public AudioSource audioSource;
+        public AudioClip pick, collect;
+        
         public Text MessageText;
         public Text DrawnCard;
         public Text RemoteName;
@@ -22,6 +26,8 @@ namespace BrutalCards
         public GameObject OptionsPopover;
         public GameObject RulesPopover;
         public GameObject LobbyButton;
+       
+
 
         protected CardAnimator cardAnimator;
 
@@ -227,6 +233,7 @@ namespace BrutalCards
             
             if (cardValuesFromTargetPlayer.Count > 0)
             {
+                audioSource.PlayOneShot(pick, 1f);
                 gameDataManager.AddCardValuesToPlayer(currentTurnPlayer, cardValuesFromTargetPlayer);
 
                 bool senderIsLocalPlayer = currentTurnTargetPlayer == localPlayer;
@@ -253,10 +260,12 @@ namespace BrutalCards
 
             if (Card.GetRank(cardValue) == selectedRank)
             {
+                audioSource.PlayOneShot(pick, 1f);
                 cardAnimator.DrawDisplayingCard(currentTurnPlayer, cardValue);
             }
             else
             {
+                audioSource.PlayOneShot(pick, 1f);
                 cardAnimator.DrawDisplayingCard(currentTurnPlayer);
                 gameState = GameState.TurnStarted;
             }
@@ -331,6 +340,7 @@ namespace BrutalCards
 
             if (books != null)
             {
+                audioSource.PlayOneShot(collect, 1f);
                 foreach (var book in books)
                 {
                     player.ReceiveBook(book.Key, cardAnimator);
@@ -408,6 +418,7 @@ namespace BrutalCards
                 {
                     if (selectedCard != null)
                     {
+                        audioSource.PlayOneShot(pick, 1f);
                         selectedCard.OnSelected(false);
                         selectedRank = 0;
                     }
