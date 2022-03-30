@@ -155,7 +155,7 @@ MonoBehaviour:
   OnGameDataReadyEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 770949231}
         m_TargetAssemblyTypeName: BrutalCards.MemoryMultiplayer, Assembly-CSharp
         m_MethodName: OnGameDataReady
         m_Mode: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   OnGameDataChangedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 770949231}
         m_TargetAssemblyTypeName: BrutalCards.MemoryMultiplayer, Assembly-CSharp
         m_MethodName: OnGameDataChanged
         m_Mode: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   OnGameStateChangedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 770949231}
         m_TargetAssemblyTypeName: BrutalCards.MemoryMultiplayer, Assembly-CSharp
         m_MethodName: OnGameStateChanged
         m_Mode: 1
@@ -230,7 +230,7 @@ MonoBehaviour:
   OnLeftRoom:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 770949231}
         m_TargetAssemblyTypeName: BrutalCards.MemoryMultiplayer, Assembly-CSharp
         m_MethodName: OnLeftRoom
         m_Mode: 1
@@ -554,6 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f335a7342995a143a4923bc286dbdfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  localMemoryArray: 
   originalCard: {fileID: 974588997}
   images:
   - {fileID: 21300000, guid: 1301a89865d124628b97361947aadf50, type: 3}
