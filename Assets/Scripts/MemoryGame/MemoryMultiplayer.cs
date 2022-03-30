@@ -15,6 +15,7 @@ namespace BrutalCards
         protected new void Awake()
         {
             Debug.Log("awake called");
+            Debug.Log("1");
             base.Awake();
             
             remotePlayer.IsAI = false;
@@ -51,13 +52,18 @@ namespace BrutalCards
                 }
 
             });
-            gameState = GameState.GameStarted;
-            netCode.ModifyGameDataMemory(sceneController.EncryptedData());
-            netCode.OnEncryptedDataChanged();
+            
 
         }
         protected new void Start()
         {
+            if (NetworkClient.Instance.IsHost)
+            {
+                protectedData.SetMemoryCards(sceneController.localMemoryArray);
+            }
+            netCode.ModifyGameDataMemory(sceneController.EncryptedData());
+            netCode.OnEncryptedDataChanged();
+            Debug.Log("4");
             Debug.Log("Multiplayer Game Start");
             gameState = GameState.GameStarted;
             netCode.OnEncryptedDataChanged();
