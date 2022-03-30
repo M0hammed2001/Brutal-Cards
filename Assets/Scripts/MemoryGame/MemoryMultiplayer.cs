@@ -51,6 +51,19 @@ namespace BrutalCards
                 }
 
             });
+            if (NetworkClient.Instance.IsHost)
+            {
+                byte[] numbers = { 0, 0, 8, 1, 2, 7, 3, 3, 4, 4, 5, 5, 6, 6, 7, 2, 1, 8, 9, 9, 10, 11, 10, 11};
+                for (int i =0; i < numbers.Length; i++ ){
+                    byte tmp = numbers[i];
+                    int r = UnityEngine.Random.Range(i, numbers.Length);
+                    numbers[i]= numbers[r];
+                    numbers[r] = tmp;
+                }
+                protectedData.gameMemoryArray.AddRange(numbers);
+            }
+            
+            
             gameState = GameState.GameStarted;
         }
         protected new void Start()

@@ -12,6 +12,7 @@ namespace BrutalCards
     {
         [SerializeField]
         public SceneController sceneController;
+        public ProtectedData protectedData;
 
 
 

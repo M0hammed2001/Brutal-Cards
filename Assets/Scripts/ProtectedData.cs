@@ -76,6 +76,7 @@ namespace BrutalCards
             return result;
         }
 
+
         public void SetMemoryCards(List<byte> cardValues)
         {
             

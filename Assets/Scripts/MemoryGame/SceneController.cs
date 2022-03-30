@@ -56,8 +56,6 @@ namespace BrutalCards
             remotePlayer.PlayerId = "offline-bot";
             remotePlayer.PlayerName = "Bot";
             remotePlayer.IsAI = true;
-            byte[] numbers = { 0, 0, 8, 1, 2, 7, 3, 3, 4, 4, 5, 5, 6, 6, 7, 2, 1, 8, 9, 9, 10, 11, 10, 11};
-            protectedData.gameMemoryArray.AddRange(numbers);
 
         }
 
@@ -68,9 +66,10 @@ namespace BrutalCards
 
             SwitchTurn();
             byte[] numbers = { 0, 0, 8, 1, 2, 7, 3, 3, 4, 4, 5, 5, 6, 6, 7, 2, 1, 8, 9, 9, 10, 11, 10, 11};
+            
             protectedData.gameMemoryArray.AddRange(numbers);
             
-            ShuffleArray(); 
+            protectedData.gameMemoryArray = ShuffleArray(); 
 
             for(int i = 0; i < Constants.gridCols; i++)
             {
@@ -114,7 +113,6 @@ namespace BrutalCards
                 Debug.Log(newArray[i]);
                 newArray[r] = tmp;
             }
-            Debug.Log(newArray);
             protectedData.gameMemoryArray = newArray;
             return newArray;
         }
