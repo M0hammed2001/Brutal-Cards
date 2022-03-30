@@ -226,6 +226,7 @@ namespace BrutalCards
             
             if (cardValuesFromTargetPlayer.Count > 0)
             {
+                audioSource.PlayOneShot(pick, 1f);
                 gameDataManager.AddCardValuesToPlayer(currentTurnPlayer, cardValuesFromTargetPlayer);
 
                 bool senderIsLocalPlayer = currentTurnTargetPlayer == localPlayer;
