@@ -11,8 +11,6 @@ namespace BrutalCards
 
 
         NetCode netCode;
-        [SerializeField]
-        public List<byte> localGameArray = new List<byte>();
 
         protected new void Awake()
         {
@@ -55,7 +53,6 @@ namespace BrutalCards
             });
             if (NetworkClient.Instance.IsHost)
             {
-                Debug.Log("it works");
                 byte[] numbers = { 0, 0, 8, 1, 2, 7, 3, 3, 4, 4, 5, 5, 6, 6, 7, 2, 1, 8, 9, 9, 10, 11, 10, 11};
                 for (int i =0; i < numbers.Length; i++ ){
                     byte tmp = numbers[i];
@@ -64,10 +61,6 @@ namespace BrutalCards
                     numbers[r] = tmp;
                 }
                 protectedData.gameMemoryArray.AddRange(numbers);
-                for(int i = 0; i < protectedData.gameMemoryArray.Count; i++)
-                {
-                    Debug.Log(protectedData.gameMemoryArray[i]);
-                }
             }
             
             
@@ -77,7 +70,6 @@ namespace BrutalCards
         {
             Debug.Log("Multiplayer Game Start");
             gameState = GameState.GameStarted;
-            localGameArray = protectedData.gameMemoryArray;
             
         }
 
