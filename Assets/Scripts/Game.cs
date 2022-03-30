@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using System.Linq;
 using UnityEngine;
 using Unity;
@@ -24,10 +23,9 @@ namespace BrutalCards
 
         public GameObject PopoverBackground;
         public GameObject OptionsPopover;
+        public GameObject deadPopover;
+        public GameObject winnerPopover;
         public GameObject RulesPopover;
-        public GameObject LobbyButton;
-       
-
 
         protected CardAnimator cardAnimator;
 
@@ -62,7 +60,7 @@ namespace BrutalCards
             TurnConfirmedSelectedNumber,
             TurnWaitingForOpponentConfirmation,
             TurnOpponentConfirmed,
-            TurnDeadlyFish,
+            TurnBrutalFish,
             GameFinished
         };
 
@@ -91,7 +89,6 @@ namespace BrutalCards
             
             gameState = GameState.GameStarted;
             GameFlow();
-            HideAllPopover();
         }
 
         //****************** Game Flow *********************//
@@ -150,10 +147,10 @@ namespace BrutalCards
                         OnTurnOpponentConfirmed();
                         break;
                     }
-                case GameState.TurnDeadlyFish:
+                case GameState.TurnBrutalFish:
                     {
-                        Debug.Log("TurnDeadlyFish");
-                        OnTurnDeadlyFish();
+                        Debug.Log("TurnBrutalFish");
+                        OnTurnBrutalFish();
                         break;
                     }
                 case GameState.GameFinished:
@@ -242,13 +239,13 @@ namespace BrutalCards
             }
             else
             {
-                gameState = GameState.TurnDeadlyFish;
+                gameState = GameState.TurnBrutalFish;
                 GameFlow();
             }
         }
 
-        protected virtual void OnTurnDeadlyFish(){
-            SetMessage($"Deadly Fish!");
+        protected virtual void OnTurnBrutalFish(){
+            SetMessage($"Brutal fish!");
 
             byte cardValue = gameDataManager.DrawCardValue();
 
@@ -279,11 +276,13 @@ namespace BrutalCards
         public void OnGameFinished(){
             if (gameDataManager.Winner() == localPlayer)
             {
-                SetMessage($"You Survived!");
+                SetMessage(winnerPopover.SetActive(true); );
+);
             }
             else
             {
-                SetMessage($"You Died");
+                SetMessage(deadPopover.SetActive(true); );
+);
             }
         }
         //****************** Helper Methods *********************//
@@ -372,11 +371,7 @@ namespace BrutalCards
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true); 
         }
-         public void OnLobbyClicked()
-        {
-            Debug.Log("OnLobbyClicked");
-            SceneManager.LoadScene("LobbyScene");
-        }
+        
 
         public void OnRulesClicked()
         {
@@ -390,12 +385,6 @@ namespace BrutalCards
                 Debug.Log("KeyCode down: escape");
                 OnOptionsClicked();
             }   
-        }
-         void HideAllPopover()
-        {
-            PopoverBackground.SetActive(false);
-            OptionsPopover.SetActive(false);
-            RulesPopover.SetActive(false);
         }
 
         public void OnCancelClicked(){
