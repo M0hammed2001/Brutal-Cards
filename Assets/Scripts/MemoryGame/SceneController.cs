@@ -263,6 +263,7 @@ namespace BrutalCards{
             else
             {
                 _secondRevealed = card;
+                audioSource.PlayOneShot(pick, 1f);
                 StartCoroutine(CheckMatch());
                 audioSource.PlayOneShot(pick, 1f);
             }
