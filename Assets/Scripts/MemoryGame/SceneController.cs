@@ -104,16 +104,21 @@ namespace BrutalCards
         {
             Debug.Log("SHUFFELINGGGGGGGGGGGGGGG");
             List<byte> newArray = new List <byte>();
+            Debug.Log("Getting memory cards");
             newArray = protectedData.GetMemoryCards();
+            Debug.Log("Got memory cards");
             for(int i = 0; i < newArray.Count; i++)
             {
+                Debug.Log("SHUFFELEDDDDDDDDDD");
                 byte tmp = newArray[i];
                 int r = UnityEngine.Random.Range(i, newArray.Count);
                 newArray[i] = newArray[r];
                 newArray[r] = tmp;
             }
+            Debug.Log("DEBUG FINISHED 1");
             protectedData.SetMemoryCards(newArray);
             return newArray;
+            Debug.Log("DEBUG FINISHED 2");
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
