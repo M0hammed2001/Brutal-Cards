@@ -82,6 +82,40 @@ namespace BrutalCards
         {
             if (NetworkClient.Instance.IsHost)
             {
+                Vector3 startPos = sceneController.originalCard.transform.position; //position set for the first card. the others have been ofset from this position
+                sceneController.localMemoryArray = protectedData.gameMemoryArray;
+                Debug.Log("wvbrhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+                for(int v = 0; v < sceneController.localMemoryArray.Count; v++)
+                {
+                    Debug.Log("hwdhbvijefr" + sceneController.localMemoryArray[v]);
+                }
+            
+                int index = 0;
+                for(int i = 0; i < Constants.gridCols; i++)
+                {
+                    for(int j = 0; j < Constants.gridRows; j++)
+                    {
+                        MemoryCard card;
+
+                        if(i == 0 && j == 0)
+                        {
+                            card = sceneController.originalCard;
+                        }
+                        else
+                        {
+                            card = Instantiate(sceneController.originalCard) as MemoryCard;
+                        }
+                        
+
+                        index = j * Constants.gridCols + i;
+                        int id = sceneController.localMemoryArray[index];
+                        card.ChangeSprite(id, sceneController.images[id]);
+
+                        float posX = (Constants.offsetX * i) + startPos.x;
+                        float posY = (Constants.offsetY * j) + startPos.y;
+                        card.transform.position = new Vector3(posX, posY, startPos.z);
+                    }
+                }
                 Debug.Log("ONGAMESTARTED NETWORK");
                 gameState = GameState.TurnStarted;
 

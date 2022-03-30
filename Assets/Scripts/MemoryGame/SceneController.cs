@@ -19,8 +19,8 @@ namespace BrutalCards
         public List<byte> localMemoryArray = new List<byte>();
 
 
-        [SerializeField] private MemoryCard originalCard;
-        [SerializeField] private Sprite[] images;
+        [SerializeField] public MemoryCard originalCard;
+        [SerializeField] public Sprite[] images;
 
         [SerializeField] List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
         
@@ -81,42 +81,7 @@ namespace BrutalCards
         {
            
 
-            Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
-            localMemoryArray = protectedData.gameMemoryArray;
             
-            for(int v = 0; v < localMemoryArray.Count; v++)
-            {
-                Debug.Log(localMemoryArray[v]);
-            }
-            
-            ShuffleArray(); 
-            index = 0;
-            for(int i = 0; i < Constants.gridCols; i++)
-            {
-                for(int j = 0; j < Constants.gridRows; j++)
-                {
-                    MemoryCard card;
-
-                    if(i == 0 && j == 0)
-                    {
-                        card = originalCard;
-                    }
-                    else
-                    {
-                        card = Instantiate(originalCard) as MemoryCard;
-                    }
-                    aiCardsToPick.Add(card);
-                    
-                    index = j * Constants.gridCols + i;
-                    Debug.Log(index);
-                    int id = localMemoryArray[index];
-                    card.ChangeSprite(id, images[id]);
-
-                    float posX = (Constants.offsetX * i) + startPos.x;
-                    float posY = (Constants.offsetY * j) + startPos.y;
-                    card.transform.position = new Vector3(posX, posY, startPos.z);
-                }
-            }
             
         }
 
