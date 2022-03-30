@@ -30,6 +30,7 @@ namespace BrutalCards
         MemoryMultiplayer randomizer;
         
         int randomNumber;
+        int index;
 
         public Player localPlayer;
         public Player remotePlayer;
@@ -79,12 +80,12 @@ namespace BrutalCards
         public void Start()
         {
             Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
-
+            localMemoryArray = protectedData.gameMemoryArray;
             
             
             
             ShuffleArray(); 
-
+            index = 0;
             for(int i = 0; i < Constants.gridCols; i++)
             {
                 for(int j = 0; j < Constants.gridRows; j++)
@@ -101,7 +102,7 @@ namespace BrutalCards
                     }
                     aiCardsToPick.Add(card);
                     
-                    int index = j * Constants.gridCols + i;
+                    index = j * Constants.gridCols + i;
 
                     int id = localMemoryArray[index];
                     card.ChangeSprite(id, images[id]);
