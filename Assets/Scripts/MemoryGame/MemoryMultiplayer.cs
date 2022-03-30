@@ -52,12 +52,13 @@ namespace BrutalCards
 
             });
             gameState = GameState.GameStarted;
+
         }
         protected new void Start()
         {
             Debug.Log("Multiplayer Game Start");
             gameState = GameState.GameStarted;
-            
+            netCode.OnEncryptedDataChanged();
         }
 
         //****************** Game Flow *********************//

@@ -73,8 +73,6 @@ namespace BrutalCards
                 protectedData.gameMemoryArray.AddRange(numbers);
             }
             localMemoryArray = protectedData.gameMemoryArray;
-            netCode.OnEncryptedDataChanged();
-
         }
 
 
