@@ -85,7 +85,10 @@ namespace BrutalCards
             Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
             localMemoryArray = protectedData.gameMemoryArray;
             
-            
+            for(int v = 0; v < localMemoryArray.Count; v++)
+            {
+                Debug.Log(localMemoryArray[v]);
+            }
             
             ShuffleArray(); 
             index = 0;
