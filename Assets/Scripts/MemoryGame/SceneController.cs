@@ -14,24 +14,14 @@ namespace BrutalCards{
         public const float offsetY = 3.3f;
         public float x;
         public AudioSource audioSource;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of f5c3ef6 (Revert "Revert "munzir update"")
+
         public AudioClip pick, collect, wrong;
         
         public GameObject OptionsPopover;
         public GameObject PopoverBackground;
-<<<<<<< HEAD
-=======
-        public AudioClip pick;
->>>>>>> parent of aa6d9b0 (Updated sound)
-=======
-        public AudioClip pick;
->>>>>>> parent of aa6d9b0 (Updated sound)
-=======
->>>>>>> parent of f5c3ef6 (Revert "Revert "munzir update"")
+
+
+
 
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
