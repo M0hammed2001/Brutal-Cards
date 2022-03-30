@@ -52,6 +52,8 @@ namespace BrutalCards
 
             });
             gameState = GameState.GameStarted;
+            netCode.ModifyGameDataMemory(sceneController.EncryptedData());
+            netCode.OnEncryptedDataChanged();
 
         }
         protected new void Start()
