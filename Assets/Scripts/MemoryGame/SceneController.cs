@@ -54,7 +54,6 @@ namespace BrutalCards
         protected void Awake()
         {
             Debug.Log("base awake");
-            Debug.Log("2");
             localPlayer = new Player();
             localPlayer.PlayerId = "offline-player";
             localPlayer.PlayerName = "Player";
@@ -80,7 +79,7 @@ namespace BrutalCards
 
         public void Start()
         {
-            Debug.Log("3");
+           
 
             Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
             localMemoryArray = protectedData.gameMemoryArray;
@@ -133,7 +132,6 @@ namespace BrutalCards
                 byte tmp = newArray[i];
                 int r = UnityEngine.Random.Range(i, newArray.Count);
                 newArray[i] = newArray[r];
-                Debug.Log(newArray[i]);
                 newArray[r] = tmp;
             }
             protectedData.gameMemoryArray = newArray;
