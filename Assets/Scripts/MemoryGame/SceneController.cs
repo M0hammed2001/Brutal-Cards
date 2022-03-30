@@ -130,7 +130,6 @@ namespace BrutalCards
                 byte tmp = newArray[i];
                 int r = UnityEngine.Random.Range(i, newArray.Count);
                 newArray[i] = newArray[r];
-                Debug.Log(newArray[i]);
                 newArray[r] = tmp;
             }
             protectedData.gameMemoryArray = newArray;
