@@ -24,6 +24,9 @@ namespace BrutalCards{
         public GameObject OptionsPopover;
         public GameObject RulesPopover;
         public GameObject PopoverBackground;
+        public GameObject MultiRulePopover;
+        public GameObject MemoryRulesPopover;
+        public GameObject DeadlyFishRulesPopover;
         public AudioSource audioSource;
         public AudioClip pick, collect, wrong;
 
@@ -97,6 +100,24 @@ namespace BrutalCards{
         {
             Debug.Log("OnOptionsClicked");
             ShowOptionsPopover();
+        }
+        public void ShowMultiRulePopover()
+        {
+            MultiRulePopover.SetActive(true);
+            OptionsPopover.SetActive(false);
+        }
+        public void ShowDeadlyFishRulesPopover(){
+            DeadlyFishRulesPopover.SetActive(true);
+            OptionsPopover.SetActive(false);
+            MultiRulePopover.SetActive(false);
+            
+        }
+        public void ShowMemoryRulesPopover(){
+            MemoryRulesPopover.SetActive(true);
+            OptionsPopover.SetActive(false);
+            MultiRulePopover.SetActive(false);
+            
+
         }
         void HideAllPopover()
         {
