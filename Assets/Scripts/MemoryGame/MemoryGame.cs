@@ -115,7 +115,6 @@ namespace BrutalCards
 
         protected virtual void OnTurnStarted()
         {
-            Debug.Log("hello4");
             sceneController.SwitchTurn();
             gameState = GameState.TurnSelectingCards;
             GameFlow();
@@ -125,12 +124,10 @@ namespace BrutalCards
         {
             if (sceneController.currentTurnPlayer == sceneController.localPlayer)
             {
-                Debug.Log("2"); 
                 gameState = GameState.CheckingPairs;
             }
             else
-            {
-                Debug.Log("3");   
+            {  
                 sceneController.AiCardpick();
                 gameState = GameState.CheckingPairs;
             }
