@@ -9,7 +9,7 @@ namespace BrutalCards
 {
     /// <summary>
     /// Stores the important data of the game
-    /// We will encypt the fields in a multiplayer game.
+    /// with get/set functions for some of them
     /// </summary>
     [Serializable]
     public class ProtectedData
@@ -98,7 +98,7 @@ namespace BrutalCards
              
             return result;
         }
-
+        ////These functions retrience the values and changes them from the server for specific actions
         public void AddCardValuesToPlayer(Player player, List<byte> cardValues)
         {
              
