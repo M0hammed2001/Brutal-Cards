@@ -73,7 +73,7 @@ namespace BrutalCards
 
         public void Start()
         {
-           
+            Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
 
             SwitchTurn();
             ShuffleArray(); 
