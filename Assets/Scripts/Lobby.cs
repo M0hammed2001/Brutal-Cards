@@ -259,7 +259,7 @@ namespace BrutalCards
             {
                 if (connected)
                 {
-                    SceneManager.LoadScene("DeadlyFish");
+                    SceneManager.LoadScene("DeadlyFishMultiplayer");
                 }
                 else
                 {
