@@ -9,11 +9,12 @@ namespace BrutalCards{
     public class SceneController : MonoBehaviour {
 
 
-
+        [SerializeField] private MemoryGame memoryGame;
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
+
         [SerializeField]List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
-        MemoryGame memoryGame;
+        
         
         int randomNumber;
 
@@ -137,8 +138,7 @@ namespace BrutalCards{
             SwitchTurn();
             HideAllPopover();
             int[] numbers =  { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
-            protectedData.memoryGameArray = numbers;
-            ShuffleArray(); 
+            ShuffleArray(numbers); 
 
             for(int i = 0; i < Constants.gridCols; i++)
             {
@@ -168,10 +168,9 @@ namespace BrutalCards{
 
         
 
-        private int[] ShuffleArray()
+        private int[] ShuffleArray(int[] number)
         {
-            int[] numbers = protectedData.memoryGameArray;
-            int[] newArray = numbers.Clone() as int[];
+            int[] newArray = number;
             for(int i = 0; i < newArray.Length; i++)
             {
                 int tmp = newArray[i];

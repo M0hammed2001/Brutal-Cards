@@ -10,7 +10,9 @@ namespace BrutalCards
 {
     public class MemoryGame : MonoBehaviour
     {
+        [SerializeField]
         SceneController sceneController;
+
 
 
         public Player localPlayer;
@@ -108,14 +110,12 @@ namespace BrutalCards
         {
 
             gameState = GameState.TurnStarted;
-            Debug.Log("here" + gameState);
             GameFlow();
             
         }
 
         protected virtual void OnTurnStarted()
         {
-            Debug.Log("hello4");
             sceneController.SwitchTurn();
             gameState = GameState.TurnSelectingCards;
             GameFlow();
@@ -124,13 +124,11 @@ namespace BrutalCards
         protected virtual void OnTurnSelectingCards()
         {
             if (sceneController.currentTurnPlayer == sceneController.localPlayer)
-            {
-                Debug.Log("2"); 
+            { 
                 gameState = GameState.CheckingPairs;
             }
             else
-            {
-                Debug.Log("3");   
+            {  
                 sceneController.AiCardpick();
                 gameState = GameState.CheckingPairs;
             }
