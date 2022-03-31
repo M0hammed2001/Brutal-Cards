@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Unity;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -19,12 +18,8 @@ namespace BrutalCards
         Card cardConfirm = null;
 
         public GameObject PopoverBackground;
-        public GameObject MemoryRulesPopover;
-        public GameObject DeadlyFishRulesPopover;
         public GameObject OptionsPopover;
-        public GameObject MultiRulePopover;
-        public AudioSource audioSource;
-        public AudioClip pick, collect, wrong;
+        public GameObject RulesPopover;
 
         protected CardAnimator cardAnimator;
 
@@ -229,7 +224,6 @@ namespace BrutalCards
             
             if (cardValuesFromTargetPlayer.Count > 0)
             {
-                audioSource.PlayOneShot(pick, 1f);
                 gameDataManager.AddCardValuesToPlayer(currentTurnPlayer, cardValuesFromTargetPlayer);
 
                 bool senderIsLocalPlayer = currentTurnTargetPlayer == localPlayer;
@@ -254,14 +248,12 @@ namespace BrutalCards
                 return;
             }
 
-           if (Card.GetRank(cardValue) == selectedRank)
+            if (Card.GetRank(cardValue) == selectedRank)
             {
-                audioSource.PlayOneShot(pick, 1f);
                 cardAnimator.DrawDisplayingCard(currentTurnPlayer, cardValue);
             }
             else
             {
-                audioSource.PlayOneShot(pick, 1f);
                 cardAnimator.DrawDisplayingCard(currentTurnPlayer);
                 gameState = GameState.TurnStarted;
             }
@@ -367,40 +359,12 @@ namespace BrutalCards
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true); 
         }
-         public void OnLobbyClicked()
-        {
-            Debug.Log("OnLobbyClicked");
-            SceneManager.LoadScene("LobbyScene");
-        }
-        public void ShowMemoryRulesPopover(){
-            MemoryRulesPopover.SetActive(true);
-            OptionsPopover.SetActive(false);
-            MultiRulePopover.SetActive(false);
 
-        }
-
-        public void ShowDeadlyFishRulesPopover(){
-            DeadlyFishRulesPopover.SetActive(true);
-            OptionsPopover.SetActive(false);
-            MultiRulePopover.SetActive(false);
-        }
-        public void OnDeadlyRulesClicked()
-        {
-            Debug.Log("OnDeadlyRulesClicked");
-            ShowDeadlyFishRulesPopover();
-        }
-
-        public void OnMemoryRulesClicked()
-        {
-            Debug.Log("OnMemoryRulesClicked");
-            ShowMemoryRulesPopover();
-        }
-        
         public void OnRulesClicked()
         {
             Debug.Log("OnRulesClicked");
             OptionsPopover.SetActive(false);
-            MultiRulePopover.SetActive(true);
+            RulesPopover.SetActive(true);
         }
         
         void OnGUI(){
@@ -417,11 +381,8 @@ namespace BrutalCards
         }
 
         public void OnRulesCancelClicked(){
-            MultiRulePopover.SetActive(false);
-            MemoryRulesPopover.SetActive(false);
-            DeadlyFishRulesPopover.SetActive(false);
             OptionsPopover.SetActive(true);
-
+            RulesPopover.SetActive(false);
         }
 
 
@@ -439,11 +400,7 @@ namespace BrutalCards
                     
                     if (cardConfirm == card){
                         OnOkSelected();
-                        audioSource.PlayOneShot(pick, 1f);
-                        selectedCard.OnSelected(false);
-                        selectedRank = 0;
                         cardConfirm = null;
-
                     }
 
                     selectedCard = card;

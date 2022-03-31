@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MemoryMultiplayer.unity
     guid: a6e5ad890749b044c82763b3514861b0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Level2LobbyScene.unity
     guid: 00836c065d1353041a4a35cfaef7ce12
   m_configObjects: {}

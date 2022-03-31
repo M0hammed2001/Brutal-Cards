@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -20,13 +20,11 @@ namespace BrutalCards
         public bool playedOnce = false;
 
         public GameObject PopoverBackground;
-        public GameObject MemoryRulesPopover;
-        public GameObject DeadlyFishRulesPopover;
         public GameObject EnterNicknamePopover;
         public GameObject OptionsPopover;
         public GameObject LeaderboardPopover;
         public GameObject GamesPopover;
-        public GameObject MultiRulePopover;
+        public GameObject RulesPopover;
         public GameObject WaitForOpponentPopover;
         public GameObject StartRoomButton;
         public GameObject MemoryFromHellButton;
@@ -37,6 +35,7 @@ namespace BrutalCards
         public GameObject Player2Portrait;
 
 
+        // SceneManager.LoadScene("GameScene");
 
         string nickname;
 
@@ -84,23 +83,10 @@ namespace BrutalCards
             PopoverBackground.SetActive(true);
             GamesPopover.SetActive(true);
         }
-        public void ShowMultiRulePopover()
+        public void ShowRulesPopover()
         {
-            MultiRulePopover.SetActive(true);
+            RulesPopover.SetActive(true);
             OptionsPopover.SetActive(false);
-        }
-        public void ShowDeadlyFishRulesPopover(){
-            DeadlyFishRulesPopover.SetActive(true);
-            OptionsPopover.SetActive(false);
-            MultiRulePopover.SetActive(false);
-            GamesPopover.SetActive(false);
-        }
-        public void ShowMemoryRulesPopover(){
-            MemoryRulesPopover.SetActive(true);
-            OptionsPopover.SetActive(false);
-            MultiRulePopover.SetActive(false);
-            GamesPopover.SetActive(false);
-
         }
 
         void ShowJoinedRoomPopover()
@@ -127,9 +113,7 @@ namespace BrutalCards
             OptionsPopover.SetActive(false);
             GamesPopover.SetActive(false);
             LeaderboardPopover.SetActive(false);
-            MultiRulePopover.SetActive(false);
-            DeadlyFishRulesPopover.SetActive(false);
-            MemoryRulesPopover.SetActive(false);
+            RulesPopover.SetActive(false);
             StartRoomButton.SetActive(false);
             Player1Portrait.SetActive(false);
             Player2Portrait.SetActive(false);
@@ -259,7 +243,7 @@ namespace BrutalCards
             {
                 if (connected)
                 {
-                    SceneManager.LoadScene("DeadlyFishMultiplayer");
+                    SceneManager.LoadScene("MemoryMultiplayer");
                 }
                 else
                 {
@@ -291,13 +275,6 @@ namespace BrutalCards
         /// <summary>
         /// Practice button was clicked.
         /// </summary>
-        /// 
-
-        public void OnQuitClicked()
-        {
-            Debug.Log("OnQuitClicked");
-            Application.Quit();
-        }
         public void OnPracticeClicked()
         {
             FindObjectOfType<AudioManager>().Play("Creeky Door");
@@ -327,6 +304,12 @@ namespace BrutalCards
             Debug.Log("OnOnlineClicked");
             ShowEnterNicknamePopover();
         }
+
+        public void OnLevel2Clicked()
+        {
+            Debug.Log("OnLevel2Clicked");
+            ShowEnterNicknamePopover();
+        }
         
         public void OnOptionsClicked()
         {
@@ -344,21 +327,10 @@ namespace BrutalCards
             ShowLeaderboardPopover();
         }
         
-        public void OnMultiRulesClicked()
+        public void OnRulesClicked()
         {
-            Debug.Log("OnMultiRulesClicked");
-            ShowMultiRulePopover();
-        }
-        public void OnDeadlyRulesClicked()
-        {
-            Debug.Log("OnDeadlyRulesClicked");
-            ShowDeadlyFishRulesPopover();
-        }
-
-        public void OnMemoryRulesClicked()
-        {
-            Debug.Log("OnMemoryRulesClicked");
-            ShowMemoryRulesPopover();
+            Debug.Log("OnRulesClicked");
+            ShowRulesPopover();
         }
 
         /// <summary>
@@ -378,11 +350,8 @@ namespace BrutalCards
         }
 
         public void OnRulesCancelClicked(){
-            MultiRulePopover.SetActive(false);
-            MemoryRulesPopover.SetActive(false);
-            DeadlyFishRulesPopover.SetActive(false);
+            RulesPopover.SetActive(false);
             OptionsPopover.SetActive(true);
-
         }
 
         /// <summary>
@@ -394,7 +363,7 @@ namespace BrutalCards
             // players are ready to player now.
             if (Debugging)
             {
-                SceneManager.LoadScene("DeadlyFishMultiplayer");
+                SceneManager.LoadScene("GameScene");
             }
             else
             {

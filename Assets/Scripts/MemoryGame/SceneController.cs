@@ -2,36 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System;
+using SWNetwork;
+using System.Linq;
 
 
-namespace BrutalCards{
+
+namespace BrutalCards
+{
 
     public class SceneController : MonoBehaviour {
 
+        EncryptedData encryptedData;
+        NetCode netCode;
+        [SerializeField]
+        public List<byte> localMemoryArray = new List<byte>();
 
 
+        [SerializeField] public MemoryCard originalCard;
+        [SerializeField] public Sprite[] images;
+
+        [SerializeField] List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
+        
+        
+
+<<<<<<< HEAD
         [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
         [SerializeField]List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
         [SerializeField]MemoryGame memoryGame;
+=======
+        MemoryGame memoryGame;
+        MemoryMultiplayer randomizer;
+>>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
         
         int randomNumber;
+        int index;
 
         public Player localPlayer;
         public Player remotePlayer;
-
-        public GameObject LobbyButton;
-        public GameObject OptionsPopover;
-        public GameObject RulesPopover;
-        public GameObject PopoverBackground;
-        public GameObject MultiRulePopover;
-        public GameObject MemoryRulesPopover;
-        public GameObject DeadlyFishRulesPopover;
-        public AudioSource audioSource;
-        public AudioClip pick, collect, wrong;
-
-        
-
 
 
         [SerializeField]
@@ -39,6 +48,7 @@ namespace BrutalCards{
 
         [SerializeField]
         ProtectedData protectedData;
+        MemoryCard memoryCards;
     
         public SceneController(Player local, Player remote, string roomId = "1234567890123455"){
             localPlayer = local;
@@ -59,86 +69,41 @@ namespace BrutalCards{
             remotePlayer.PlayerId = "offline-bot";
             remotePlayer.PlayerName = "Bot";
             remotePlayer.IsAI = true;
-
+            SwitchTurn();
+            if (NetworkClient.Instance.IsHost){
+                byte[] numbers = { 0, 0, 8, 1, 2, 7, 3, 3, 4, 4, 5, 5, 6, 6, 7, 2, 1, 8, 9, 9, 10, 11, 10, 11};
+                for (int i =0; i < numbers.Length; i++ ){
+                    byte tmp = numbers[i];
+                    int r = UnityEngine.Random.Range(i, numbers.Length);
+                    numbers[i]= numbers[r];
+                    numbers[r] = tmp;
+                }
+                protectedData.gameMemoryArray.AddRange(numbers);
+            }
+            localMemoryArray = protectedData.gameMemoryArray;
         }
-         public void OnLobbyClicked()
-        {
-            Debug.Log("OnLobbyClicked");
-            SceneManager.LoadScene("LobbyScene");
-        }
-        void OnGUI(){
-            if (Input.GetKeyDown("escape")){
-                Debug.Log("KeyCode down: escape");
-                OnOptionsClicked();
-            }   
-        }
-        public void OnRulesCancelClicked(){
-            RulesPopover.SetActive(false);
-            OptionsPopover.SetActive(true);
-        }
-        public void ShowRulesPopover()
-        {
-            RulesPopover.SetActive(true);
-            OptionsPopover.SetActive(false);
-        }
-        public void OnRulesClicked()
-        {
-            Debug.Log("OnRulesClicked");
-            ShowRulesPopover();
-        }
-        public void ShowOptionsPopover()
-        {
-            PopoverBackground.SetActive(true);
-            OptionsPopover.SetActive(true);
-        }
-        public void OnCancelClicked(){
-            PopoverBackground.SetActive(false);
-            OptionsPopover.SetActive(false);
-
-        }
-        public void OnOptionsClicked()
-        {
-            Debug.Log("OnOptionsClicked");
-            ShowOptionsPopover();
-        }
-        public void ShowMultiRulePopover()
-        {
-            MultiRulePopover.SetActive(true);
-            OptionsPopover.SetActive(false);
-        }
-        public void ShowDeadlyFishRulesPopover(){
-            DeadlyFishRulesPopover.SetActive(true);
-            OptionsPopover.SetActive(false);
-            MultiRulePopover.SetActive(false);
-            
-        }
-        public void ShowMemoryRulesPopover(){
-            MemoryRulesPopover.SetActive(true);
-            OptionsPopover.SetActive(false);
-            MultiRulePopover.SetActive(false);
-            
-
-        }
-        void HideAllPopover()
-        {
-            PopoverBackground.SetActive(false);
-            OptionsPopover.SetActive(false);
-            RulesPopover.SetActive(false);
-            
-        }
-        
-
 
 
         public void Start()
         {
-            Vector3 startPos = originalCard.transform.position; //position set for the first card. the others have been ofset from this position
+           
 
+<<<<<<< HEAD
             SwitchTurn();
             HideAllPopover();
             int[] numbers =  { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
             ShuffleArray(numbers); 
 
+=======
+            
+            for(int v = 0; v < localMemoryArray.Count; v++)
+            {
+                Debug.Log("ntzrdnzgnnnnn  " + localMemoryArray[v]);
+            }
+            
+            ShuffleArray(); 
+            index = 0;
+>>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
             for(int i = 0; i < Constants.gridCols; i++)
             {
                 for(int j = 0; j < Constants.gridRows; j++)
@@ -154,8 +119,15 @@ namespace BrutalCards{
                         card = Instantiate(originalCard) as MemoryCard;
                     }
                     aiCardsToPick.Add(card);
+<<<<<<< HEAD
                     int index = j * Constants.gridCols + i;
                     int id = numbers[index];
+=======
+                    
+                    index = j * Constants.gridCols + i;
+                    Debug.Log(index);
+                    int id = localMemoryArray[index];
+>>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
                     card.ChangeSprite(id, images[id]);
 
                     float posX = (Constants.offsetX * i) + startPos.x;
@@ -163,35 +135,49 @@ namespace BrutalCards{
                     card.transform.position = new Vector3(posX, posY, startPos.z);
                 }
             }
+            
         }
 
-        
 
+<<<<<<< HEAD
         private int[] ShuffleArray(int[] number)
         {
             int[] newArray = number;
             for(int i = 0; i < newArray.Length; i++)
+=======
+        //-------------------------------------------------------------------------------------------------------------------------------------------
+
+        private List<byte> ShuffleArray()
+        {
+            List<byte> newArray = new List <byte>();
+            newArray = protectedData.GetMemoryCards();
+            for(int i = 0; i < newArray.Count; i++)
+>>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
             {
-                int tmp = newArray[i];
-                int r = Random.Range(i, newArray.Length);
+                byte tmp = newArray[i];
+                int r = UnityEngine.Random.Range(i, newArray.Count);
                 newArray[i] = newArray[r];
                 newArray[r] = tmp;
             }
+<<<<<<< HEAD
+=======
+            protectedData.gameMemoryArray = newArray;
+>>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
             return newArray;
         }
 
-       
+        //-------------------------------------------------------------------------------------------------------------------------------------------
 
         private MemoryCard _firstRevealed;
         private MemoryCard _secondRevealed;
+        public bool checkingMatch;
 
         public int bot_score = 0;
         public int player_score = 0;
         [SerializeField] public TextMesh botScore;
         [SerializeField] public TextMesh playerScore;
         [SerializeField] public TextMesh playersTurn;
-
-
+        
         public void SwitchTurn(){
             if (currentTurnPlayer == null)
             {
@@ -222,12 +208,10 @@ namespace BrutalCards{
         {
             if(_firstRevealed == null)
             {
-                audioSource.PlayOneShot(pick, 1f);
                 _firstRevealed = card;
             }
             else
             {
-                audioSource.PlayOneShot(pick, 1f);
                 _secondRevealed = card;
                 StartCoroutine(CheckMatch());
             }
@@ -235,64 +219,85 @@ namespace BrutalCards{
 
         public void AiCardpick()
         {
-            int r = Random.Range(0, aiCardsToPick.Count);
-            int t = Random.Range(0, aiCardsToPick.Count);
+            int r = UnityEngine.Random.Range(0, aiCardsToPick.Count);
+            int t = UnityEngine.Random.Range(0, aiCardsToPick.Count);
             while (r == t)
             {
-                t = Random.Range(0, aiCardsToPick.Count);
+                t = UnityEngine.Random.Range(0, aiCardsToPick.Count);
             }
-            CardRevealed(aiCardsToPick[r]);
+            memoryCards.AiClicking(aiCardsToPick[r]);
 
             
         }
 
-        public bool CheckingMatch()
-        {
-            if(_firstRevealed.id == _secondRevealed.id) 
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         public IEnumerator CheckMatch()
         {
             if(_firstRevealed.id == _secondRevealed.id)
             {
-                audioSource.PlayOneShot(collect, 1f);
-                 if(currentTurnPlayer == localPlayer)
+                checkingMatch = true;
+                if(currentTurnPlayer == localPlayer)
                 {
                     player_score++;
-                    playerScore.text = "Player Score: " + player_score;
+                    playerScore.text = ("Player Score: " + player_score);
+                    
                 }
                 else
                 {
                     bot_score++;
-                    botScore.text = "Bot Score: " + bot_score;
+                    botScore.text = ("Bot Score: " + bot_score);
                 }
             }
-           else
+            else
             {
-                audioSource.PlayOneShot(wrong, 1f);
                 yield return new WaitForSeconds(0.5f);
-
+                checkingMatch = false;
                 _firstRevealed.Unreveal();
                 _secondRevealed.Unreveal();
                 SwitchTurn();
-          }
+                
+            }
 
             _firstRevealed = null;
             _secondRevealed = null;
 
         }
+        
+        public EncryptedData EncryptedData()
+        {
+            Byte[] data = protectedData.ToArray();
 
-        // public void Restart()
-        // {
-        //     SceneManager.LoadScene("Scene_001");
-        // }
+            EncryptedData encryptedData = new EncryptedData();
+            encryptedData.data = data;
 
+            return encryptedData;
+        }
+
+        public void SetCurrentTurnPlayer(Player player){
+            protectedData.SetCurrentTurnPlayerId(player.PlayerId);
+        }
+
+        public Player GetCurrentTurnPlayer(){
+            string playerId = protectedData.GetCurrentTurnPlayerId();
+            if (localPlayer.PlayerId.Equals(playerId))
+            {
+                return localPlayer;
+            }
+            else
+            {
+                return remotePlayer;
+            }
+        }
+
+        public void ApplyEncrptedData(EncryptedData encryptedData){
+            if(encryptedData == null)
+            {
+                return;
+            }
+
+            protectedData.ApplyByteArray(encryptedData.data);
+        }
+
+    
     }
 }

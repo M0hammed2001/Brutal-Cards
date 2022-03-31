@@ -11,7 +11,12 @@ namespace BrutalCards
     public class MemoryGame : MonoBehaviour
     {
         [SerializeField]
+<<<<<<< HEAD
         SceneController sceneController;
+=======
+        public SceneController sceneController;
+
+>>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
 
 
         public Player localPlayer;
@@ -42,6 +47,8 @@ namespace BrutalCards
             gameState = GameState.GameStarted;
             GameFlow();
 
+            
+
         }
 
     
@@ -49,7 +56,7 @@ namespace BrutalCards
         public virtual void GameFlow(){
             if (gameState > GameState.GameStarted)
             {
-                if ( sceneController.bot_score >= 7)
+                if (sceneController.bot_score >= 7)
                 {
                     gameState = GameState.GameFinished;
                 }
@@ -62,7 +69,6 @@ namespace BrutalCards
             {
                 gameState = GameState.GameStarted;
             }
-
             switch (gameState)
             {
                 case GameState.Idle:
@@ -122,29 +128,36 @@ namespace BrutalCards
 
         protected virtual void OnTurnSelectingCards()
         {
-            if (sceneController.currentTurnPlayer == sceneController.localPlayer)
+            Debug.Log("this is called" + sceneController.localPlayer);
+            if (sceneController.currentTurnPlayer == sceneController.localPlayer )
             {
+<<<<<<< HEAD
+=======
+                
+>>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
                 gameState = GameState.CheckingPairs;
+                Debug.Log("this flows 1"  + gameState);
             }
             else
             {  
                 sceneController.AiCardpick();
                 gameState = GameState.CheckingPairs;
+                GameFlow();
             }
-            GameFlow();
         }
+        
 
         protected virtual void OnCheckingPairs()
         {
-            if( sceneController.CheckingMatch() == true)
+            if( sceneController.checkingMatch == true)
             {
-                gameState = GameState.TurnSelectingCards;
+                gameState = GameState.TurnStarted;
             }
             else
             {
-
-                sceneController.SwitchTurn();
-                gameState = GameState.TurnSelectingCards;
+                gameState = GameState.TurnStarted;
+                sceneController.SwitchTurn();    
+                Debug.Log("this flows 2" + gameState);
             }
             GameFlow();
         }
@@ -163,7 +176,29 @@ namespace BrutalCards
             {
                 
             }
+
         }
+<<<<<<< HEAD
+=======
+
+        public MemoryGame.GameState GetGameState()
+        {
+            return gameState;
+        }
+
+        public void SetGameState(MemoryGame.GameState gameStated)
+        {
+            gameState = gameStated;
+        }
+
+        public virtual void OnOkSelected()
+        {
+            GameFlow();
+        }
+
+
+        
+>>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
         
     }
     
