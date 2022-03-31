@@ -3,7 +3,19 @@ guid: 5f335a7342995a143a4923bc286dbdfc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - originalCard: {instanceID: 0}
+  - LobbyButton: {instanceID: 0}
+  - OptionsPopover: {instanceID: 0}
+  - RulesPopover: {instanceID: 0}
+  - PopoverBackground: {instanceID: 0}
+  - audioSource: {instanceID: 0}
+  - pick: {fileID: 8300000, guid: 5b2cc161ff2337046b259c8c56a714d6, type: 3}
+  - collect: {fileID: 8300000, guid: 678fac172d30bd941a1641b90293f54c, type: 3}
+  - wrong: {fileID: 8300000, guid: f4668da8d66c62749b7e7304f6c44f84, type: 3}
+  - botScore: {instanceID: 0}
+  - playerScore: {instanceID: 0}
+  - playersTurn: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

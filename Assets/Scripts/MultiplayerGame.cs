@@ -152,8 +152,7 @@ namespace BrutalCards
             }
         }
 
-        protected override void OnTurnDeadlyFish()
-        {
+        protected override void OnTurnDeadlyFish(){
             SetMessage($"Brutal Fish!");
 
             byte cardValue = gameDataManager.DrawCardValue();

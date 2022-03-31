@@ -3,7 +3,19 @@ guid: d6c482391915f4505bbedae3aa3f8313
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - audioSource: {instanceID: 0}
+  - pick: {fileID: 8300000, guid: 5b2cc161ff2337046b259c8c56a714d6, type: 3}
+  - collect: {fileID: 8300000, guid: 678fac172d30bd941a1641b90293f54c, type: 3}
+  - MessageText: {instanceID: 0}
+  - DrawnCard: {instanceID: 0}
+  - RemoteName: {instanceID: 0}
+  - LocalName: {instanceID: 0}
+  - PopoverBackground: {instanceID: 0}
+  - OptionsPopover: {instanceID: 0}
+  - RulesPopover: {instanceID: 0}
+  - LobbyButton: {instanceID: 0}
+  - selectedCard: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

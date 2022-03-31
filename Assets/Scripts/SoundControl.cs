@@ -17,7 +17,7 @@ public class SoundControl : MonoBehaviour
         }
         else
         {
-            Load();
+              Load();
         }
         
     }

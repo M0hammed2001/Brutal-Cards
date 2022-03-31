@@ -10,9 +10,7 @@ namespace BrutalCards
 {
     public class MemoryGame : MonoBehaviour
     {
-        [SerializeField]
-        public SceneController sceneController;
-
+        SceneController sceneController;
 
 
         public Player localPlayer;
@@ -43,8 +41,6 @@ namespace BrutalCards
             gameState = GameState.GameStarted;
             GameFlow();
 
-            
-
         }
 
     
@@ -52,7 +48,7 @@ namespace BrutalCards
         public virtual void GameFlow(){
             if (gameState > GameState.GameStarted)
             {
-                if (sceneController.bot_score >= 7)
+                if ( sceneController.bot_score >= 7)
                 {
                     gameState = GameState.GameFinished;
                 }
@@ -65,6 +61,7 @@ namespace BrutalCards
             {
                 gameState = GameState.GameStarted;
             }
+
             switch (gameState)
             {
                 case GameState.Idle:
@@ -111,12 +108,14 @@ namespace BrutalCards
         {
 
             gameState = GameState.TurnStarted;
+            Debug.Log("here" + gameState);
             GameFlow();
             
         }
 
         protected virtual void OnTurnStarted()
         {
+            Debug.Log("hello4");
             sceneController.SwitchTurn();
             gameState = GameState.TurnSelectingCards;
             GameFlow();
@@ -124,33 +123,31 @@ namespace BrutalCards
 
         protected virtual void OnTurnSelectingCards()
         {
-            Debug.Log("this is called" + sceneController.localPlayer);
-            if (sceneController.currentTurnPlayer == sceneController.localPlayer )
+            if (sceneController.currentTurnPlayer == sceneController.localPlayer)
             {
-                
+                Debug.Log("2"); 
                 gameState = GameState.CheckingPairs;
-                Debug.Log("this flows 1"  + gameState);
             }
             else
-            {  
+            {
+                Debug.Log("3");   
                 sceneController.AiCardpick();
                 gameState = GameState.CheckingPairs;
-                GameFlow();
             }
+            GameFlow();
         }
-        
 
         protected virtual void OnCheckingPairs()
         {
-            if( sceneController.checkingMatch == true)
+            if( sceneController.CheckingMatch() == true)
             {
-                gameState = GameState.TurnStarted;
+                gameState = GameState.TurnSelectingCards;
             }
             else
             {
-                gameState = GameState.TurnStarted;
-                sceneController.SwitchTurn();    
-                Debug.Log("this flows 2" + gameState);
+
+                sceneController.SwitchTurn();
+                gameState = GameState.TurnSelectingCards;
             }
             GameFlow();
         }
@@ -169,7 +166,6 @@ namespace BrutalCards
             {
                 
             }
-
         }
 
         public MemoryGame.GameState GetGameState()
@@ -182,13 +178,6 @@ namespace BrutalCards
             gameState = gameStated;
         }
 
-        public virtual void OnOkSelected()
-        {
-            GameFlow();
-        }
-
-
-        
         
     }
     
