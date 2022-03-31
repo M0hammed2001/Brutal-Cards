@@ -225,10 +225,12 @@ namespace BrutalCards{
         {
             if(_firstRevealed == null)
             {
+                audioSource.PlayOneShot(pick, 1f);
                 _firstRevealed = card;
             }
             else
             {
+                audioSource.PlayOneShot(pick, 1f);
                 _secondRevealed = card;
                 StartCoroutine(CheckMatch());
             }
