@@ -21,6 +21,7 @@ namespace BrutalCards
         public GameObject MemoryRulesPopover;
         public GameObject DeadlyFishRulesPopover;
         public GameObject OptionsPopover;
+        public GameObject WinnnerPopover;
         public GameObject MultiRulePopover;
         public AudioSource audioSource;
         public AudioClip pick, collect, wrong;
@@ -274,7 +275,8 @@ namespace BrutalCards
         public void OnGameFinished(){
             if (gameDataManager.Winner() == localPlayer)
             {
-                SetMessage($"You Survived!");
+                PopoverBackground.SetActive(true);
+                WinnnerPopover.SetActive(true);
             }
             else
             {
@@ -382,6 +384,11 @@ namespace BrutalCards
         {
             Debug.Log("OnDeadlyRulesClicked");
             ShowDeadlyFishRulesPopover();
+        }
+        public void ShowWinnerPopover()
+        {
+            PopoverBackground.SetActive(true);
+            WinnnerPopover.SetActive(true);
         }
 
         public void OnMemoryRulesClicked()

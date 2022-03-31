@@ -22,6 +22,9 @@ namespace BrutalCards
         public GameObject PopoverBackground;
         public GameObject MemoryRulesPopover;
         public GameObject DeadlyFishRulesPopover;
+        public GameObject WinnnerPopover;
+        public GameObject DeadPopover;
+
         public GameObject EnterNicknamePopover;
         public GameObject OptionsPopover;
         public GameObject LeaderboardPopover;
@@ -81,6 +84,11 @@ namespace BrutalCards
         {
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true);
+        }
+        public void ShowWinnerPopover()
+        {
+            PopoverBackground.SetActive(true);
+            WinnnerPopover.SetActive(true);
         }
         public void ShowGamesPopover()
         {
