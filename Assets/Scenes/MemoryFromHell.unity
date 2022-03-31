@@ -742,12 +742,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 955335447}
-  m_RootOrder: 3
+  m_Father: {fileID: 486396476}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -440}
+  m_AnchoredPosition: {x: 0, y: -400}
   m_SizeDelta: {x: 300, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &266545438
@@ -1047,6 +1047,7 @@ RectTransform:
   m_Children:
   - {fileID: 2060082752}
   - {fileID: 1803388780}
+  - {fileID: 266545437}
   m_Father: {fileID: 955335447}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1546,10 +1547,10 @@ MonoBehaviour:
   OptionsPopover: {fileID: 955335446}
   RulesPopover: {fileID: 1930022498}
   PopoverBackground: {fileID: 1833411650}
-  audioSource: {fileID: 0}
-  pick: {fileID: 0}
-  collect: {fileID: 0}
-  wrong: {fileID: 0}
+  audioSource: {fileID: 230991048}
+  pick: {fileID: 8300000, guid: 5b2cc161ff2337046b259c8c56a714d6, type: 3}
+  collect: {fileID: 8300000, guid: 678fac172d30bd941a1641b90293f54c, type: 3}
+  wrong: {fileID: 8300000, guid: f4668da8d66c62749b7e7304f6c44f84, type: 3}
   currentTurnPlayer:
     PlayerId: 
     PlayerName: 
@@ -1760,7 +1761,6 @@ RectTransform:
   - {fileID: 486396476}
   - {fileID: 1502272745}
   - {fileID: 1322366911}
-  - {fileID: 266545437}
   m_Father: {fileID: 1833411651}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2486,7 +2486,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BrutalCards
+  m_Text: BrutalCards.com
 --- !u!222 &1429931200
 CanvasRenderer:
   m_ObjectHideFlags: 0

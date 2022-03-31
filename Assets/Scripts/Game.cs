@@ -18,8 +18,10 @@ namespace BrutalCards
         Card cardConfirm = null;
 
         public GameObject PopoverBackground;
+        public GameObject MemoryRulesPopover;
+        public GameObject DeadlyFishRulesPopover;
         public GameObject OptionsPopover;
-        public GameObject RulesPopover;
+        public GameObject MultiRulePopover;
         public AudioSource audioSource;
         public AudioClip pick, collect, wrong;
 
@@ -364,12 +366,35 @@ namespace BrutalCards
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true); 
         }
+        public void ShowMemoryRulesPopover(){
+            MemoryRulesPopover.SetActive(true);
+            OptionsPopover.SetActive(false);
+            MultiRulePopover.SetActive(false);
 
+        }
+
+        public void ShowDeadlyFishRulesPopover(){
+            DeadlyFishRulesPopover.SetActive(true);
+            OptionsPopover.SetActive(false);
+            MultiRulePopover.SetActive(false);
+        }
+        public void OnDeadlyRulesClicked()
+        {
+            Debug.Log("OnDeadlyRulesClicked");
+            ShowDeadlyFishRulesPopover();
+        }
+
+        public void OnMemoryRulesClicked()
+        {
+            Debug.Log("OnMemoryRulesClicked");
+            ShowMemoryRulesPopover();
+        }
+        
         public void OnRulesClicked()
         {
             Debug.Log("OnRulesClicked");
             OptionsPopover.SetActive(false);
-            RulesPopover.SetActive(true);
+            MultiRulePopover.SetActive(true);
         }
         
         void OnGUI(){
@@ -386,8 +411,11 @@ namespace BrutalCards
         }
 
         public void OnRulesCancelClicked(){
+            MultiRulePopover.SetActive(false);
+            MemoryRulesPopover.SetActive(false);
+            DeadlyFishRulesPopover.SetActive(false);
             OptionsPopover.SetActive(true);
-            RulesPopover.SetActive(false);
+
         }
 
 
