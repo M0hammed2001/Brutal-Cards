@@ -20,11 +20,13 @@ namespace BrutalCards
         public bool playedOnce = false;
 
         public GameObject PopoverBackground;
+        public GameObject MemoryRulesPopover;
+        public GameObject DeadlyFishRulesPopover;
         public GameObject EnterNicknamePopover;
         public GameObject OptionsPopover;
         public GameObject LeaderboardPopover;
         public GameObject GamesPopover;
-        public GameObject RulesPopover;
+        public GameObject MultiRulePopover;
         public GameObject WaitForOpponentPopover;
         public GameObject StartRoomButton;
         public GameObject MemoryFromHellButton;
@@ -82,10 +84,23 @@ namespace BrutalCards
             PopoverBackground.SetActive(true);
             GamesPopover.SetActive(true);
         }
-        public void ShowRulesPopover()
+        public void ShowMultiRulePopover()
         {
-            RulesPopover.SetActive(true);
+            MultiRulePopover.SetActive(true);
             OptionsPopover.SetActive(false);
+        }
+        public void ShowDeadlyFishRulesPopover(){
+            DeadlyFishRulesPopover.SetActive(true);
+            OptionsPopover.SetActive(false);
+            MultiRulePopover.SetActive(false);
+            GamesPopover.SetActive(false);
+        }
+        public void ShowMemoryRulesPopover(){
+            MemoryRulesPopover.SetActive(true);
+            OptionsPopover.SetActive(false);
+            MultiRulePopover.SetActive(false);
+            GamesPopover.SetActive(false);
+
         }
 
         void ShowJoinedRoomPopover()
@@ -112,7 +127,9 @@ namespace BrutalCards
             OptionsPopover.SetActive(false);
             GamesPopover.SetActive(false);
             LeaderboardPopover.SetActive(false);
-            RulesPopover.SetActive(false);
+            MultiRulePopover.SetActive(false);
+            DeadlyFishRulesPopover.SetActive(false);
+            MemoryRulesPopover.SetActive(false);
             StartRoomButton.SetActive(false);
             Player1Portrait.SetActive(false);
             Player2Portrait.SetActive(false);
@@ -327,10 +344,21 @@ namespace BrutalCards
             ShowLeaderboardPopover();
         }
         
-        public void OnRulesClicked()
+        public void OnMultiRulesClicked()
         {
-            Debug.Log("OnRulesClicked");
-            ShowRulesPopover();
+            Debug.Log("OnMultiRulesClicked");
+            ShowMultiRulePopover();
+        }
+        public void OnDeadlyRulesClicked()
+        {
+            Debug.Log("OnDeadlyRulesClicked");
+            ShowDeadlyFishRulesPopover();
+        }
+
+        public void OnMemoryRulesClicked()
+        {
+            Debug.Log("OnMemoryRulesClicked");
+            ShowMemoryRulesPopover();
         }
 
         /// <summary>
@@ -350,8 +378,11 @@ namespace BrutalCards
         }
 
         public void OnRulesCancelClicked(){
-            RulesPopover.SetActive(false);
+            MultiRulePopover.SetActive(false);
+            MemoryRulesPopover.SetActive(false);
+            DeadlyFishRulesPopover.SetActive(false);
             OptionsPopover.SetActive(true);
+
         }
 
         /// <summary>
