@@ -17,24 +17,11 @@ namespace BrutalCards
         NetCode netCode;
         [SerializeField]
         public List<byte> localMemoryArray = new List<byte>();
-
-
+        
         [SerializeField] public MemoryCard originalCard;
-        [SerializeField] public Sprite[] images;
-
-        [SerializeField] List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
-        
-        
-
-<<<<<<< HEAD
-        [SerializeField] private MemoryCard originalCard;
         [SerializeField] private Sprite[] images;
         [SerializeField]List<MemoryCard> aiCardsToPick = new List <MemoryCard>();
         [SerializeField]MemoryGame memoryGame;
-=======
-        MemoryGame memoryGame;
-        MemoryMultiplayer randomizer;
->>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
         
         int randomNumber;
         int index;
@@ -88,22 +75,11 @@ namespace BrutalCards
         {
            
 
-<<<<<<< HEAD
             SwitchTurn();
             HideAllPopover();
             int[] numbers =  { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11};
             ShuffleArray(numbers); 
 
-=======
-            
-            for(int v = 0; v < localMemoryArray.Count; v++)
-            {
-                Debug.Log("ntzrdnzgnnnnn  " + localMemoryArray[v]);
-            }
-            
-            ShuffleArray(); 
-            index = 0;
->>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
             for(int i = 0; i < Constants.gridCols; i++)
             {
                 for(int j = 0; j < Constants.gridRows; j++)
@@ -119,15 +95,10 @@ namespace BrutalCards
                         card = Instantiate(originalCard) as MemoryCard;
                     }
                     aiCardsToPick.Add(card);
-<<<<<<< HEAD
-                    int index = j * Constants.gridCols + i;
-                    int id = numbers[index];
-=======
                     
                     index = j * Constants.gridCols + i;
                     Debug.Log(index);
                     int id = localMemoryArray[index];
->>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
                     card.ChangeSprite(id, images[id]);
 
                     float posX = (Constants.offsetX * i) + startPos.x;
@@ -139,12 +110,6 @@ namespace BrutalCards
         }
 
 
-<<<<<<< HEAD
-        private int[] ShuffleArray(int[] number)
-        {
-            int[] newArray = number;
-            for(int i = 0; i < newArray.Length; i++)
-=======
         //-------------------------------------------------------------------------------------------------------------------------------------------
 
         private List<byte> ShuffleArray()
@@ -152,17 +117,13 @@ namespace BrutalCards
             List<byte> newArray = new List <byte>();
             newArray = protectedData.GetMemoryCards();
             for(int i = 0; i < newArray.Count; i++)
->>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
             {
                 byte tmp = newArray[i];
                 int r = UnityEngine.Random.Range(i, newArray.Count);
                 newArray[i] = newArray[r];
                 newArray[r] = tmp;
             }
-<<<<<<< HEAD
-=======
             protectedData.gameMemoryArray = newArray;
->>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
             return newArray;
         }
 

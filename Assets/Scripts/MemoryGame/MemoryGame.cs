@@ -11,12 +11,8 @@ namespace BrutalCards
     public class MemoryGame : MonoBehaviour
     {
         [SerializeField]
-<<<<<<< HEAD
-        SceneController sceneController;
-=======
         public SceneController sceneController;
 
->>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
 
 
         public Player localPlayer;
@@ -131,10 +127,7 @@ namespace BrutalCards
             Debug.Log("this is called" + sceneController.localPlayer);
             if (sceneController.currentTurnPlayer == sceneController.localPlayer )
             {
-<<<<<<< HEAD
-=======
                 
->>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
                 gameState = GameState.CheckingPairs;
                 Debug.Log("this flows 1"  + gameState);
             }
@@ -178,8 +171,6 @@ namespace BrutalCards
             }
 
         }
-<<<<<<< HEAD
-=======
 
         public MemoryGame.GameState GetGameState()
         {
@@ -198,7 +189,6 @@ namespace BrutalCards
 
 
         
->>>>>>> parent of ab1acf8 (Merge branch 'master' into templevel2)
         
     }
     
