@@ -61,9 +61,7 @@ namespace BrutalCards
         public List<byte> GetPoolOfCards()
         {
             List<byte> result;
-            Decrypt();
             result = poolOfCards;
-            Encrypt();
             return result;
         }
 
@@ -274,75 +272,6 @@ namespace BrutalCards
         {
             string roomIdSubString = roomId.Substring(0, 16);
             encryptionKey = Encoding.UTF8.GetBytes(roomIdSubString);
-        }
-
-        void Encrypt()
-        {
-            SWNetworkMessage message = new SWNetworkMessage();
-            message.Push((Byte)poolOfCards.Count);
-            message.PushByteArray(poolOfCards.ToArray());
-
-            message.Push((Byte)player1Cards.Count);
-            message.PushByteArray(player1Cards.ToArray());
-
-            message.Push((Byte)player2Cards.Count);
-            message.PushByteArray(player2Cards.ToArray());
-
-            message.Push((Byte)booksForPlayer1.Count);
-            message.PushByteArray(booksForPlayer1.ToArray());
-
-            message.Push((Byte)booksForPlayer2.Count);
-            message.PushByteArray(booksForPlayer2.ToArray());
-
-            message.PushUTF8ShortString(player1Id);
-            message.PushUTF8ShortString(player2Id);
-
-            message.PushUTF8ShortString(currentTurnPlayerId);
-            message.Push(currentGameState);
-
-            message.Push(selectedRank);
-
-            safeData = AES.EncryptAES128(message.ToArray(), encryptionKey);
-
-            poolOfCards = new List<byte>();
-            player1Cards = new List<byte>();
-            player2Cards = new List<byte>();
-            booksForPlayer1 = new List<byte>();
-            booksForPlayer2 = new List<byte>();
-            player1Id = null;
-            player2Id = null;
-            currentTurnPlayerId = null;
-            currentGameState = 0;
-            selectedRank = 0;
-        }
-
-        void Decrypt()
-        {
-            byte[] byteArray = AES.DecryptAES128(safeData, encryptionKey);
-
-            SWNetworkMessage message = new SWNetworkMessage(byteArray);
-            byte poolOfCardsCount = message.PopByte();
-            poolOfCards = message.PopByteArray(poolOfCardsCount).ToList();
-
-            byte player1CardsCount = message.PopByte();
-            player1Cards = message.PopByteArray(player1CardsCount).ToList();
-
-            byte player2CardsCount = message.PopByte();
-            player2Cards = message.PopByteArray(player2CardsCount).ToList();
-
-            byte booksForPlayer1Count = message.PopByte();
-            booksForPlayer1 = message.PopByteArray(booksForPlayer1Count).ToList();
-
-            byte booksForPlayer2Count = message.PopByte();
-            booksForPlayer2 = message.PopByteArray(booksForPlayer2Count).ToList();
-
-            player1Id = message.PopUTF8ShortString();
-            player2Id = message.PopUTF8ShortString();
-
-            currentTurnPlayerId = message.PopUTF8ShortString();
-            currentGameState = message.PopInt32();
-
-            selectedRank = message.PopInt32();
         }
     }
 }

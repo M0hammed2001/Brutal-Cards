@@ -974,6 +974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8db1cab50345a941882b7fa052f3f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneController: {fileID: 609188019}
   localPlayer:
     PlayerId: 
     PlayerName: 
@@ -2041,6 +2042,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a889ab0daa4274520ac0d9fbd876c545, type: 3}
   - {fileID: 21300000, guid: b1ac863592375476cadda49c3078a061, type: 3}
   aiCardsToPick: []
+  memoryGame: {fileID: 257373444}
   localPlayer:
     PlayerId: 
     PlayerName: 
@@ -2076,6 +2078,7 @@ MonoBehaviour:
   protectedData:
     poolOfCards: 
     player1Cards: 
+    gameMemoryArray: 
     player2Cards: 
     booksForPlayer1: 
     booksForPlayer2: 
@@ -2084,7 +2087,6 @@ MonoBehaviour:
     currentTurnPlayerId: 
     currentGameState: 0
     selectedRank: 0
-    memoryGameArray: 
   bot_score: 0
   player_score: 0
   botScore: {fileID: 565958673}

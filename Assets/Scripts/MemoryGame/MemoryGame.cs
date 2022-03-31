@@ -10,6 +10,7 @@ namespace BrutalCards
 {
     public class MemoryGame : MonoBehaviour
     {
+        [SerializeField]
         SceneController sceneController;
 
 
@@ -108,7 +109,6 @@ namespace BrutalCards
         {
 
             gameState = GameState.TurnStarted;
-            Debug.Log("here" + gameState);
             GameFlow();
             
         }
@@ -167,17 +167,6 @@ namespace BrutalCards
                 
             }
         }
-
-        public MemoryGame.GameState GetGameState()
-        {
-            return gameState;
-        }
-
-        public void SetGameState(MemoryGame.GameState gameStated)
-        {
-            gameState = gameStated;
-        }
-
         
     }
     
