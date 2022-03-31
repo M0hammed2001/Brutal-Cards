@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class SaveData : MonoBehaviour
-{
-    [SerializeField] private LeaderboardData leaderboarddata = new LeaderboardData();
-
-    public void SaveIntoJson()
-    {
-        string brutalwins = JsonUtility.ToJson(leaderboarddata);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/Brutalwins.json", brutalwins);
-    }
-}
-
 [System.Serializable]
 public class LeaderboardData
 {
+    InputField NicknameInputField;
+    string filename;
+    
     public List<Data> data = new List<Data>();
+
+    private void Start()
+    {
+        data = FileHandler.ReadListFromJSON<Data>(filename);
+    }
+
+    public void AddNameToList()
+    {
+        data.Add(new Data(NicknameInputField.text));
+        FileHandler.SaveToJSON<Data>(data, filename);
+    }
 }
 
 // Input Entry
@@ -28,6 +31,7 @@ public class LeaderboardData
 
     public string playerName;
     public int highscore = 0;
+
     // not a list, needes to be stored in json in form of an array -- brutalwins
     // to use references from other classes need to make the class to use static or 
     // have to add to the scene or instanntiate it.
