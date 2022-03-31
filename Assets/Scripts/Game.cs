@@ -336,7 +336,6 @@ namespace BrutalCards
 
             if (books != null)
             {
-                audioSource.PlayOneShot(collect, 1f);
                 foreach (var book in books)
                 {
                     player.ReceiveBook(book.Key, cardAnimator);
