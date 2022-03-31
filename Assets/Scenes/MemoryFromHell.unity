@@ -974,6 +974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8db1cab50345a941882b7fa052f3f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneController: {fileID: 609188019}
   localPlayer:
     PlayerId: 
     PlayerName: 
@@ -2026,6 +2027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f335a7342995a143a4923bc286dbdfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  memoryGame: {fileID: 257373444}
   originalCard: {fileID: 169960814}
   images:
   - {fileID: 21300000, guid: 1301a89865d124628b97361947aadf50, type: 3}
