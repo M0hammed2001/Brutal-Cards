@@ -262,9 +262,17 @@ namespace BrutalCards{
                 _firstRevealed.Unreveal();
                 _secondRevealed.Unreveal();
                 SwitchTurn();
-            }
+          }
 
+            _firstRevealed = null;
+            _secondRevealed = null;
 
         }
+
+        // public void Restart()
+        // {
+        //     SceneManager.LoadScene("Scene_001");
+        // }
+
     }
 }
