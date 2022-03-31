@@ -40,9 +40,6 @@ namespace BrutalCards
         const string RANK_SELECTED = "RankSelected";
         const string OPPONENT_CONFIRMED = "OpponentConfirmed";
 
-        /// Contains the functions that connect to the server we use for multiplayer
-        /// Notifies users of data changes 
-
         public void ModifyGameData(EncryptedData encryptedData)
         {
             roomPropertyAgent.Modify(ENCRYPTED_DATA, encryptedData);
