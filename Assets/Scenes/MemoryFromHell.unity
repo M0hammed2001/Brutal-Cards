@@ -1308,7 +1308,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 609188019}
         m_TargetAssemblyTypeName: BrutalCards.SceneController, Assembly-CSharp
-        m_MethodName: OnRulesCancelClicked
+        m_MethodName: OnRulesClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

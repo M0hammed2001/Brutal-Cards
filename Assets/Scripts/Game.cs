@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Unity;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -365,6 +366,11 @@ namespace BrutalCards
             Debug.Log("OnOptionsClicked");
             PopoverBackground.SetActive(true);
             OptionsPopover.SetActive(true); 
+        }
+         public void OnLobbyClicked()
+        {
+            Debug.Log("OnLobbyClicked");
+            SceneManager.LoadScene("LobbyScene");
         }
         public void ShowMemoryRulesPopover(){
             MemoryRulesPopover.SetActive(true);

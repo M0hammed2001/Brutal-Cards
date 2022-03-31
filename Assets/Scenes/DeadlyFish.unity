@@ -2230,7 +2230,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u2022\tEmpty \n"
+  m_Text: "\u2022    There are 24 cards\n\n\u2022    Player 1 will start the game
+    trying to match two cards .\n\n\u2022    If successful, the player will be rewarded
+    another turn and point.\n\n\u2022    If unsuccessful, the turn will switch from
+    Player 1 to Player 2.\n\n\u2022    Pay attention and try to remember where each
+    card was and good luck "
 --- !u!222 &731132864
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2467,7 +2471,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1305530474}
         m_TargetAssemblyTypeName: BrutalCards.Game, Assembly-CSharp
         m_MethodName: OnRulesCancelClicked
         m_Mode: 1
@@ -3468,10 +3472,10 @@ MonoBehaviour:
   RemoteName: {fileID: 1441900477}
   LocalName: {fileID: 1378491308}
   PopoverBackground: {fileID: 286832235}
-  MemoryRulesPopover: {fileID: 0}
-  DeadlyFishRulesPopover: {fileID: 0}
+  MemoryRulesPopover: {fileID: 60655217}
+  DeadlyFishRulesPopover: {fileID: 1788665037}
   OptionsPopover: {fileID: 1209345786}
-  MultiRulePopover: {fileID: 0}
+  MultiRulePopover: {fileID: 1167896059}
   audioSource: {fileID: 238835753}
   pick: {fileID: 8300000, guid: 5b2cc161ff2337046b259c8c56a714d6, type: 3}
   collect: {fileID: 8300000, guid: 678fac172d30bd941a1641b90293f54c, type: 3}
@@ -3873,7 +3877,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1305530474}
         m_TargetAssemblyTypeName: BrutalCards.Game, Assembly-CSharp
         m_MethodName: OnRulesCancelClicked
         m_Mode: 1
@@ -4958,7 +4962,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1305530474}
         m_TargetAssemblyTypeName: BrutalCards.Game, Assembly-CSharp
-        m_MethodName: OnRulesCancelClicked
+        m_MethodName: OnRulesClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
