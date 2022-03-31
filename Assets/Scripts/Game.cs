@@ -372,12 +372,24 @@ namespace BrutalCards
             MultiRulePopover.SetActive(false);
 
         }
+
+        public void ShowDeadlyFishRulesPopover(){
+            DeadlyFishRulesPopover.SetActive(true);
+            OptionsPopover.SetActive(false);
+            MultiRulePopover.SetActive(false);
+        }
+        public void OnDeadlyRulesClicked()
+        {
+            Debug.Log("OnDeadlyRulesClicked");
+            ShowDeadlyFishRulesPopover();
+        }
+
         public void OnMemoryRulesClicked()
         {
             Debug.Log("OnMemoryRulesClicked");
             ShowMemoryRulesPopover();
         }
-
+        
         public void OnRulesClicked()
         {
             Debug.Log("OnRulesClicked");
